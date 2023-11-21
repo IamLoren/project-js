@@ -1,0 +1,15 @@
+:root {
+
+    /* Fonts /
+    --primary-font: Neue Montreal;
+    --logo-font: FONTSPRING DEMO - Quincy CF Black;
+    / Colors */
+    --primary-bg-color: #E8E8E2;
+    --title-black-text-color: #010101;
+    --secondary-text-color: #0101014D;
+    --title-white-text-color: #E8E8E2;
+    --primary-bg-green-color: #586F1F;
+    --secondary-bg-green-color: #6D8434;
+    --card-bg-color: #FAFAFA;
+    --cancel-background: rgba(1, 1, 1, 0.07);
+}
