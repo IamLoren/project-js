@@ -4,13 +4,6 @@
   box-sizing: border-box;
 }
 
-@font-face {
-    font-family: "Open Sans";
-    src: url("open-sans.ttf");
-    font-weight: normal;
-    font-style: normal;
-  }
-  
   @font-face {
     font-family: "Roboto";
     src: url("roboto.ttf");
