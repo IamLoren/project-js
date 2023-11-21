@@ -4,12 +4,19 @@
   box-sizing: border-box;
 }
 
-  /* @font-face {
-    font-family: "Roboto";
-    src: url("roboto.ttf");
+  @font-face {
+    font-family: "Neue Montreal Medium";
+    src: url("../../fonts/PPNeueMontreal-Medium.otf");
     font-weight: normal;
     font-style: normal;
-  } */
+  }
+
+  @font-face {
+    font-family: "Neue Montreal Regular";
+    src: url("../../fonts/PPNeueMontreal-Book.otf");
+    font-weight: normal;
+    font-style: normal;
+  }
 
 html {
   scroll-behavior: smooth;
