@@ -18,6 +18,13 @@
     font-style: normal;
   }
 
+   @font-face {
+    font-family: "Quincy CF";
+    src: url("../../fonts/QuincyCF-Black.ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
 html {
   scroll-behavior: smooth;
 }
