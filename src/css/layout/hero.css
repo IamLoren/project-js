@@ -1,6 +1,63 @@
 .hero {
+  background-color: var(--primary-bg-color);
+  padding-top: 36px;
+  padding-bottom: 37px;
 }
+
+.hero-container {
+}
+
 .hero-title {
+  color: var(--title-black-text-color);
+  text-align: center;
+  font-family: 'Neue Montreal Medium';
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.09;
+  letter-spacing: -0.02em;
+  width: 335px;
+  height: 96px;
+  margin: 0 auto 16px;
 }
-.hero-accent {
+.hero-title-accent {
+  color: var(--secondary-bg-green-color);
+}
+
+.hero-text {
+  width: 292px;
+  height: 55px;
+  color: rgba(1, 1, 1, 0.8);
+  text-align: center;
+  font-family: 'Neue Montreal Medium';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.hero-picture-block {
+  display: block;
+}
+.hero-picture {
+  display: block;
+  position: relative;
+}
+
+.hero-img {
+  width: 335px;
+  height: 480px;
+  margin: 0 auto;
+}
+
+.hero-img-block {
+  display: block;
+}
+
+.organic-food-icon {
+  position: absolute;
+  top: -7px;
+  left: 227px;
 }
