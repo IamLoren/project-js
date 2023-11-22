@@ -1,6 +1,6 @@
 .footer-section {
-    background-color: #6D8434;
-    color: #E8E8E2 ;
+    background-color:var(--secondary-bg-green-color);
+    color:var(--primary-bg-color) ;
 }
 .footer-logo-wrapper{
     padding-top: 44px;
@@ -12,8 +12,13 @@
     
 }
 .footer-logo-icon {
-    fill: #E8E8E2;
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    background-color: var(--primary-bg-color);
     border-radius: 50%;
+    fill: var(--secondary-bg-green-color) ;
+     padding: 6px; 
 }
 .footer-logo-span {
     font-size: 18px;
@@ -33,7 +38,7 @@
 .footer-soc-link {
 }
 .footer-soc-svg {
-    fill: #E8E8E2;
+    fill: var(--primary-bg-color);
     padding: 8px;
     border-radius: 10px;
     border: 1px solid rgba(232, 232, 226, 0.30);
@@ -57,7 +62,7 @@ margin-bottom: 14px;
     margin-bottom: 80px;
 }
 .footer-form-title {
-    color: #E8E8E2;
+    color:var(--primary-bg-color);
     font-size: 14px;
     font-weight: 400;
     line-height: 1.29; /* 128.571% */
@@ -72,19 +77,19 @@ margin-bottom: 14px;
     line-height: 1.29; /* 128.571% */
     padding: 12px 18px;
     border-radius: 30px;
-    border: 1px solid #E8E8E2;
+    border: 1px solid var(--primary-bg-color);
     width: 335px;
     margin-bottom: 14px;
     
 }
 .footer-form-btn{
-    color: #010101;
+    color:var(--title-black-text-color);
     font-size: 14px;
     font-weight: 500;
     line-height: 1.29; /* 128.571% */
     padding: 12px 149px;
     border-radius: 30px;
-    background-color: #E8E8E2;
+    background-color:var(--primary-bg-color);
     border: none;
     width: 335px;
 }
