@@ -246,6 +246,10 @@ border: none;
     }
 }
 
+.modal-product-btn-price:hover,
+.modal-product-btn-price:focus {
+  background: var(--primary-bg-green-color);
+}
 .modal-btn-svg {
 }
 .modal-icon-svg {
