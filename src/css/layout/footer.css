@@ -1,0 +1,116 @@
+.footer-section {
+    background-color: #6D8434;
+    color: #E8E8E2 ;
+}
+.footer-logo-wrapper{
+    padding-top: 44px;
+    padding-bottom: 24px;
+}
+.footer-logo-link {
+    display: flex;
+    gap: 8px;
+    
+}
+.footer-logo-icon {
+    fill: #E8E8E2;
+    border-radius: 50%;
+}
+.footer-logo-span {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.11;
+    letter-spacing: -0.02em;
+}
+.footer-soc-wrapper{
+  padding-bottom: 40px;  
+}
+.footer-soc-list {
+    display: flex;
+    gap: 12px;
+}
+.footer-soc-item {
+}
+.footer-soc-link {
+}
+.footer-soc-svg {
+    fill: #E8E8E2;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid rgba(232, 232, 226, 0.30);
+}
+.footer-title {
+font-size: 24px;
+font-weight: 500;
+line-height: 1.2;
+margin-bottom: 14px;
+}
+.footer-text-wrapper{
+    padding-bottom: 80px;
+}
+.footer-text {
+    color: rgba(232, 232, 226, 0.70);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29; /* 128.571% */
+}
+.footer-form-wrapper{
+    margin-bottom: 80px;
+}
+.footer-form-title {
+    color: #E8E8E2;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29; /* 128.571% */
+    margin-bottom: 20px;
+}
+.footer-form-label {
+}
+.footer-form-input {
+    color: rgba(232, 232, 226, 0.60);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29; /* 128.571% */
+    padding: 12px 18px;
+    border-radius: 30px;
+    border: 1px solid #E8E8E2;
+    width: 335px;
+    margin-bottom: 14px;
+    
+}
+.footer-form-btn{
+    color: #010101;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.29; /* 128.571% */
+    padding: 12px 149px;
+    border-radius: 30px;
+    background-color: #E8E8E2;
+    border: none;
+    width: 335px;
+}
+.footer-privacy-wrapper{
+    padding-bottom: 80px;
+}
+.footer-subtitle{
+font-size: 14px;
+font-weight: 400;
+line-height: 1.29; /* 128.571% */
+margin-bottom: 8px;
+}
+.footer-privacy {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29;
+    margin-right: 8px;
+}
+.footer-span {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29;
+    margin-right: 8px;
+}
+.footer-terms {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.29;
+}
