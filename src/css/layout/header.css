@@ -97,12 +97,17 @@
     padding-left: 32px;
     padding-right: 32px;
   }
+  .header-page {
+    padding-top: 24px;
+    padding-bottom: 56px;
+   
+  }
   .header-list {
     gap: 16px; 
   }
   .header-logotype-icon {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     padding: 6px; 
   }
   .header-logotype {
@@ -129,7 +134,7 @@
     }
     .header-shopping-card-link {
       display: flex;
-      gap: 14px;
+      gap: 15px;
       align-items: center;
       justify-content: center;
     }
@@ -144,6 +149,11 @@
     padding-left: 100px;
     padding-right: 100px;
   }
+  .header-page {
+    padding-top: 22px;
+    padding-bottom: 34px;
+    
+  }
   .header-logotype-icon {
     width: 32px;
     height: 32px;
@@ -152,7 +162,7 @@
   .header-logotype {
     color: var(--title-black-text-color);
     font-family:"Quincy CF";
-    font-size: 20px;
+    font-size: 28px;
     font-style:normal;
     font-weight: 1200;
     line-height: 20px; 
@@ -185,7 +195,7 @@
     }
     .header-shopping-card-link {
       display: flex;
-      gap: 14px;
+      gap: 15px;
       align-items: center;
       justify-content: center;
     }
