@@ -1,19 +1,19 @@
 <section class="filters">
   <div class="container filters-container">
     <h4 class="filters-title">Filters:</h4>
-    <form>
+    <form class="filters-form">
       <div class="filters-search-wrap">
         <input class="filters-input" type="text" />
-        <button type="submit">
-          <svg class="search-svg" width="15" height="15">
-            <use href="./images/icons.svg#"></use>
+        <button class="filters-search-btn" type="submit">
+          <svg class="search-svg" width="20" height="20">
+            <use href="./images/icons.svg#icon-baseline-search"></use>
           </svg>
         </button>
       </div>
 
-      <div class="filters-categories-wrap">
-        <input class="filters-categories" type="text" value="Categories"/>
-        <ul class="filters-categories-list">
+      <div class="filters-categories-wrap ">
+        <input class="filters-categories" type="list" value="Categories" disabled/>
+        <ul class="filters-categories-list is-hidden">
           <li class="filters-categories-item">Beverages</li>
           <li class="filters-categories-item">Breads / Bakery</li>
           <li class="filters-categories-item">Dairy</li>
@@ -29,8 +29,8 @@
       </div>
 
       <div class="filters-allTypes-wrap">
-        <input class="filters-allTypes" type="text" value="A to Z"/>
-        <ul class="filters-allTypes-list">
+        <input class="filters-allTypes" type="list" value="A to Z" disabled/>
+        <ul class="filters-allTypes-list is-hidden">
           <li class="filters-allTypes-item">A to Z</li>
           <li class="filters-allTypes-item">Z to A</li>
           <li class="filters-allTypes-item">Less than 10$</li>

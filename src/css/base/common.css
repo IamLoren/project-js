@@ -36,6 +36,10 @@ body {
   color: var(--title-black-text-color);
 }
 
+input {
+  width: 100%;
+}
+
 .is-hidden {
   position: absolute;
   width: 1px;
