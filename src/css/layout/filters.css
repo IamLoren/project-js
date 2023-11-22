@@ -13,7 +13,7 @@
 .filters-form {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   width: 100%;
 }
 
@@ -65,7 +65,7 @@
 .filters-search-btn {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: -2px;
   transform: translate(-50%, -50%);
   border: none;
   display: flex;
@@ -79,7 +79,7 @@
   stroke: var( --title-black-text-color);
   position: absolute;
   top: 50%;
-  right: 16px;
+  right: 10px;
   transform: translate(-50%,-50%);
   transition: all 0.3s;
 }
