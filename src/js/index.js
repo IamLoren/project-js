@@ -1,6 +1,7 @@
 import { createProductCard, createPopularCard, renderMarkup } from "./templates/cards.js";
 
-let list = document.querySelector('.products-list-general');
+let listGeneral = document.querySelector('.products-list-general');
+let listPopular = document.querySelector('.products-list-popular');
 
 let good = [
     {
@@ -16,5 +17,8 @@ let good = [
 ];
 
 
-const card = createProductCard(good);
-list.insertAdjacentHTML('beforeend', card);
+const cardGeneral = createProductCard(good);
+listGeneral.insertAdjacentHTML('beforeend', cardGeneral);
+
+const cardPopular = createPopularCard(good);
+listPopular.insertAdjacentHTML('beforeend', cardPopular);
