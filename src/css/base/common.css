@@ -33,7 +33,7 @@ body {
   font-family: "Neue Montreal Regular";
   font-size: 12px;
   font-weight: 400;
-  background-color: var(--title-black-text-color);
+  color: var(--title-black-text-color);
 }
 
 .is-hidden {
