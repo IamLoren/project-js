@@ -1,0 +1,48 @@
+<section class="hero">
+  <div class="container hero-container">
+    <h1 class="hero-title">
+      Welcome to the <span class="hero-title-accent">Food</span> Boutique!
+    </h1>
+    <p>
+      With Food Boutique, you're not just subscribing to food, you're signing up
+      for a fresher, fitter, and happier you.
+    </p>
+    <div>
+      <picture class="hero-picture">
+        <source
+          media="(min-width: 1240px)"
+          srcset="
+            ./images/women-sportswear.webp    1x,
+            ./images/women-sportswear@2x.webp 2x
+          "
+        />
+        <source
+          media="(min-width: 704px)"
+          srcset="
+            ./images/women-sportswear_tab.webp   1x,
+            ./images/women-sportswea_tab@2x.webp 2x
+          "
+        />
+        <source
+          media="(min-width: 335px)"
+          srcset="
+            ./images/women-sportswear_mob.webp    1x,
+            ./images/women-sportswear_mob@2x.webp 2x
+          "
+        />
+        <img
+          class="hero-img"
+          src="./images/base-image.jpg"
+          alt="Women sportswear working out outdoors"
+          width="259"
+          loading="lazy"
+        />
+      </picture>
+    </div>
+    <div hero-circle-icon>
+      <!-- <svg class="hero-leaf-icon" width="32" height="32"> -->
+        <use href="./images/icons.svg#icon-leaf"></use>
+      </svg>
+    </div>
+  </div>
+</section>

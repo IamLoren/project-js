@@ -1,0 +1,117 @@
+.filters {
+  background-color: var(--primary-bg-color);
+  padding-top: 37px;
+  padding-bottom: 20px;
+}
+
+.filters-title {
+  color: rgba(1, 1, 1, 0.3);
+  margin-bottom: 8px;
+}
+
+.filters-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .filters-form {
+    flex-direction: row;
+    gap: 8px;
+  }
+}
+
+.filters-search-wrap,
+.filters-categories-wrap,
+.filters-allTypes-wrap {
+  position: relative;
+}
+
+.filters-input,
+.filters-categories,
+.filters-allTypes {
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  background-color: transparent;
+}
+
+@media only screen and (min-width: 768px){
+  .filters-input  {
+    width: 269px;
+  }
+
+  .filters-categories {
+    width: 189px;
+  }
+
+  .filters-allTypes {
+    width: 200px;
+  }
+}
+
+.filters-allTypes {
+  background-color: var(--card-bg-color);
+  border-color: transparent;
+}
+
+.filters-input:focus {
+  outline: 1px solid #6d8434;
+}
+
+.filters-search-btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: transparent;
+}
+
+.filters-down-svg {
+  fill: var(--primary-bg-color);
+  stroke: var( --title-black-text-color);
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translate(-50%,-50%);
+  appearance: none;
+}
+
+.rotate {
+  transform: translate(-50%,-50%) rotate(180deg);
+}
+
+.filters-categories-list,
+.filters-allTypes-list {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    z-index: 2;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 4px 11.2125px 0px rgba(0, 0, 0, 0.04),
+    0px 20px 69px 0px rgba(0, 0, 0, 0.07);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.list-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.filters-categories-item,
+.filters-allTypes-item {
+    margin-bottom: 9px;
+    font-size: 14px;
+    color: rgba(1, 1, 1, 0.50);
+}
