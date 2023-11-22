@@ -29,18 +29,11 @@ html {
   scroll-behavior: smooth;
 }
 
-:root {
-  --text-white: #ffffff;
-  --main-bg:
-  --accent-bg:
-}
-
 body {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+  font-family: "Neue Montreal Regular";
+  font-size: 12px;
   font-weight: 400;
-  background-color: var(--main-bg);
+  color: var(--title-black-text-color);
 }
 
 .is-hidden {
