@@ -115,4 +115,10 @@
     margin-bottom: 9px;
     font-size: 14px;
     color: rgba(1, 1, 1, 0.50);
+    cursor: pointer;
+}
+
+.filters-categories-item:hover,
+.filters-allTypes-item:hover {
+  color: var(--title-black-text-color);
 }

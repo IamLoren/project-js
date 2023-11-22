@@ -1,14 +1,25 @@
-import { openDropDown, rotateButton } from "./drop-downs.js";
+import { openDropDown, rotateButton,changeCategoriesValue, changeTypesValue } from "./drop-downs.js";
 
 const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
 const allSearchInput = document.querySelector('.filters-allTypes');
-const downBtn = document.querySelectorAll('.filters-down-svg')
+const downBtn = document.querySelectorAll('.filters-down-svg');
+const categoriesItem = document.querySelectorAll('.filters-categories-item');
+const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
+
 
 categoriesInput.addEventListener('click', openDropDown);
 allSearchInput.addEventListener('click', openDropDown);
 downBtn.forEach(btn => {
     btn.addEventListener('click', rotateButton);
+})
+
+categoriesItem.forEach(item => {
+    item.addEventListener('click', changeCategoriesValue);
+})
+
+allTypesItem.forEach(item => {
+    item.addEventListener('click', changeTypesValue);
 })
 
 
