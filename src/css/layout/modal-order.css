@@ -54,6 +54,15 @@
     width: 295px;
 }
 
+@media only screen and (min-width: 320px) and (max-width: 375px) {
+    .order-modal {
+      width: 90%;
+    }
+    .order-text {
+        width: 100%;
+    }
+}
+
 @media only screen and (min-width: 768px) {
     .order-modal {
         width: 560px;
