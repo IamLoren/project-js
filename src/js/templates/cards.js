@@ -23,7 +23,7 @@ export function createProductCard(product) {
                   <span class="card-price">&#36;${price}</span>
                   <button data-id=${id} type="submit" class="addToCart-btn js-addToCart-btn">
                       <svg class="cart-svg" width="18" height="18">
-                          <use href="../images/icons.svg#icon-shopping-cart"></use>
+                          <use href="./images/icons.svg#icon-shopping-cart"></use>
                       </svg>
                   </button>
               </div>
@@ -33,7 +33,7 @@ export function createProductCard(product) {
 
   export function createPopularCard(product) {
   
-      const { img, name, category, size, popularity, id } = product;
+      const { img, name, category, size, popularity, id } = product[0];
     
       return `
         <li class="product-card">
