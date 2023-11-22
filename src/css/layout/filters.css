@@ -73,6 +73,20 @@
   background-color: transparent;
 }
 
+.filters-down-svg {
+  fill: var(--primary-bg-color);
+  stroke: var( --title-black-text-color);
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translate(-50%,-50%);
+  appearance: none;
+}
+
+.rotate {
+  transform: translate(-50%,-50%) rotate(180deg);
+}
+
 .filters-categories-list,
 .filters-allTypes-list {
     position: absolute;
@@ -85,6 +99,14 @@
   background: #fff;
   box-shadow: 0px 4px 11.2125px 0px rgba(0, 0, 0, 0.04),
     0px 20px 69px 0px rgba(0, 0, 0, 0.07);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.list-active {
+  visibility: visible;
+  opacity: 1;
 }
 
 .filters-categories-item,
