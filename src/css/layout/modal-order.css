@@ -9,7 +9,6 @@
     align-items: center;
     justify-content: center;
     z-index: 100;
-    /* opacity: 0; */
 }
 .order-modal {
     position: relative;
