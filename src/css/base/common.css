@@ -4,29 +4,40 @@
   box-sizing: border-box;
 }
 
-  /* @font-face {
-    font-family: "Roboto";
-    src: url("roboto.ttf");
+  @font-face {
+    font-family: "Neue Montreal Medium";
+    src: url("../../fonts/PPNeueMontreal-Medium.otf");
     font-weight: normal;
     font-style: normal;
-  } */
+  }
+
+  @font-face {
+    font-family: "Neue Montreal Regular";
+    src: url("../../fonts/PPNeueMontreal-Book.otf");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+   @font-face {
+    font-family: "Quincy CF";
+    src: url("../../fonts/QuincyCF-Black.ttf");
+    font-weight: normal;
+    font-style: normal;
+  }
 
 html {
   scroll-behavior: smooth;
 }
 
-:root {
-  --text-white: #ffffff;
-  --main-bg:
-  --accent-bg:
+body {
+  font-family: "Neue Montreal Regular";
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--title-black-text-color);
 }
 
-body {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-  background-color: var(--main-bg);
+input {
+  width: 100%;
 }
 
 .is-hidden {
