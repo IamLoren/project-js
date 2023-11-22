@@ -6,7 +6,7 @@ const allSearchInput = document.querySelector('.filters-allTypes');
 const downBtn = document.querySelectorAll('.filters-down-svg');
 const categoriesItem = document.querySelectorAll('.filters-categories-item');
 const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
-
+let queryParameters = {};
 
 categoriesInput.addEventListener('click', openDropDown);
 allSearchInput.addEventListener('click', openDropDown);
@@ -20,6 +20,19 @@ categoriesItem.forEach(item => {
 
 allTypesItem.forEach(item => {
     item.addEventListener('click', changeTypesValue);
+})
+
+searchForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const endpoint = document.querySelector('.filters-allTypes').textContent;
+    const category = document.querySelector('.filters-categories').textContent;
+    const searchWord = document.querySelector('.filters-input').value;
+    queryParameters = {
+        endpoint, 
+        category,
+        searchWord
+    }
 })
 
 
