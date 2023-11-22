@@ -20,7 +20,7 @@ export function createProductCard(product) {
               </div>
     
               <div class="card-price">
-                  <span class="card-price">&#36;${price}</span>
+                  <span class="span-price">&#36;${price}</span>
                   <button data-id=${id} type="submit" class="addToCart-btn js-addToCart-btn">
                       <svg class="cart-svg" width="18" height="18">
                           <use href="./images/icons.svg#icon-shopping-cart"></use>
