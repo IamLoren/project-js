@@ -16,12 +16,14 @@
     height: 428px;
     border-radius: 20px;
     background: var(--primary-bg-color);
-    padding: 40px 20px 60px 20px;
+    padding: 40px 20px 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .order-close-icon {
+    width: 22px;
+    height: 22px;
     position: absolute;
     top: 14px;
     right: 14px;
@@ -35,10 +37,11 @@
     margin-right: auto;
 }
 .order-title {
+    font-family: 'Neue Montreal Medium';
     color: var(--title-black-text-color);
     font-size: 18px;
     font-weight: 500;
-    line-height: 1.11em;
+    line-height: 1.11;
     text-transform: uppercase;
     text-align: center;
     margin-bottom: 20px;
@@ -47,6 +50,29 @@
     color: var(--modal-text);
     text-align: center;
     font-size: 14px;
-    line-height: 1.29em;
+    line-height: 1.29;
     width: 295px;
+}
+
+@media only screen and (min-width: 768px) {
+    .order-modal {
+        width: 560px;
+        height: 509px;
+        padding: 80px 40px
+    }
+    .order-close-icon {
+        width: 28px;
+        height: 28px;
+        top: 24px;
+        right: 24px;
+    }
+    .order-title {
+        font-size: 32px;
+        line-height: 1.00;
+    }
+    .order-text {
+        font-size: 18px;
+        line-height: 1.33;
+        width: 480px;
+    }
 }
