@@ -134,7 +134,7 @@
     }
     .header-shopping-card-link {
       display: flex;
-      gap: 15px;
+      gap: 17px;
       align-items: center;
       justify-content: center;
     }
@@ -150,8 +150,8 @@
     padding-right: 100px;
   }
   .header-page {
-    padding-top: 22px;
-    padding-bottom: 34px;
+    padding-top: 23px;
+    padding-bottom: 33px;
     
   }
   .header-logotype-icon {
@@ -162,11 +162,11 @@
   .header-logotype {
     color: var(--title-black-text-color);
     font-family:"Quincy CF";
-    font-size: 28px;
+    font-size: 26px;
     font-style:normal;
-    font-weight: 1200;
+    font-weight: 800;
     line-height: 20px; 
-    letter-spacing: -0.50px;
+    letter-spacing: -0.062em;
     display: flex;
     gap: 8px;
     margin-right: auto;
@@ -195,7 +195,7 @@
     }
     .header-shopping-card-link {
       display: flex;
-      gap: 15px;
+      gap: 16px;
       align-items: center;
       justify-content: center;
     }
