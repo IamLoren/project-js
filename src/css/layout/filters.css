@@ -80,6 +80,7 @@
   top: 50%;
   right: 16px;
   transform: translate(-50%,-50%);
+  transition: all 0.3s;
 }
 
 .rotate {
