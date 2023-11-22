@@ -27,7 +27,7 @@
 }
 .header-logotype {
   color: var(--title-black-text-color);
-  font-family: FONTSPRING DEMO - Quincy CF Black;
+  font-family: "Quincy CF";
   font-size: 18px;
   font-style: normal;
   font-weight: 900;
@@ -48,7 +48,7 @@
   height: 38px;
   color: var(--primary-bg-color);
   background-color: var(--secondary-bg-green-color);
-  font-family: Neue Montreal;
+  font-family: "Neue Montreal Medium";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -120,7 +120,7 @@
     .hidden {
       display: block;
       color: var(--title-black-text-color);
-      font-family: Neue Montreal;
+      font-family: "Neue Montreal Medium";
       font-size: 18px;
       font-style: normal;
       font-weight: 500;
@@ -151,7 +151,7 @@
   }
   .header-logotype {
     color: var(--title-black-text-color);
-    font-family: FONTSPRING DEMO - Quincy CF Black;
+    font-family:"Quincy CF";
     font-size: 20px;
     font-style:normal;
     font-weight: 1200;
@@ -176,7 +176,7 @@
     .hidden {
       display: block;
       color: var(--title-black-text-color);
-      font-family: Neue Montreal;
+      font-family: "Neue Montreal Medium";
       font-size: 18px;
       font-style: normal;
       font-weight: 500;
