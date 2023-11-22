@@ -31,6 +31,8 @@
     width: 140px;
     height: 140px;
     margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .order-title {
     color: var(--title-black-text-color);
@@ -44,6 +46,7 @@
 .order-text {
     color: var(--modal-text);
     text-align: center;
+    font-size: 14px;
     line-height: 1.29em;
     width: 295px;
 }
