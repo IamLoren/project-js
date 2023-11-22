@@ -1,18 +1,18 @@
 <section class="filters">
   <div class="container filters-container">
     <h4 class="filters-title">Filters:</h4>
-    <form>
+    <form class="filters-form">
       <div class="filters-search-wrap">
         <input class="filters-input" type="text" />
-        <button type="submit">
-          <svg class="search-svg" width="15" height="15">
-            <use href="./images/icons.svg#"></use>
+        <button class="filters-search-btn" type="submit">
+          <svg class="search-svg" width="20" height="20">
+            <use href="./images/icons.svg#icon-baseline-search"></use>
           </svg>
         </button>
       </div>
 
-      <div class="filters-categories-wrap">
-        <input class="filters-categories" type="text" value="Categories"/>
+      <div class="filters-categories-wrap ">
+        <div class="filters-categories">Categories</div>
         <ul class="filters-categories-list">
           <li class="filters-categories-item">Beverages</li>
           <li class="filters-categories-item">Breads / Bakery</li>
@@ -26,10 +26,14 @@
           <li class="filters-categories-item">Snacks</li>
           <li class="filters-categories-item">Show all</li>
         </ul>
+
+        <svg class="filters-down-svg" width="20" height="20">
+          <use href="./images/icons.svg#icon-chevron-down"></use>
+        </svg>
       </div>
 
       <div class="filters-allTypes-wrap">
-        <input class="filters-allTypes" type="text" value="A to Z"/>
+        <div class="filters-allTypes">A to Z</div>
         <ul class="filters-allTypes-list">
           <li class="filters-allTypes-item">A to Z</li>
           <li class="filters-allTypes-item">Z to A</li>
@@ -39,6 +43,10 @@
           <li class="filters-allTypes-item">Not popular</li>
           <li class="filters-allTypes-item">Show all</li>
         </ul>
+
+        <svg class="filters-down-svg" width="20" height="20">
+          <use href="./images/icons.svg#icon-chevron-down"></use>
+        </svg>
       </div>
       
     </form>

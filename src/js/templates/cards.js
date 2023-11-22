@@ -1,5 +1,6 @@
 export function createProductCard(product) {
-    const { img, name, category, size, popularity, price, id } = product;
+    console.log(product);
+    const { img, name, category, size, popularity, price, id } = product[0];
   
     return `
       <li class="product-card">
@@ -29,9 +30,10 @@ export function createProductCard(product) {
       </li>
       `;
   }
-  
+
   export function createPopularCard(product) {
-      const { img, name, category, size, popularity, price, id } = product;
+  
+      const { img, name, category, size, popularity, id } = product[0];
     
       return `
         <li class="product-card">
@@ -60,15 +62,15 @@ export function createProductCard(product) {
         `;
     }
   
-  export function renderMarkup(data, typeOfCard, listOfCard) {
-      let markup;
-      typeOfCard === 'general' 
-      ? markup = data.map((product) => createProductCard(product))
-      : typeOfCard === 'popular' 
-      ? markup = data.map((product) => createPopularCard(product))
-      : markup = data.map((product) => createDiscountCard(product))
+//   export function renderMarkup(data, typeOfCard, listOfCard) {
+//       let markup;
+//       typeOfCard === 'general' 
+//       ? markup = data.map((product) => createProductCard(product))
+//       : typeOfCard === 'popular' 
+//       ? markup = data.map((product) => createPopularCard(product))
+//       : markup = data.map((product) => createDiscountCard(product))
   
-    markup.length === 0
-      ? sorryMessage.classList.remove("is-hidden") //додати сорі-меседж у статичну розмітку із класом іс-хідден
-      : listOfCard.innerHTML = markup.join("") && sorryMessage.classList.add("is-hidden");
-  }
+//     markup.length === 0
+//       ? sorryMessage.classList.remove("is-hidden") //додати сорі-меседж у статичну розмітку із класом іс-хідден
+//       : listOfCard.innerHTML = markup.join("") && sorryMessage.classList.add("is-hidden");
+//   }
