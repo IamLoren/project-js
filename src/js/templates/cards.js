@@ -3,7 +3,7 @@ export function createProductCard(product) {
     const { img, name, category, size, popularity, price, id } = product[0];
   
     return `
-      <li class="product-list-general">
+      <li class="product-card-general">
           <div class="img-wrapper">
             <img
               class="card-img"
