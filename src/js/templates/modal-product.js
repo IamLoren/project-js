@@ -1,3 +1,27 @@
+// import {getProducttById} from '../api.js';
+// import {save, load, remove} from '../localStorage.js';
+
+// let id;
+// console.log(getProducttById('640c2dd963a319ea671e383b'));
+// getProducttById();
+
+// async function getProductId(id) {
+//     try {
+//         const response = await getProducttById();
+
+//         if (!response.ok) {
+//             throw new Error('Product information not available');
+//         }
+
+//         const productData = await response.json();
+//         return productData;
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
+
+
 // open-close-Modal
 
 // const openModalProduct = document.querySelectorAll('.product-card');
@@ -91,5 +115,20 @@
 //       )
 //       .join('');
 // };
+
+
+// 
+
+// додання до корзини add to - remove to////////
+
+
+// const addToCartFromModalProduct = document.querySelector('.modal-product-btn-price');
+
+// function addToCartFromModalProduct(event) {
+//     const btnModalProdroduct = event.target;
+//     const productIdOnClickModalProductBtn = btnModalProdroduct.dataset.productIdOnClickModalProductBtn;
+// }
+
+
 
 

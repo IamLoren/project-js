@@ -25,7 +25,7 @@ export async function getProducts(userInput, page, perPage) {
 
 // get
 export async function getProducttById(id) {
-    const response = await axios.get(`https://food-boutique.b.goit.study/api/products/:${id}`);
+    const response = await axios.get(`https://food-boutique.b.goit.study/api/products/${id}`);
     return response.data
   }
 
