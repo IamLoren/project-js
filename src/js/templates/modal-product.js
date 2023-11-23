@@ -1,43 +1,42 @@
-import {getProducttById} from '../api.js';
-import {save, load, remove} from '../localStorage.js';
+// import { getProducttById } from '../api.js';
+// import { save, load, remove } from '../localStorage.js';
 
-const modalProductBackdrop = document.querySelector('.modal-product-backdrop');
-const closeModalButton = document.querySelector('.modal-btn-close');
+export function closeModal() {
+  const modalProductBackdrop = document.querySelector(
+    '.modal-product-backdrop'
+  );
+  const closeModalButton = document.querySelector('.modal-btn-close');
 
-
-modalProductBackdrop.addEventListener('click', onClickCloseModalProduct => {
-    modalProductBackdrop.classList.add('is-hidden');
+  modalProductBackdrop.addEventListener('click', onClickCloseModalProduct => {
+    modalProductBackdrop.remove();
     closeModalButton.classList.add('is-hidden');
-}) 
- 
-
+    document.body.classList.remove('is-overflow-hidden');
+  });
+}
 
 // console.log(getProducttById());
 // getProducttById();
 
-async function getProductId(id) {
-    try {
-        const response = await getProducttById();
+// async function getProductId(id) {
+//   try {
+//     const response = await getProducttById();
 
-        if (!response.ok) {
-            throw new Error('Product information not available');
-        }
+//     if (!response.ok) {
+//       throw new Error('Product information not available');
+//     }
 
-        const productData = await response.json();
-        return productData;
-    } catch (error) {
-        console.log(error);
-    }
-}
-
-
+//     const productData = await response.json();
+//     return productData;
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
 // open-close-Modal
 
 // const openModalProduct = document.querySelectorAll('.product-card');
 // const closeModalProduct = document.querySelector('[data-modal-close]');
 // const modalProduct = document.querySelector('[data-modal]');
-
 
 // openModalProduct.addEventListener('click', toggleModalProduct);
 // closeModalProduct.addEventListener('click', toggleModalProduct);
@@ -58,12 +57,11 @@ async function getProductId(id) {
 //     }
 // });
 
-// 
-
+//
 
 export function onRenderModalProduct(product) {
-    let { name, category, desc, img, price, size, popularity, _id } = product;
-          return `
+  let { name, category, desc, img, price, size, popularity, _id } = product;
+  return `
           <div class="modal-product-backdrop" data-modal>
           <div class="modal-product">
               <button type="button" class="modal-btn-close" data-modal-close>
@@ -112,14 +110,12 @@ export function onRenderModalProduct(product) {
               </div>
           </div>
       </div>
-      `
-};
+      `;
+}
 
-
-// 
+//
 
 // додання до корзини add to - remove to////////
-
 
 // const addToCartFromModalProduct = document.querySelector('.modal-product-btn-price');
 
@@ -127,7 +123,3 @@ export function onRenderModalProduct(product) {
 //     const btnModalProdroduct = event.target;
 //     const productIdOnClickModalProductBtn = btnModalProdroduct.dataset.productIdOnClickModalProductBtn;
 // }
-
-
-
-
