@@ -10,7 +10,7 @@ import axios from 'axios';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
-export async function getPhotos(userInput, page, perPage) {
+export async function getProducts(userInput, page, perPage) {
   const params = new URLSearchParams({
     keyword,
     category,

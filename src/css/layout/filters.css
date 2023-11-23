@@ -105,6 +105,10 @@
   transition: all 0.3s;
 }
 
+.filters-allTypes-list {
+  z-index: 1;
+}
+
 .list-active {
   visibility: visible;
   opacity: 1;
