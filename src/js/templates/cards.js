@@ -1,9 +1,8 @@
 import iconsPath from '../../images/icons.svg';
 
 export function createProductCard(product) {
-    console.log(product);
-    const { img, name, category, size, popularity, price, id } = product[0];
-  
+    let { img, name, category, size, popularity, price, _id } = product;
+  console.log(name)
     return `
       <li class="product-card-general">
           <div class="img-wrapper">
@@ -25,7 +24,7 @@ export function createProductCard(product) {
     
               <div class="general-card-price">
                   <span class="general-span-price">&#36;${price}</span>
-                  <button data-id=${id} type="submit" class="addToCart-btn js-addToCart-btn">
+                  <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn">
                       <svg class="cart-svg" width="18" height="18">
                           <use href="${iconsPath}#icon-shopping-cart"></use>
                       </svg>
@@ -37,7 +36,7 @@ export function createProductCard(product) {
 
   export function createPopularCard(product) {
   
-      const { img, name, category, size, popularity, id } = product[0];
+      const { img, name, category, size, popularity, id } = product;
     
       return `
         <li class="popular-product-card">
@@ -68,15 +67,13 @@ export function createProductCard(product) {
         `;
     }
   
-//   export function renderMarkup(data, typeOfCard, listOfCard) {
-//       let markup;
-//       typeOfCard === 'general' 
-//       ? markup = data.map((product) => createProductCard(product))
-//       : typeOfCard === 'popular' 
-//       ? markup = data.map((product) => createPopularCard(product))
-//       : markup = data.map((product) => createDiscountCard(product))
+  export function renderMarkup(data, typeOfCard, listOfCard,) {
+      let markup;
+      typeOfCard === 'general' 
+      ? markup = data.map((product) => createProductCard(product))
+      : typeOfCard === 'popular' 
+      ? markup = data.map((product) => createPopularCard(product))
+      : markup = data.map((product) => createDiscountCard(product))
   
-//     markup.length === 0
-//       ? sorryMessage.classList.remove("is-hidden") //додати сорі-меседж у статичну розмітку із класом іс-хідден
-//       : listOfCard.innerHTML = markup.join("") && sorryMessage.classList.add("is-hidden");
-//   }
+listOfCard.innerHTML = markup.join("");
+  }

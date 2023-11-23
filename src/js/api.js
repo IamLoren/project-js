@@ -10,6 +10,11 @@ import axios from 'axios';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
+export async function getAllProducts() {
+    const response = await axios.get(`${BASE_URL}`);
+    return response.data;
+  }
+
 export async function getProducts(userInput, page, perPage) {
   const params = new URLSearchParams({
     keyword,
