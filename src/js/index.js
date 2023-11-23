@@ -9,6 +9,8 @@ const downBtn = document.querySelectorAll('.filters-down-svg');
 const categoriesItem = document.querySelectorAll('.filters-categories-item');
 const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 
+
+
 categoriesInput.addEventListener('click', openDropDown);
 allSearchInput.addEventListener('click', openDropDown);
 downBtn.forEach(btn => {
