@@ -27,3 +27,23 @@ export function rotateButton(event) {
     this.previousElementSibling.classList.add('list-active');
    }
 }
+
+export function changeCategoriesValue(event) {
+    const input = document.querySelector('.filters-categories');
+    const list = document.querySelector('.filters-categories-list');
+   const newValue = event.target.textContent;
+
+   input.textContent = newValue;
+    list.classList.remove('list-active');
+    list.nextElementSibling.classList.remove('rotate');
+}
+
+export function changeTypesValue(event) {
+    const input = document.querySelector('.filters-allTypes');
+    const list = document.querySelector('.filters-allTypes-list');
+   const newValue = event.target.textContent;
+
+   input.textContent = newValue;
+    list.classList.remove('list-active');
+    list.nextElementSibling.classList.remove('rotate');
+}

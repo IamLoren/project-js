@@ -1,6 +1,6 @@
 .hero {
   background-color: var(--primary-bg-color);
-  padding-top: 36px;
+  padding-top: 37px;
   padding-bottom: 37px;
 }
 
@@ -36,7 +36,7 @@
   line-height: 1.29;
   letter-spacing: -0.01em;
   margin: 0 auto;
-  margin-bottom: 30px;
+  margin-bottom: 31px;
 }
 .hero-picture-block {
   display: block;
