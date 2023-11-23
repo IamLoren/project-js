@@ -1,3 +1,37 @@
+import {getProducttById} from '../api.js';
+import {save, load, remove} from '../localStorage.js';
+
+const modalProductBackdrop = document.querySelector('.modal-product-backdrop');
+const closeModalButton = document.querySelector('.modal-btn-close');
+
+
+modalProductBackdrop.addEventListener('click', onClickCloseModalProduct => {
+    modalProductBackdrop.classList.add('is-hidden');
+    closeModalButton.classList.add('is-hidden');
+}) 
+ 
+
+
+// console.log(getProducttById());
+// getProducttById();
+
+async function getProductId(id) {
+    try {
+        const response = await getProducttById();
+
+        if (!response.ok) {
+            throw new Error('Product information not available');
+        }
+
+        const productData = await response.json();
+        return productData;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+
+
 // open-close-Modal
 
 // const openModalProduct = document.querySelectorAll('.product-card');
@@ -80,5 +114,20 @@ export function onRenderModalProduct(product) {
       </div>
       `
 };
+
+
+// 
+
+// додання до корзини add to - remove to////////
+
+
+// const addToCartFromModalProduct = document.querySelector('.modal-product-btn-price');
+
+// function addToCartFromModalProduct(event) {
+//     const btnModalProdroduct = event.target;
+//     const productIdOnClickModalProductBtn = btnModalProdroduct.dataset.productIdOnClickModalProductBtn;
+// }
+
+
 
 
