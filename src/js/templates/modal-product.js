@@ -1,24 +1,34 @@
-// import {getProducttById} from '../api.js';
-// import {save, load, remove} from '../localStorage.js';
+import {getProducttById} from '../api.js';
+import {save, load, remove} from '../localStorage.js';
 
-// let id;
-// console.log(getProducttById('640c2dd963a319ea671e383b'));
+const modalProductBackdrop = document.querySelector('.modal-product-backdrop');
+const closeModalButton = document.querySelector('.modal-btn-close');
+
+
+modalProductBackdrop.addEventListener('click', onClickCloseModalProduct => {
+    modalProductBackdrop.classList.add('is-hidden');
+    closeModalButton.classList.add('is-hidden');
+}) 
+ 
+
+
+// console.log(getProducttById());
 // getProducttById();
 
-// async function getProductId(id) {
-//     try {
-//         const response = await getProducttById();
+async function getProductId(id) {
+    try {
+        const response = await getProducttById();
 
-//         if (!response.ok) {
-//             throw new Error('Product information not available');
-//         }
+        if (!response.ok) {
+            throw new Error('Product information not available');
+        }
 
-//         const productData = await response.json();
-//         return productData;
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
+        const productData = await response.json();
+        return productData;
+    } catch (error) {
+        console.log(error);
+    }
+}
 
 
 
