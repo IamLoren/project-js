@@ -96,11 +96,14 @@
     display: flex;
     flex-direction: column;
     row-gap: 14px;
+    margin-bottom: 81px;
   }
   .popular-product-card {
     display: flex;
+    gap: 10px;
     border-radius: 10px;
     padding: 12px;
+    background-color: var(--card-bg-color);
   }
 
   .popular-title {
@@ -113,8 +116,11 @@
   }
 
   .poppular-img-wrapper {
+    width: 74px;
+    height: 74px;
     padding: 9px;
     border-radius: 10px;
+    background-color: var(--primary-bg-color);
   }
   .popular-card-img {
     padding: 9px;
@@ -132,13 +138,19 @@
 
     margin-bottom: 12px;
   }
+
+  .popular-span-container {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 9px;
+  }
   .popular-span-info {
     display: flex;
     flex-direction: row;
+    align-items: center;
     flex-wrap: wrap;
     gap: 9px;
     color: rgba(1, 1, 1, 0.3);
-
     font-family: 'Neue Montreal Regular';
     font-size: 12px;
     font-weight: 400;
@@ -151,6 +163,7 @@
     margin-left: auto;
     padding: 4px;
     border: none;
+    border-radius: 50%;
   }
 
   .popular-cart-svg {
