@@ -21,7 +21,6 @@
   }
   .img-wrapper {
     padding: 20px;
-    background-color: #E8E8E2;
   }
   .card-img {
     padding: 19px 78px;
@@ -328,6 +327,7 @@ line-height: 1.11;
 
 .products-list-popular {
     flex-direction: row;
+    flex-wrap: wrap;
     column-gap: 16px;
     padding-bottom: 64px;
     margin-bottom: 0;
@@ -379,7 +379,7 @@ line-height: 1.11;
 
 @media only screen and (min-width: 1440px) {
     .product-list {
-        padding-top: 60px;
+        padding-top: 40px;
         padding-bottom: 40px;
     }
     .product-list-container {
@@ -397,7 +397,7 @@ line-height: 1.11;
       
     
       .product-card-general{
-        width: 293px;
+        width: 292px;
       }
     
       .card-img {
