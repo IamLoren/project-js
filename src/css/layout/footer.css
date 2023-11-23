@@ -84,11 +84,12 @@ margin-bottom: 14px;
 }
 .footer-form-label {
 }
+
 .footer-form-input {
     padding: 12px 18px;
     border-radius: 30px;
     border: 1px solid var(--primary-bg-color);
-    width: 335px;
+    width: 100%;
     margin-bottom: 14px;
     background-color: transparent;
     
@@ -110,7 +111,7 @@ margin-bottom: 14px;
     border-radius: 30px;
     background-color:var(--primary-bg-color);
     border: none;
-    width: 335px;
+    width: 100%;
 }
 .footer-form-btn:hover,
 .footer-form-btn:focus{
@@ -156,6 +157,15 @@ margin-bottom: 8px;
 .footer-terms:focus{
     transform: scale(1.1);
 }
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+    .footer-form-input{
+        width: 335px;
+    }
+    .footer-form-btn{
+        width: 335px;
+    }
+
+  }
 
   @media only screen and (min-width: 768px) and (max-width: 1440px) {
     .container {

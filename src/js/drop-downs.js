@@ -47,3 +47,15 @@ export function changeTypesValue(event) {
     list.classList.remove('list-active');
     list.nextElementSibling.classList.remove('rotate');
 }
+
+export function collectQueryParameters() {
+    const endpoint = document.querySelector('.filters-allTypes').textContent;
+    const category = document.querySelector('.filters-categories').textContent;
+    const searchWord = document.querySelector('.filters-input').value;
+    const  queryParameters = {
+        endpoint, 
+        category,
+        searchWord
+    }
+    return queryParameters;
+}
