@@ -3,7 +3,7 @@ export function createProductCard(product) {
     const { img, name, category, size, popularity, price, id } = product[0];
   
     return `
-      <li class="product-card">
+      <li class="product-list-general">
           <div class="img-wrapper">
             <img
               class="card-img"
@@ -12,15 +12,17 @@ export function createProductCard(product) {
             />
           </div>
   
-              <div class="card-info" >
-                  <h3 class="card-title">${name}</h3>
-                  <span class="card-info">Category: ${category}</span>
-                  <span class="card-info">Size: ${size}</span>
-                  <span class="student-info">Popularity: ${popularity}</span>
+              <div class="general-card-container" >
+                  <h3 class="general-card-title">${name}</h3>
+                  <div class="general-span-container">
+                  <span class="general-span-info">Category:<span class="span-info-value">${category}</span></span>
+                  <span class="general-span-info>Size:<span class="span-info-value">${size}</span></span>
+                  <span class="general-span-info">Popularity:<span class="span-info-value">${popularity}</span></span>
+                  </div>
               </div>
     
-              <div class="card-price">
-                  <span class="span-price">&#36;${price}</span>
+              <div class="general-card-price">
+                  <span class="general-span-price">&#36;${price}</span>
                   <button data-id=${id} type="submit" class="addToCart-btn js-addToCart-btn">
                       <svg class="cart-svg" width="18" height="18">
                           <use href="./images/icons.svg#icon-shopping-cart"></use>
@@ -36,20 +38,22 @@ export function createProductCard(product) {
       const { img, name, category, size, popularity, id } = product[0];
     
       return `
-        <li class="product-card">
-            <div class="img-wrapper">
+        <li class="popular-product-card">
+            <div class="poppular-img-wrapper">
               <img
-                class="card-img"
+                class="popular-card-img"
                 src="${img}"
                 alt="${name}"
               />
             </div>
     
-                <div class="card-info" >
-                    <h3 class="card-title">${name}</h3>
-                    <span class="card-info">Category: ${category}</span>
-                    <span class="card-info">Size: ${size}</span>
-                    <span class="student-info">Popularity: ${popularity}</span>
+                <div class="popular-card-info" >
+                    <h3 class="popular-card-title">${name}</h3>
+                    <div class="popular-span-container">
+                    <span class="popular-span-info">Category: <span class="span-info-value">${category}</span></span>
+                    <span class="popular-span-info">Size: <span class="span-info-value">${size}</span></span>
+                    <span class="popular-span-info">Popularity: <span class="span-info-value">${popularity}</span></span>
+                    </div>
                 </div>
                     
                 <button data-id=${id} type="submit" class="addToCart-btn js-addToCart-btn">
