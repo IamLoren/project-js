@@ -1,0 +1,369 @@
+@media only screen and (max-width: 768px) {
+  .product-list {
+  }
+  .container {
+  }
+  .products-list-general {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 80px;
+  }
+  .product-card {
+    outline: 2px solid green;
+    border-radius: 20px;
+    row-gap: 20px;
+  }
+  .img-wrapper {
+    padding: 20px;
+  }
+  .card-img {
+    padding: 19px 78px;
+    border-radius: 10px;
+    background: #e8e8e2;
+  }
+  .card-info {
+    color: rgba(1, 1, 1, 0.3);
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 12px;
+
+    font-weight: 400;
+    line-height: 1.16;
+  }
+  .card-title {
+    color: #010101;
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 18px;
+
+    font-weight: 500;
+    line-height: 1.11;
+
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+  .span-card-info {
+    display: flex;
+    gap: 8px;
+    padding-bottom: 40px;
+    padding-left: 20px;
+  }
+  .student-info {
+  }
+  .card-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 20px 20px 20px;
+  }
+  .span-price {
+    color: #010101;
+    font-family: 'Neue Montreal' sans-serif;
+    font-size: 18px;
+
+    font-weight: 500;
+    line-height: 1.11;
+  }
+  .addToCart-btn {
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    background: #6d8434;
+    border: none;
+  }
+
+  .cart-svg {
+    fill: #fff;
+  }
+
+  /**
+    |============================
+    | products-list-popular
+    |============================
+  */
+  .products-list-popular {
+    display: flex;
+    flex-direction: column;
+    row-gap: 14px;
+  }
+  .popular-product-card {
+    display: flex;
+    border-radius: 10px;
+    padding: 12px;
+  }
+
+  .popular-title {
+    color: #010101;
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.16;
+    margin-bottom: 20px;
+  }
+
+  .poppular-img-wrapper {
+    padding: 9px;
+    border-radius: 10px;
+  }
+  .popular-card-img {
+    padding: 9px;
+    width: 56px;
+  }
+  .popular-card-info {
+    width: 152px;
+  }
+  .popular-card-title {
+    color: #010101;
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.11;
+
+    margin-bottom: 12px;
+  }
+  .popular-span-card-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 9px;
+    color: rgba(1, 1, 1, 0.3);
+
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.16;
+  }
+  .popular-student-info {
+  }
+  .popular-addToCart-btn {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    padding: 4px;
+    border: none;
+  }
+
+  .popular-cart-svg {
+    fill: #6d8434;
+  }
+
+  /**
+    |============================
+    | products-list-discount
+    |============================
+  */
+  .products-list-discount {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+  }
+
+  .discount-title {
+    color: #010101;
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.16;
+
+    margin-bottom: 20px;
+  }
+  .discount-product-card {
+    border-radius: 15px;
+    padding: 16px;
+  }
+  .discount-img-wrapper {
+    padding: 18px 95px;
+  }
+  .discount-card-img {
+  }
+  .discount-card-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .discount-card-title {
+  }
+
+  .discount-card-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8px;
+  }
+}
+/* 
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+  .products-list-general {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .product-card {
+    width: calc((100% - 64px) / 2);
+    
+    outline: 2px solid green;
+    border-radius: 20px;
+  }
+
+  .img-wrapper {
+    padding: 20px;
+  }
+
+  .card-img {
+    padding: 19px 78px;
+    border-radius: 10px;
+    background: #e8e8e2;
+  }
+
+  .card-info {
+    color: rgba(1, 1, 1, 0.3);
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.16;
+  }
+
+  .card-title {
+    color: #010101;
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 20px;
+
+    font-weight: 500;
+    line-height: 1.11;
+
+    padding-left: 20px;
+    margin-bottom: 10px;
+  }
+  .span-card-info {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 40px;
+    padding-left: 20px;
+  }
+  .card-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 20px 20px 20px;
+  }
+  .span-price {
+    color: #010101;
+    font-family: 'Neue Montreal' sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .addToCart-btn {
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    background: #6d8434;
+    border: none;
+  }
+  .cart-svg {
+    fill: #fff;
+  } */
+
+  /**
+    |============================
+    | products-list-popular
+    |============================
+  */
+
+  /* .products-list-popular {
+    display: flex;
+    column-gap: 16px;
+  }
+  .popular-product-card {
+    display: flex;
+    border-radius: 10px;
+    padding: 12px;
+    width: calc((100% - 16) / 2);
+  }
+
+  .popular-title {
+    color: #010101;
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.14;
+    margin-bottom: 20px;
+  }
+
+  .poppular-img-wrapper {
+    padding: 9px;
+    border-radius: 10px;
+  }
+  .popular-card-img {
+    padding: 9px;
+    width: 56px;
+  }
+  .popular-card-info {
+    width: 152px;
+  }
+  .popular-card-title {
+    color: #010101;
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.11;
+
+    margin-bottom: 12px;
+  }
+  .popular-span-card-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 9px;
+    color: rgba(1, 1, 1, 0.3);
+
+    font-family: 'Neue Montreal', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.16;
+  }
+  .popular-student-info {
+  }
+  .popular-addToCart-btn {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
+    padding: 4px;
+    border: none;
+  }
+
+  .popular-cart-svg {
+    fill: #6d8434;
+  }
+
+
+} */
+
+/* @media only screen and (min-width: 1440px) {
+  .products-list-general {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 40px;
+    column-gap: 20px;
+  }
+
+  .product-card {
+    width: calc((100% - 60px) / 3);
+    border-radius: 20px;
+  }
+  .img-wrapper {
+    padding: 20px;
+  }
+
+  .card-img {
+    padding: 19px 58px;
+    border-radius: 10px;
+    
+  }
+} */

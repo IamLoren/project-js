@@ -27,7 +27,7 @@
 }
 .header-logotype {
   color: var(--title-black-text-color);
-  font-family: FONTSPRING DEMO - Quincy CF Black;
+  font-family: "Quincy CF";
   font-size: 18px;
   font-style: normal;
   font-weight: 900;
@@ -48,7 +48,7 @@
   height: 38px;
   color: var(--primary-bg-color);
   background-color: var(--secondary-bg-green-color);
-  font-family: Neue Montreal;
+  font-family: "Neue Montreal Medium";
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -97,12 +97,17 @@
     padding-left: 32px;
     padding-right: 32px;
   }
+  .header-page {
+    padding-top: 24px;
+    padding-bottom: 56px;
+   
+  }
   .header-list {
     gap: 16px; 
   }
   .header-logotype-icon {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     padding: 6px; 
   }
   .header-logotype {
@@ -120,7 +125,7 @@
     .hidden {
       display: block;
       color: var(--title-black-text-color);
-      font-family: Neue Montreal;
+      font-family: "Neue Montreal Medium";
       font-size: 18px;
       font-style: normal;
       font-weight: 500;
@@ -129,7 +134,7 @@
     }
     .header-shopping-card-link {
       display: flex;
-      gap: 14px;
+      gap: 17px;
       align-items: center;
       justify-content: center;
     }
@@ -144,6 +149,11 @@
     padding-left: 100px;
     padding-right: 100px;
   }
+  .header-page {
+    padding-top: 23px;
+    padding-bottom: 33px;
+    
+  }
   .header-logotype-icon {
     width: 32px;
     height: 32px;
@@ -151,12 +161,12 @@
   }
   .header-logotype {
     color: var(--title-black-text-color);
-    font-family: FONTSPRING DEMO - Quincy CF Black;
-    font-size: 20px;
+    font-family:"Quincy CF";
+    font-size: 26px;
     font-style:normal;
-    font-weight: 1200;
+    font-weight: 800;
     line-height: 20px; 
-    letter-spacing: -0.50px;
+    letter-spacing: -0.062em;
     display: flex;
     gap: 8px;
     margin-right: auto;
@@ -176,7 +186,7 @@
     .hidden {
       display: block;
       color: var(--title-black-text-color);
-      font-family: Neue Montreal;
+      font-family: "Neue Montreal Medium";
       font-size: 18px;
       font-style: normal;
       font-weight: 500;
@@ -185,7 +195,7 @@
     }
     .header-shopping-card-link {
       display: flex;
-      gap: 14px;
+      gap: 16px;
       align-items: center;
       justify-content: center;
     }
