@@ -54,6 +54,10 @@
   font-weight: 500;
   line-height: 18px; /* 128.571% */
   }
+  .header-home-ref:hover,
+  .header-home-ref:focus {
+    background-color: var(--primary-bg-green-color);
+  }
 .header-logotype-icon {
   width: 28px;
   height: 28px;
@@ -71,6 +75,10 @@
   border-radius: 50%;
   fill: var(--primary-bg-color) ;
   padding: 10px; 
+}
+.header-logotype-icon-card:hover,
+.header-logotype-icon-card:focus {
+   background-color: var(--primary-bg-green-color) ;
 }
 .header-shopping-card-link {
   display: flex;
