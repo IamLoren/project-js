@@ -1,7 +1,7 @@
-<section class="section-rest" id="section-rest">
+<section class="section-cart" id="section-cart">
   <div class="container">
     <h2 class="cart-title">
-      <svg class="cart-icon-shopping" width="38" height="38">
+      <svg class="cart-icon-shopping">
         <use href="./images/icons.svg#icon-shopping-cart"></use>
       </svg>
       Cart (<span class="cart-number-purchases">3</span>)
@@ -14,7 +14,44 @@
     </div>
 
     <div class="cart-content">
-      <ul class="cart-shopping-list cart-left">
+      <ul class="cart-shopping-list cart-products">
+        <li class="cart-shopping-item">
+          <img
+            class="cart-shopping-img"
+            src="./images/tomatoes.jpg"
+            alt="product image"
+          />
+          <div class="cart-item-info">
+            <div class="cart-info-top">
+              <p class="cart-info-name-product">Avocado</p>
+              <svg class="cart-delete-icon">
+                <use href="./images/icons.svg#icon-close"></use>
+              </svg>
+            </div>
+
+            <ul class="cart-properties-list">
+              <li class="cart-properties-item">
+                <h3 class="cart-properties-caption">Category:</h3>
+                <p class="cart-properties-subtitle">Fresh Produce</p>
+              </li>
+              <li class="cart-properties-item">
+                <h3 class="cart-properties-caption">Size:</h3>
+                <p class="cart-properties-subtitle">Each</p>
+              </li>
+            </ul>
+
+            <div class="cart-info-bottom">
+              <p class="cart-info-price"><span>&#36;</span>1.99</p>
+
+              <div class="cart-counter">
+                <button class="cart-counter-decrement" type="button">-</button>
+                <span class="cart-counter-value">1</span>
+                <button class="cart-counter-increment" type="button">+</button>
+              </div>
+            </div>
+          </div>
+        </li>
+
         <li class="cart-shopping-item">
           <img
             class="cart-shopping-img"
@@ -42,58 +79,36 @@
 
             <div class="cart-info-bottom">
               <p class="cart-info-price"><span>&#36;</span>1.99</p>
-            </div>
-          </div>
-        </li>
-        <li class="cart-shopping-item">
-          <img
-            class="cart-shopping-img"
-            src="./images/tomatoes.jpg"
-            alt="product image"
-          />
-          <div class="cart-item-info">
-            <div class="cart-info-top">
-              <p class="cart-info-name-product">Chestnut Mushroom</p>
-              <svg class="cart-icon" width="16" height="16">
-                <use href="./images/icons.svg#icon-close"></use>
-              </svg>
-            </div>
 
-            <ul class="cart-properties-list">
-              <li class="cart-properties-item">
-                <h3 class="cart-properties-caption">Category:</h3>
-                <p class="cart-properties-subtitle">Fresh Produce</p>
-              </li>
-              <li class="cart-properties-item">
-                <h3 class="cart-properties-caption">Size:</h3>
-                <p class="cart-properties-subtitle">8oz package</p>
-              </li>
-            </ul>
-
-            <div class="cart-info-bottom">
-              <p class="cart-info-price"><span>&#36;</span>2.99</p>
+              <div class="cart-counter">
+                <button class="cart-counter-decrement" type="button">-</button>
+                <span class="cart-counter-value">1</span>
+                <button class="cart-counter-increment" type="button">+</button>
+              </div>
             </div>
           </div>
         </li>
       </ul>
 
-      <div class="cart-right">
+      <div class="cart-order">
         <h3 class="cart-title-your-order">Your Order</h3>
         <div class="cart-total-price-box">
           <p class="cart-total-price-text">Total</p>
-          <span class="cart-total-price-number"><span class="cart-total-price-sum">Sum:</span> $12,94</span>
+          <span class="cart-total-price-number"
+            ><span class="cart-total-price-sum">Sum:</span> $12,94</span
+          >
         </div>
         <form action="#" class="cart-form">
           <label class="cart-form-label">Mail:</label>
-            <input
-              class="cart-form-input"
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              required
-              pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
-            />
-          
+          <input
+            class="cart-form-input"
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+            pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+          />
+
           <button class="cart-form-btn" type="submit" aria-label="сheckout">
             Checkout
           </button>
@@ -101,7 +116,19 @@
       </div>
     </div>
 
-  </div>
-
+    <div class="cart-empty">
+      <img
+        class="cart-empty-img"
+        src="./images/tomatoes.jpg"
+        alt="Empty cart"
+      />
+      <p class="cart-empty-text">
+        Your basket is <a href="#" class="cart-empty-link">empty...</a>
+      </p>
+      <p class="cart-empty-description">
+        Go to the main page to select your favorite products and add them to the
+        cart.
+      </p>
+    </div>
   </div>
 </section>

@@ -2,6 +2,11 @@ body {
   background: var(--primary-bg-color);
 }
 
+.section-cart {
+  padding-top: 37px;
+  padding-bottom: 80px;
+}
+
 .cart-title {
   color: var(--title-black-text-color);
   font-family: 'Neue Montreal Medium';
@@ -11,7 +16,7 @@ body {
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
 }
 .cart-icon-shopping {
   padding: 10px;
@@ -19,6 +24,8 @@ body {
   background: var(--secondary-bg-green-color);
   fill: var(--primary-bg-color);
   margin-right: 14px;
+  width: 38px;
+  height: 38px;
 }
 
 .delete-all-box {
@@ -27,6 +34,7 @@ body {
   justify-content: end;
   align-items: center;
   margin-bottom: 10px;
+  padding-right: 7px;
 }
 
 .delete-all-text {
@@ -71,19 +79,21 @@ body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .cart-info-top {
   display: flex;
   justify-content: space-between;
   position: relative;
+  margin-bottom: 10px;
 }
 
 .cart-delete-icon {
   position: absolute;
   right: 0;
   top: -8px;
+  width: 18px;
+  height: 18px;
 }
 
 .cart-info-name-product {
@@ -97,11 +107,13 @@ body {
 .cart-properties-list {
   display: flex;
   gap: 8px;
+  margin-bottom: 36px;
 }
 
 .cart-properties-item {
   display: flex;
   gap: 4px;
+  align-items: baseline;
 }
 
 .cart-properties-caption {
@@ -118,6 +130,12 @@ body {
   line-height: 1.16;
 }
 
+.cart-info-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .cart-info-price {
   color: var(--title-black-text-color);
   font-family: 'Neue Montreal Medium';
@@ -126,10 +144,38 @@ body {
   line-height: 1.11;
 }
 
-/* right*/
+.cart-counter {
+  border: 1px solid var(--secondary-text-color);
+  border-radius: 100px;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  display: flex;
+  width: 74px;
+  height: 26px;
+}
 
-.cart-right {
-  margin-top: 50px;
+.cart-counter-value {
+  color: var(--title-black-text-color);
+  font-family: 'Neue Montreal Regular';
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.12;
+  margin: 0 6px;
+}
+
+.cart-counter-decrement,
+.cart-counter-increment {
+  border: none;
+  outline: transparent;
+  background-color: transparent;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.cart-order {
+  padding: 40px 0;
 }
 
 .cart-title-your-order {
@@ -154,7 +200,7 @@ body {
 }
 
 .cart-total-price-text {
-  color: #010101;
+  color: var(--title-black-text-color);
   font-family: 'Neue Montreal Medium';
   font-size: 18px;
   font-weight: 500;
@@ -173,12 +219,11 @@ body {
   font-family: 'Neue Montreal Regular';
   font-size: 12px;
   font-weight: 400;
-  line-height: 14px;
+  line-height: 1.16;
 }
 
 .cart-form {
   width: 100%;
-  margin-bottom: 80px;
   position: relative;
 }
 
@@ -209,20 +254,235 @@ body {
   width: 100%;
   border-radius: 30px;
   background: var(--secondary-bg-green-color);
-  padding: 12px 138px;
+  padding: 12px;
   color: #e8e8e2;
   outline: transparent;
   border: none;
   font-family: 'Neue Montreal Medium';
   font-size: 14px;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1.28;
 }
-/* --primary-bg-color: #E8E8E2;
---title-black-text-color: #010101;
---secondary-text-color: #0101014D;
---title-white-text-color: #E8E8E2;
---primary-bg-green-color: #586F1F;
---secondary-bg-green-color: #6D8434;
---cart-bg-color: #FAFAFA;
---cancel-background: rgba(1, 1, 1, 0.07); */
+.cart-empty {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 105px 0px 120px 0;
+}
+
+.cart-empty-img {
+  width: 132px;
+  height: 114px;
+  margin-bottom: 28px;
+}
+
+.cart-empty-text {
+  margin-bottom: 14px;
+  color: var(--title-black-text-color);
+
+  font-family: 'Neue Montreal Medium';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.11;
+}
+
+.cart-empty-link {
+  color: var(--secondary-bg-green-color);
+  text-decoration: none;
+  font-family: 'Neue Montreal Medium';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.11;
+}
+.cart-empty-description {
+  font-family: 'Neue Montreal Regular';
+  color: var(--secondary-text-color);
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28;
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    max-width: 375px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .section-cart {
+    padding-top: 80px;
+    padding-bottom: 100px;
+  }
+  .cart-title {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  .cart-icon-shopping {
+    padding: 12px;
+    width: 42px;
+    height: 42px;
+  }
+
+  .delete-all-text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+  }
+
+  .delete-all-box {
+    margin-bottom: 0;
+  }
+
+  .cart-shopping-item {
+    padding: 40px 0;
+  }
+
+  .cart-shopping-img {
+    width: 120px;
+    height: 120px;
+    margin-right: 40px;
+  }
+
+  .cart-info-name-product {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .cart-delete-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cart-properties-subtitle {
+    font-size: 14px;
+    line-height: 1.28;
+  }
+
+  .cart-info-price {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .cart-properties-list {
+    margin-bottom: 46px;
+  }
+  .cart-counter {
+    font-size: 20px;
+    line-height: 1.2;
+    padding: 5px;
+    width: 96px;
+    height: 34px;
+  }
+  .cart-counter-value {
+    margin: 0 10px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .cart-order {
+    padding: 60px 0 100px;
+    width: 590px;
+  }
+  .cart-total-price-box {
+    padding: 14px 28px;
+    margin-bottom: 40px;
+  }
+  .cart-title-your-order {
+    font-size: 32px;
+    line-height: 1;
+  }
+  .cart-total-price-text {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .cart-total-price-number {
+    font-size: 32px;
+    line-height: 1;
+  }
+  .cart-form {
+    display: flex;
+    justify-content: space-between;
+  }
+  .cart-form-label {
+    font-size: 18px;
+    line-height: 1.33;
+    position: absolute;
+    left: 20px;
+    top: 16px;
+  }
+  .cart-form-input {
+    width: 359px;
+    padding: 15px 20px 15px 63px;
+    margin-bottom: 0;
+    font-size: 18px;
+    line-height: 1.33;
+    gap: 16px;
+  }
+  .cart-form-btn {
+    width: 215px;
+    padding: 15px 65px;
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .cart-empty {
+    margin: 135px 0px 120px 0;
+  }
+  .cart-empty-img {
+    width: 164px;
+    height: 140px;
+    margin-bottom: 40px;
+  }
+
+  .cart-empty-text,
+  .cart-empty-link {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+  .cart-empty-description {
+    width: 387px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .cart-title {
+    width: 50%;
+  }
+  .delete-all-box {
+    width: 550px;
+  }
+  .cart-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .cart-products {
+    width: 550px;
+  }
+  .cart-order {
+    width: 590px;
+  }
+}
