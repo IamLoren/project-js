@@ -2,7 +2,6 @@ import iconsPath from '../../images/icons.svg';
 
 export function createProductCard(product) {
     let { img, name, category, size, popularity, price, _id } = product;
-  console.log(name)
     return `
       <li class="product-card-general">
           <div class="img-wrapper">

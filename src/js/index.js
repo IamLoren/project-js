@@ -1,6 +1,7 @@
 import { openDropDown, rotateButton,changeCategoriesValue, changeTypesValue, collectQueryParameters } from "./drop-downs.js";
 import { getProducts, getAllProducts } from "./api.js";
 import { renderMarkup } from "./templates/cards.js";
+import { openProductModal } from "./card-button.js";
 
 
 const searchForm = document.querySelector('.filters-form');
@@ -9,18 +10,20 @@ const allSearchInput = document.querySelector('.filters-allTypes');
 const downBtn = document.querySelectorAll('.filters-down-svg');
 const categoriesItem = document.querySelectorAll('.filters-categories-item');
 const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
-const productsListGeneral = document.querySelector('.products-list-general')
-
+const productsListGeneral = document.querySelector('.products-list-general');
 
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const allProduct = await getAllProducts();
         const arrOfProducts = allProduct.results;
-        console.log(arrOfProducts)
         renderMarkup(arrOfProducts, 'general', productsListGeneral)
+        let cards = document.querySelectorAll('.product-card-general');
+        cards.forEach(card => {
+            card.addEventListener('click', openProductModal)
+        })
     } catch (error) {
         console.log(error)
-    }
+    }   
 })
 
 categoriesInput.addEventListener('click', openDropDown);
@@ -46,6 +49,8 @@ searchForm.addEventListener('submit', async (event) => {
         console.log(error);
     }
 });
+
+// OPENPRODUCTMODAL
 
 
 // TEMPORARY CODE FOR CARD STYLIZATION

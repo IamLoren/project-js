@@ -1,10 +1,11 @@
 
 .modal-product-backdrop {
-    /* position: fixed; */
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    background-color: #01010166;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
     background-color: rgba(1, 1, 1, 0.40);
 }
 
@@ -15,8 +16,6 @@
         height: 100%;
     }
 }
-
-
 
 .modal-product {
     position: absolute;
