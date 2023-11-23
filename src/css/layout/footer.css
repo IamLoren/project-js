@@ -25,8 +25,15 @@ align-items: center;
     flex-shrink: 0;
    background-color: var(--primary-bg-color);
     border-radius: 50%;
-     fill: var(--secondary-bg-green-color)  ;
+     fill: var(--secondary-bg-green-color);
      padding: 6px; 
+     transition: all 0.3s;
+}
+.footer-logo-icon:hover,
+.footer-logo-icon:focus{
+    fill:var(--primary-bg-color);
+    background-color:var(--secondary-bg-green-color) ;
+    border: 1px solid var(--primary-bg-color);
 }
 .footer-soc-wrapper{
   padding-bottom: 40px;  
@@ -37,16 +44,17 @@ align-items: center;
 }
 .footer-soc-item {
 }
-.footer-soc-link:hover,
-.footer-soc-link:focus {
-    border: 1px solid rgba(232, 232, 226, 0.30);
-    background: rgba(232, 232, 226, 0.20);
-}
+
 .footer-soc-svg {
     fill: var(--primary-bg-color);
     padding: 8px;
     border-radius: 10px;
     border: 1px solid rgba(232, 232, 226, 0.30);
+}
+.footer-soc-svg:hover,
+.footer-soc-svg:focus {
+    background: rgba(232, 232, 226, 0.20);
+    border-radius: 10px;
 }
 
 .footer-title {
@@ -76,11 +84,12 @@ margin-bottom: 14px;
 }
 .footer-form-label {
 }
+
 .footer-form-input {
     padding: 12px 18px;
     border-radius: 30px;
     border: 1px solid var(--primary-bg-color);
-    width: 335px;
+    width: 100%;
     margin-bottom: 14px;
     background-color: transparent;
     
@@ -102,7 +111,7 @@ margin-bottom: 14px;
     border-radius: 30px;
     background-color:var(--primary-bg-color);
     border: none;
-    width: 335px;
+    width: 100%;
 }
 .footer-form-btn:hover,
 .footer-form-btn:focus{
@@ -122,6 +131,13 @@ margin-bottom: 8px;
     font-weight: 400;
     line-height: 1.29;
     margin-right: 8px;
+    display: inline-block;
+    transition: all 0.3s;
+    
+}
+.footer-privacy:hover,
+.footer-privacy:focus{
+    transform: scale(1.1);
 }
 .footer-span {
     font-size: 14px;
@@ -133,7 +149,23 @@ margin-bottom: 8px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.29;
+    display: inline-block;
+    transition: all 0.3s;
+    
 }
+.footer-terms:hover,
+.footer-terms:focus{
+    transform: scale(1.1);
+}
+@media only screen and (min-width: 768px) and (max-width: 1440px) {
+    .footer-form-input{
+        width: 335px;
+    }
+    .footer-form-btn{
+        width: 335px;
+    }
+
+  }
 
   @media only screen and (min-width: 768px) and (max-width: 1440px) {
     .container {
@@ -293,6 +325,7 @@ margin-bottom: 8px;
             display: flex;
             justify-content: space-between;
             margin-top: 128px;
+            padding-bottom: 0;
         }
         .footer-subtitle{
             font-size: 14px;

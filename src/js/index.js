@@ -1,4 +1,7 @@
-import { openDropDown, rotateButton,changeCategoriesValue, changeTypesValue } from "./drop-downs.js";
+import { openDropDown, rotateButton,changeCategoriesValue, changeTypesValue, collectQueryParameters } from "./drop-downs.js";
+import { getProducts, getAllProducts } from "./api.js";
+import { renderMarkup } from "./templates/cards.js";
+
 
 const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
@@ -6,7 +9,19 @@ const allSearchInput = document.querySelector('.filters-allTypes');
 const downBtn = document.querySelectorAll('.filters-down-svg');
 const categoriesItem = document.querySelectorAll('.filters-categories-item');
 const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
-let queryParameters = {};
+const productsListGeneral = document.querySelector('.products-list-general')
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        const allProduct = await getAllProducts();
+        const arrOfProducts = allProduct.results;
+        console.log(arrOfProducts)
+        renderMarkup(arrOfProducts, 'general', productsListGeneral)
+    } catch (error) {
+        console.log(error)
+    }
+})
 
 categoriesInput.addEventListener('click', openDropDown);
 allSearchInput.addEventListener('click', openDropDown);
@@ -22,18 +37,15 @@ allTypesItem.forEach(item => {
     item.addEventListener('click', changeTypesValue);
 })
 
-searchForm.addEventListener('submit', (event) => {
+searchForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-
-    const endpoint = document.querySelector('.filters-allTypes').textContent;
-    const category = document.querySelector('.filters-categories').textContent;
-    const searchWord = document.querySelector('.filters-input').value;
-    queryParameters = {
-        endpoint, 
-        category,
-        searchWord
+    try {
+    const queryParameters = collectQueryParameters();
+    await getProducts(queryParameters, page, perPage)
+    } catch (error) {
+        console.log(error);
     }
-})
+});
 
 
 // TEMPORARY CODE FOR CARD STYLIZATION
@@ -59,5 +71,5 @@ let good = [
 const cardGeneral = createProductCard(good);
 listGeneral.insertAdjacentHTML('beforeend', cardGeneral);
 
-// const cardPopular = createPopularCard(good);
-// listPopular.insertAdjacentHTML('beforeend', cardPopular);
+const cardPopular = createPopularCard(good);
+listPopular.insertAdjacentHTML('beforeend', cardPopular);

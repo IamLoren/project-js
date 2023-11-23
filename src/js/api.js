@@ -10,7 +10,12 @@ import axios from 'axios';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
-export async function getPhotos(userInput, page, perPage) {
+export async function getAllProducts() {
+    const response = await axios.get(`${BASE_URL}`);
+    return response.data;
+  }
+
+export async function getProducts(userInput, page, perPage) {
   const params = new URLSearchParams({
     keyword,
     category,
@@ -25,7 +30,7 @@ export async function getPhotos(userInput, page, perPage) {
 
 // get
 export async function getProducttById(id) {
-    const response = await axios.get(`https://food-boutique.b.goit.study/api/products/:${id}`);
+    const response = await axios.get(`https://food-boutique.b.goit.study/api/products/${id}`);
     return response.data
   }
 
