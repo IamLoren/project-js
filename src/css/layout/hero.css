@@ -1,9 +1,16 @@
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
+@media only screen and (max-width: 320px) {
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .organic-food-icon {
+    display: none;
+  }
 }
-@media only screen and (min-width: 320px) {
+
+@media only screen and (min-width: 320px) and (max-width: 768px) {
   .hero {
     background-color: var(--primary-bg-color);
     padding-top: 37px;
@@ -20,7 +27,7 @@ img {
     line-height: 1.09;
     letter-spacing: -0.02em;
     width: 335px;
-    height: 96px;
+    width: 100%;
     margin: 0 auto 16px;
   }
 
@@ -30,7 +37,7 @@ img {
 
   .hero-text {
     width: 292px;
-    height: 55px;
+    width: 100%;
     color: rgba(1, 1, 1, 0.8);
     text-align: center;
     font-family: 'Neue Montreal Medium';
@@ -50,6 +57,14 @@ img {
   .hero-picture {
     display: block;
     position: relative;
+  }
+
+  .organic-food-icon {
+    position: absolute;
+    top: -7px;
+    right: 0;
+    left: 30wv;
+    /* left: 227px; */
   }
 
   @media only screen and (max-width: 768px) {
@@ -97,6 +112,10 @@ img {
     letter-spacing: 0;
     margin-bottom: 40px;
   }
+  .hero-picture {
+    display: block;
+    position: relative;
+  }
 
   .organic-food-icon {
     position: absolute;
@@ -134,5 +153,9 @@ img {
     position: absolute;
     top: -50px;
     left: 1120px;
+  }
+  .hero-picture {
+    display: block;
+    position: relative;
   }
 }
