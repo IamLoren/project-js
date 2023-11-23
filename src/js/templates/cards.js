@@ -1,3 +1,5 @@
+import iconsPath from '../../images/icons.svg';
+
 export function createProductCard(product) {
     console.log(product);
     const { img, name, category, size, popularity, price, id } = product[0];
@@ -25,7 +27,7 @@ export function createProductCard(product) {
                   <span class="general-span-price">&#36;${price}</span>
                   <button data-id=${id} type="submit" class="addToCart-btn js-addToCart-btn">
                       <svg class="cart-svg" width="18" height="18">
-                          <use href="./images/icons.svg#icon-shopping-cart"></use>
+                          <use href="${iconsPath}#icon-shopping-cart"></use>
                       </svg>
                   </button>
               </div>
@@ -58,7 +60,7 @@ export function createProductCard(product) {
                     
                 <button data-id=${id} type="submit" class="addToCart-btn js-addToCart-btn">
                     <svg class="cart-svg" width="12" height="12">
-                        <use href="./images/icons.svg#icon-shopping-cart"></use>
+                        <use href="${iconsPath}#icon-shopping-cart"></use>
                     </svg>
                 </button>
             
