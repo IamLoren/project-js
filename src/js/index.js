@@ -59,3 +59,7 @@ listGeneral.insertAdjacentHTML('beforeend', cardGeneral);
 
 const cardPopular = createPopularCard(good);
 listPopular.insertAdjacentHTML('beforeend', cardPopular);
+
+
+
+
