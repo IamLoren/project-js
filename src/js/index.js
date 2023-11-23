@@ -59,5 +59,5 @@ let good = [
 const cardGeneral = createProductCard(good);
 listGeneral.insertAdjacentHTML('beforeend', cardGeneral);
 
-const cardPopular = createPopularCard(good);
-listPopular.insertAdjacentHTML('beforeend', cardPopular);
+// const cardPopular = createPopularCard(good);
+// listPopular.insertAdjacentHTML('beforeend', cardPopular);
