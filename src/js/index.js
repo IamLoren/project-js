@@ -1,8 +1,13 @@
-import { openDropDown, rotateButton,changeCategoriesValue, changeTypesValue, collectQueryParameters } from "./drop-downs.js";
-import { getProducts, getAllProducts } from "./api.js";
-import { renderMarkup } from "./templates/cards.js";
-import { openProductModal } from "./card-button.js";
-
+import {
+  openDropDown,
+  rotateButton,
+  changeCategoriesValue,
+  changeTypesValue,
+  collectQueryParameters,
+} from './drop-downs.js';
+import { getProducts, getAllProducts } from './api.js';
+import { renderMarkup } from './templates/cards.js';
+import { openProductModal } from './card-button.js';
 
 const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
@@ -13,64 +18,67 @@ const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 const productsListGeneral = document.querySelector('.products-list-general');
 
 document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const allProduct = await getAllProducts();
-        const arrOfProducts = allProduct.results;
-        renderMarkup(arrOfProducts, 'general', productsListGeneral)
-        let cards = document.querySelectorAll('.product-card-general');
-        cards.forEach(card => {
-            card.addEventListener('click', openProductModal)
-        })
-    } catch (error) {
-        console.log(error)
-    }   
-})
+  try {
+    const allProduct = await getAllProducts();
+    const arrOfProducts = allProduct.results;
+    renderMarkup(arrOfProducts, 'general', productsListGeneral);
+    let cards = document.querySelectorAll('.product-card-general');
+    cards.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 categoriesInput.addEventListener('click', openDropDown);
 allSearchInput.addEventListener('click', openDropDown);
 downBtn.forEach(btn => {
-    btn.addEventListener('click', rotateButton);
-})
+  btn.addEventListener('click', rotateButton);
+});
 
 categoriesItem.forEach(item => {
-    item.addEventListener('click', changeCategoriesValue);
-})
+  item.addEventListener('click', changeCategoriesValue);
+});
 
 allTypesItem.forEach(item => {
-    item.addEventListener('click', changeTypesValue);
-})
+  item.addEventListener('click', changeTypesValue);
+});
 
-searchForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    try {
+searchForm.addEventListener('submit', async event => {
+  event.preventDefault();
+  try {
     const queryParameters = collectQueryParameters();
-    await getProducts(queryParameters, page, perPage)
-    } catch (error) {
-        console.log(error);
-    }
+    await getProducts(queryParameters, page, perPage);
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 // OPENPRODUCTMODAL
 
-
 // TEMPORARY CODE FOR CARD STYLIZATION
 
-import { createProductCard, createPopularCard, renderMarkup } from "./templates/cards.js";
+import {
+  createProductCard,
+  createPopularCard,
+  renderMarkup,
+} from './templates/cards.js';
 
 let listGeneral = document.querySelector('.products-list-general');
 let listPopular = document.querySelector('.products-list-popular');
 
 let good = [
-    {
-    _id: "640c2dd963a319ea671e383b",
-    name: "Ackee",
-    img: "https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e383b.png",
-    category: "Fresh_Produce",
+  {
+    _id: '640c2dd963a319ea671e383b',
+    name: 'Ackee',
+    img: 'https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e383b.png',
+    category: 'Fresh_Produce',
     price: 8.99,
-    size: "16 oz",
+    size: '16 oz',
     is10PercentOff: false,
-    popularity: 8
-}
+    popularity: 8,
+  },
 ];
 
 const cardGeneral = createProductCard(good);
