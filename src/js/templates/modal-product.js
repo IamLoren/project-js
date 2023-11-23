@@ -1,6 +1,8 @@
 // import { getProducttById } from '../api.js';
 // import { save, load, remove } from '../localStorage.js';
 
+import pathToSvg from '../../images/icons.svg';
+
 export function closeModal() {
   const modalProductBackdrop = document.querySelector(
     '.modal-product-backdrop'
@@ -61,20 +63,22 @@ export function closeModal() {
 
 export function onRenderModalProduct(product) {
   let { name, category, desc, img, price, size, popularity, _id } = product;
+
+  console.log(img)
   return `
           <div class="modal-product-backdrop" data-modal>
           <div class="modal-product">
               <button type="button" class="modal-btn-close" data-modal-close>
                   <svg class="modal-svg-close" width="28" height="28">
-                      <use href="./images/icons.svg#icon-close"></use>
+                      <use href="${pathToSvg}#icon-close"></use>
                   </svg>
               </button>
       
               <div class="modal-product-info">
                   <div class="temporaneo">
-                      <!-- <a class="modal-product-link-img" href="" target="_blank" rel="noopener noreferrer">
+                    <a class="modal-product-link-img" href="" target="_blank" rel="noopener noreferrer">
                       <img class="modal-product-img" src="${img}" alt="${name}" width="180">
-                  </a> -->
+                  </a>
                   </div>
       
                   <div class="modal-product-description">
@@ -104,7 +108,7 @@ export function onRenderModalProduct(product) {
                   <button data-id=${_id} type="button" class="modal-product-btn-price">
                       Add to 
                       <svg class="modal-btn-svg" width="18" height="18">
-                          <use class="modal-icon-svg" href="./images/icons.svg#icon-shopping-cart"></use>
+                          <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
                       </svg>
                   </button>
               </div>
