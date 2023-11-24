@@ -15,6 +15,16 @@ export async function getAllProducts() {
     return response.data;
   }
 
+  export async function getDiscountProducts() {
+    const response = await axios.get(`https://food-boutique.b.goit.study/api/products/discount`);
+    return response.data;
+  }
+
+  export async function getPopularProducts() {
+    const response = await axios.get(`https://food-boutique.b.goit.study/api/products/popular`);
+    return response.data;
+  }
+
 export async function getProducts(userInput, page, perPage) {
   const params = new URLSearchParams({
     keyword,

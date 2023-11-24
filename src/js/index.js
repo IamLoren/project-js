@@ -5,7 +5,7 @@ import {
   changeTypesValue,
   collectQueryParameters,
 } from './drop-downs.js';
-import { getProducts, getAllProducts } from './api.js';
+import { getProducts, getAllProducts, getDiscountProducts, getPopularProducts } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
 
@@ -16,20 +16,41 @@ const downBtn = document.querySelectorAll('.filters-down-svg');
 const categoriesItem = document.querySelectorAll('.filters-categories-item');
 const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 const productsListGeneral = document.querySelector('.products-list-general');
+const productListDiscount = document.querySelector('.products-list-discount')
+const productListPopular = document.querySelector('.products-list-popular')
+
+//ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     const allProduct = await getAllProducts();
-    const arrOfProducts = allProduct.results;
-    renderMarkup(arrOfProducts, 'general', productsListGeneral);
+    const arrOfAllProducts = allProduct.results;
+    renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
     let cards = document.querySelectorAll('.product-card-general');
     cards.forEach(card => {
       card.addEventListener('click', openProductModal);
     });
+
+    const arrOfDiscountProducts = await getDiscountProducts();
+    renderMarkup(arrOfDiscountProducts, 'discount', productListDiscount);
+    let cardsDisc = document.querySelectorAll('.discount-product-card');
+    cardsDisc.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
+
+    const arrOfPopularProducts = await getPopularProducts();
+    renderMarkup(arrOfPopularProducts, 'popular', productListPopular);
+    let cardsPop = document.querySelectorAll('.popular-product-card');
+    cardsPop.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
+
   } catch (error) {
     console.log(error);
   }
 });
+
+// РОБОТА ДРОПДАУНІВ + ІНПУТ
 
 categoriesInput.addEventListener('click', openDropDown);
 allSearchInput.addEventListener('click', openDropDown);
@@ -45,6 +66,10 @@ allTypesItem.forEach(item => {
   item.addEventListener('click', changeTypesValue);
 });
 
+
+// ФІЛЬТРАЦІЯ ТОВАРІВ
+
+
 searchForm.addEventListener('submit', async event => {
   event.preventDefault();
   try {
@@ -54,36 +79,3 @@ searchForm.addEventListener('submit', async event => {
     console.log(error);
   }
 });
-
-// OPENPRODUCTMODAL
-
-// TEMPORARY CODE FOR CARD STYLIZATION
-
-import {
-  createProductCard,
-  createPopularCard,
-  renderMarkup,
-} from './templates/cards.js';
-
-let listGeneral = document.querySelector('.products-list-general');
-let listPopular = document.querySelector('.products-list-popular');
-
-let good = [
-  {
-    _id: '640c2dd963a319ea671e383b',
-    name: 'Ackee',
-    img: 'https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e383b.png',
-    category: 'Fresh_Produce',
-    price: 8.99,
-    size: '16 oz',
-    is10PercentOff: false,
-    popularity: 8,
-  },
-];
-
-const cardGeneral = createProductCard(good);
-listGeneral.insertAdjacentHTML('beforeend', cardGeneral);
-
-const cardPopular = createPopularCard(good);
-listPopular.insertAdjacentHTML('beforeend', cardPopular);
-
