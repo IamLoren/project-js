@@ -7,37 +7,32 @@ export function closeModal() {
   const modalProductBackdrop = document.querySelector('.modal-product-backdrop');
   const closeModalButton = document.querySelector('.modal-btn-close');
 
-  closeModalButton.addEventListener('click', onClickCloseModalProduct => {
+  const onClickCloseModal = () => {
     modalProductBackdrop.remove();
     modalProductBackdrop.classList.add('is-hidden');
-    document.body.classList.remove('is-overflow-hidden')
+    document.body.classList.remove('is-overflow-hidden');
+  };
 
-  });
+  const onEscapeCloseModal = event => {
+    if(event.key === 'Escape') {
+      onClickCloseModal();
+      modalProductBackdrop.classList.add('is-hidden');
+    }
+  };
+
+  const onClickOutModalProduct = event => {
+    if(event.target === modalProductBackdrop) {
+        onClickCloseModal();
+        modalProductBackdrop.classList.add('is-hidden');
+    }
+  } 
+
+  closeModalButton.addEventListener('click', onClickCloseModal);
+  document.addEventListener('keydown', onEscapeCloseModal);
+  document.addEventListener('click', onClickOutModalProduct);
 
 }
 
-
-
-// console.log(getProducttById());
-// getProducttById();
-
-// async function getProductId(id) {
-//   try {
-//     const response = await getProducttById();
-
-//     try {
-//         const response = await getProducttById();
-
-//         if (!response.ok) {
-//             throw new Error('Product information not available');
-//         }
-
-//         const productData = await response.json();
-//         return productData;
-//     } catch (error) {
-//         console.log(error);
-//     }
-// }
 
 
 
