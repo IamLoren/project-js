@@ -64,7 +64,6 @@ export function closeModal() {
 export function onRenderModalProduct(product) {
   let { name, category, desc, img, price, size, popularity, _id } = product;
 
-  console.log(img)
   return `
           <div class="modal-product-backdrop" data-modal>
           <div class="modal-product">
