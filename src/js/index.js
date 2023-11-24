@@ -25,7 +25,7 @@ const productListPopular = document.querySelector('.products-list-popular');
 export let arrProducts = [];
 
 
-const dataFromLocalStorage = firstLoad("product");
+export const dataFromLocalStorage = firstLoad("product");
 document.querySelector('#header-length').innerHTML = `${dataFromLocalStorage === undefined ? '0' : dataFromLocalStorage.length}`;
 dataFromLocalStorage === undefined 
 ? null : arrProducts = dataFromLocalStorage;
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
 addToCartBtn.forEach(btn => {
-  btn.addEventListener('click', saveToLocalStorage)
+   btn.addEventListener('click', saveToLocalStorage)
 })
 
     const arrOfDiscountProducts = await getDiscountProducts();
@@ -116,4 +116,3 @@ addToCartBtn.forEach(btn => {
     console.log(error);
   }
 });
-

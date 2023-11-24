@@ -1,4 +1,4 @@
-import { arrProducts } from "./index";
+import { arrProducts} from "./index.js";
 
 export function firstLoad(key) {
     try {
@@ -19,7 +19,7 @@ export function saveToLocalStorage(event) {
    const price = parentElement.querySelector('.general-span-price').textContent;
    const img = parentElement.querySelector('.card-img').src;
     const localStorage = window.localStorage;
-  
+    
     const productData = {
       id,
       name: nameOfProduct,
@@ -30,8 +30,8 @@ export function saveToLocalStorage(event) {
     arrProducts.push(productData);
 
     localStorage.setItem("product", JSON.stringify(arrProducts));
-
-    
-  }
+    document.querySelector('#header-length').innerHTML = `${arrProducts.length}`;
+  
+     }
 
  
