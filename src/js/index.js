@@ -10,6 +10,8 @@ import {   getProductsByQuery, getAllProducts, getDiscountProducts, getPopularPr
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
 
+import { renderPagination } from './pagination.js'
+
 const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
 const allSearchInput = document.querySelector('.filters-allTypes');
@@ -26,8 +28,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const allProduct = await getAllProducts();
     const arrOfAllProducts = allProduct.results;
+    const pages = allProduct.totalPages;
+    console.log(pages)
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
-    // renderPagination();
+    document.querySelector('.products-list-general').insertAdjacentHTML('beforeend', renderPagination(pages))
     let cards = document.querySelectorAll('.product-card-general');
     cards.forEach(card => {
       card.addEventListener('click', openProductModal);

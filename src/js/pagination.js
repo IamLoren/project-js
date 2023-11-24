@@ -1,11 +1,12 @@
 // const container = document.querySelector('pagination-container');
+import iconsPath from '../images/icons.svg';
 
 export function renderPagination(pages) {
   return `<div class="pagination-container container">
 
   <div class="pagination-item-arrow">
 <svg class="pagination-arrow" width="24" height="24">
-  <use href="./images/icons.svg#icon-caret-small-left"></use>
+  <use href="${iconsPath}#icon-caret-small-left"></use>
 </svg>
   </div>
     <div class="pagination-number-container">
@@ -16,10 +17,11 @@ export function renderPagination(pages) {
   <div class="pagination-item ">${pages}</div>
     </div>
   <div class="pagination-item-arrow">
-<svg class="pagination-arrow" width="24" height="24">
-  <use href="./images/icons.svg#icon-caret-small-right"></use>
+<svg class="pagination-arrow" width="30" height="30">
+  <use href="${iconsPath}#icon-caret-small-right"></use>
 </svg>
 
 </div>
 </div>`;
 }
+
