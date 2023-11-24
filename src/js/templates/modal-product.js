@@ -4,17 +4,19 @@
 import pathToSvg from '../../images/icons.svg';
 
 export function closeModal() {
-  const modalProductBackdrop = document.querySelector(
-    '.modal-product-backdrop'
-  );
+  const modalProductBackdrop = document.querySelector('.modal-product-backdrop');
   const closeModalButton = document.querySelector('.modal-btn-close');
 
-  modalProductBackdrop.addEventListener('click', onClickCloseModalProduct => {
+  closeModalButton.addEventListener('click', onClickCloseModalProduct => {
     modalProductBackdrop.remove();
-    closeModalButton.classList.add('is-hidden');
-    document.body.classList.remove('is-overflow-hidden');
+    modalProductBackdrop.classList.add('is-hidden');
+    document.body.classList.remove('is-overflow-hidden')
+
   });
+
 }
+
+
 
 // console.log(getProducttById());
 // getProducttById();
@@ -23,16 +25,22 @@ export function closeModal() {
 //   try {
 //     const response = await getProducttById();
 
-//     if (!response.ok) {
-//       throw new Error('Product information not available');
-//     }
+//     try {
+//         const response = await getProducttById();
 
-//     const productData = await response.json();
-//     return productData;
-//   } catch (error) {
-//     console.log(error);
-//   }
+//         if (!response.ok) {
+//             throw new Error('Product information not available');
+//         }
+
+//         const productData = await response.json();
+//         return productData;
+//     } catch (error) {
+//         console.log(error);
+//     }
 // }
+
+
+
 
 // open-close-Modal
 
@@ -64,6 +72,7 @@ export function closeModal() {
 export function onRenderModalProduct(product) {
   let { name, category, desc, img, price, size, popularity, _id } = product;
 
+//   console.log(img)
   return `
           <div class="modal-product-backdrop" data-modal>
           <div class="modal-product">
@@ -74,10 +83,10 @@ export function onRenderModalProduct(product) {
               </button>
       
               <div class="modal-product-info">
-                  <div class="temporaneo">
-                    <a class="modal-product-link-img" href="" target="_blank" rel="noopener noreferrer">
-                      <img class="modal-product-img" src="${img}" alt="${name}" width="180">
-                  </a>
+                  <div class="modal-product-img-wrapper">
+                    
+                      <img class="modal-product-img" src="${img}" alt="${name}" width="1660">
+        
                   </div>
       
                   <div class="modal-product-description">
