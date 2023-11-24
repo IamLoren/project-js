@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const allProduct = await getAllProducts();
     const arrOfAllProducts = allProduct.results;
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
-    renderPagination();
+    // renderPagination();
     let cards = document.querySelectorAll('.product-card-general');
     cards.forEach(card => {
       card.addEventListener('click', openProductModal);
