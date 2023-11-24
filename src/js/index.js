@@ -1,7 +1,14 @@
-import { openDropDown, rotateButton,changeCategoriesValue, changeTypesValue, collectQueryParameters } from "./drop-downs.js";
-import { getProducts, getAllProducts } from "./api.js";
-import { renderMarkup } from "./templates/cards.js";
+import {
+  openDropDown,
+  rotateButton,
+  changeCategoriesValue,
+  changeTypesValue,
+  collectQueryParameters,
 
+} from './drop-downs.js';
+import {   getProductsByQuery, getAllProducts, getDiscountProducts, getPopularProducts } from './api.js';
+import { renderMarkup } from './templates/cards.js';
+import { openProductModal } from './card-button.js';
 
 const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
@@ -9,67 +16,73 @@ const allSearchInput = document.querySelector('.filters-allTypes');
 const downBtn = document.querySelectorAll('.filters-down-svg');
 const categoriesItem = document.querySelectorAll('.filters-categories-item');
 const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
-const productsListGeneral = document.querySelector('.products-list-general')
+const productsListGeneral = document.querySelector('.products-list-general');
+const productListDiscount = document.querySelector('.products-list-discount')
+const productListPopular = document.querySelector('.products-list-popular');
 
+//ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
 document.addEventListener('DOMContentLoaded', async () => {
-    try {
-        const allProduct = await getAllProducts();
-        const arrOfProducts = allProduct.results;
-        console.log(arrOfProducts)
-        renderMarkup(arrOfProducts, 'general', productsListGeneral)
-    } catch (error) {
-        console.log(error)
-    }
-})
+  try {
+    const allProduct = await getAllProducts();
+    const arrOfAllProducts = allProduct.results;
+    renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
+    // renderPagination();
+    let cards = document.querySelectorAll('.product-card-general');
+    cards.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
+
+    const arrOfDiscountProducts = await getDiscountProducts();
+    renderMarkup(arrOfDiscountProducts, 'discount', productListDiscount);
+    let cardsDisc = document.querySelectorAll('.discount-product-card');
+    cardsDisc.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
+
+    const arrOfPopularProducts = await getPopularProducts();
+    renderMarkup(arrOfPopularProducts, 'popular', productListPopular);
+    let cardsPop = document.querySelectorAll('.popular-product-card');
+    cardsPop.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
+
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+// РОБОТА ДРОПДАУНІВ + ІНПУТ
 
 categoriesInput.addEventListener('click', openDropDown);
 allSearchInput.addEventListener('click', openDropDown);
 downBtn.forEach(btn => {
-    btn.addEventListener('click', rotateButton);
-})
+  btn.addEventListener('click', rotateButton);
+});
 
 categoriesItem.forEach(item => {
-    item.addEventListener('click', changeCategoriesValue);
-})
+  item.addEventListener('click', changeCategoriesValue);
+});
 
 allTypesItem.forEach(item => {
-    item.addEventListener('click', changeTypesValue);
-})
-
-searchForm.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    try {
-    const queryParameters = collectQueryParameters();
-    await getProducts(queryParameters, page, perPage)
-    } catch (error) {
-        console.log(error);
-    }
+  item.addEventListener('click', changeTypesValue);
 });
 
 
-// TEMPORARY CODE FOR CARD STYLIZATION
+// ФІЛЬТРАЦІЯ ТОВАРІВ
 
-import { createProductCard, createPopularCard, renderMarkup } from "./templates/cards.js";
 
-let listGeneral = document.querySelector('.products-list-general');
-let listPopular = document.querySelector('.products-list-popular');
-
-let good = [
-    {
-    _id: "640c2dd963a319ea671e383b",
-    name: "Ackee",
-    img: "https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e383b.png",
-    category: "Fresh_Produce",
-    price: 8.99,
-    size: "16 oz",
-    is10PercentOff: false,
-    popularity: 8
-}
-];
-
-const cardGeneral = createProductCard(good);
-listGeneral.insertAdjacentHTML('beforeend', cardGeneral);
-
-const cardPopular = createPopularCard(good);
-listPopular.insertAdjacentHTML('beforeend', cardPopular);
+searchForm.addEventListener('submit', async event => {
+  event.preventDefault();
+  try {
+    const queryParameters = collectQueryParameters();
+    console.log(queryParameters)
+    const response = await getProductsByQuery(queryParameters);
+    console.log(response)
+    const productForRender = response.results;
+    productsListGeneral.innerHTML = '';
+    renderMarkup(productForRender, 'general', productsListGeneral);
+  } catch (error) {
+    console.log(error);
+  }
+});
