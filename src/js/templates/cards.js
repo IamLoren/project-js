@@ -16,7 +16,9 @@ export function createProductCard(product) {
                   <h3 class="general-card-title">${name}</h3>
                   <div class="general-span-container">
                   <span class="general-span-info">Category:<span class="span-info-value">${category}</span></span>
+
                   <span class="general-span-info">Size:</span><span class="span-info-value">${size}</span>
+
                   <span class="general-span-info">Popularity:<span class="span-info-value">${popularity}</span></span>
                   </div>
               </div>
@@ -56,7 +58,7 @@ export function createPopularCard(product) {
                 </div>
                     
                 <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn">
-                    <svg class="cart-svg" width="12" height="12">
+                    <svg class="popular-cart-svg" width="12" height="12">
                         <use href="${iconsPath}#icon-shopping-cart"></use>
                     </svg>
                 </button>
