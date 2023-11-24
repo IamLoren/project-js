@@ -1,270 +1,280 @@
+.is-overflow-hidden {
+  overflow: hidden;
+}
 
 .modal-product-backdrop {
-    /* position: fixed; */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(1, 1, 1, 0.40);
+  width: 100vw;
+  height: 100vh;
+  background-color: #01010166;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(1, 1, 1, 0.4);
 }
 
 @media only screen and (min-width: 320px) and (max-width: 375px) {
-    .modal-product-backdrop {
-        
-        width: 100%;
-        height: 100%;
-    }
+  .modal-product-backdrop {
+    width: 100%;
+    height: 100%;
+  }
 }
-
-
 
 .modal-product {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    /* width: 335px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  /* width: 335px;
     height: 535px; */
-    border-radius: 20px;
-     background: var(--card-bg-color);
-     padding: 40px 20px;
+  border-radius: 20px;
+  background: var(--card-bg-color);
+  padding: 40px 20px;
 }
 
-@media  screen and (min-width: 768px) {
-    .modal-product {
-        width: 600px;
-       height: 380px;
-       padding: 40px 40px;
-    }
+@media screen and (min-width: 768px) {
+  .modal-product {
+    width: 600px;
+    /* height: 380px; */
+    padding: 40px 40px;
+  }
 }
 
 .modal-btn-close {
-    padding: 0;
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 22px;
-height: 22px;
-        
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 0;
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 22px;
+  height: 22px;
 
-    border: none;
-    background: var(--card-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  background: var(--card-bg-color);
 }
 
-
-@media  screen and (min-width: 768px) {
-    .modal-btn-close { 
-        top: 24px;
-        right: 24px;
-        width: 28px;
-height: 28px;
-    } 
+@media screen and (min-width: 768px) {
+  .modal-btn-close {
+    top: 24px;
+    right: 24px;
+    width: 28px;
+    height: 28px;
+  }
 }
 
 .modal-svg-close {
 }
 
 .modal-product-info {
-    display: block;
+  display: block;
 }
 
-@media  screen and (min-width: 768px) {
-    .modal-product-info {
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
+@media screen and (min-width: 768px) {
+  .modal-product-info {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+}
+
+
+.modal-product-img-wrapper {
+   
+  
+
+}
+
+@media screen and (min-width: 768px) {
+    .modal-product-img-wrapper {
+    /* padding-right: 24px;
+    padding-bottom: 48px; */
+    width: 240px;
+height: 212px;
     }
 }
 
-.temporaneo {
-    /* width: 180px;
-    height: 180px; */
-    /* padding: 26px 40px; */
-    width: 295px;
-height: 212px;
-    flex-shrink: 0;
+.modal-product-img {
+
+    background-color: #e8e8e2;
     border-radius: 10px;
-    background:var(--primary-bg-color);
+    padding:26px 67px;
+
 }
 
-
-
-@media  screen and (min-width: 768px) {
-    .temporaneo {
-        /* width: 180px;
-        height: 180px; */
-        /* padding: 26px 40px; */
-        width: 240px;
-        height: 212px;
-        flex-shrink: 0;
-        border-radius: 10px;
-        background:var(--primary-bg-color);
+@media screen and (min-width: 768px) {
+    .modal-product-img {
+        padding:26px 40px;
     }
 }
 
 .modal-product-description {
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
 }
 
-@media  screen and (min-width: 768px) {
-    .modal-product-description {
-        display: inline-flex;
-        align-items: flex-start;
-        padding: 0;
-    }
+@media screen and (min-width: 768px) {
+  .modal-product-description {
+    display: inline-flex;
+    align-items: flex-start;
+    padding: 0;
+  }
 }
 
 .modal-title {
-    font-family: "Neue Montreal Medium";
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.1;
-    padding-bottom: 10px;
+  font-family: 'Neue Montreal Medium';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.1;
+  padding-bottom: 10px;
 }
 
-
-@media  screen and (min-width: 768px) {
-    .modal-title {
-        font-size: 20px;
-        line-height: 1.2;
-    }
+@media screen and (min-width: 768px) {
+  .modal-title {
+    font-size: 20px;
+    line-height: 1.2;
+  }
 }
 
 .modal-product-list {
-    display: flex;
-    width: 295px;
-    flex-direction: row;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 9px;
-   
+  display: flex;
+  width: 295px;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 9px;
+  height: auto;
 }
 
-
-@media  screen and (min-width: 768px) {
-    .modal-product-list {
-        width: 246px;
-    }
+@media screen and (min-width: 768px) {
+  .modal-product-list {
+    width: 246px;
+  }
 }
 
 .modal-product-item {
-    display: flex;
-align-items: flex-start;
-flex-direction: row;
-gap: 4px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  gap: 4px;
 }
 
 .modal-product-caption {
-    font-family: "Neue Montreal Regular";  
-    color: rgba(1, 1, 1, 0.30);
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: 1.6;
-display: flex;
-    align-items: flex-end;
+  font-family: 'Neue Montreal Regular';
+  color: rgba(1, 1, 1, 0.3);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-end;
 }
 
 .modal-product-content {
-    font-family: "Neue Montreal Regular";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.6;
-    display: flex;
-    align-items: flex-end;
+  font-family: 'Neue Montreal Regular';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6;
+  display: flex;
+  align-items: flex-end;
 }
 
 .modal-product-text {
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 1.28;
-color: rgba(1, 1, 1, 0.70);
-font-family: "Neue Montreal Regular";
-    width: 295px;
-padding-top: 20px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.28;
+  color: rgba(1, 1, 1, 0.7);
+  font-family: 'Neue Montreal Regular';
+  width: 100%;
+  /* width: 295px; */
+  padding-top: 20px;
+  overflow:scroll;
+  /* margin: auto; */
+  /* height: 100%; */
+  height: 54px;
+  margin-top: 20px;
+
+  
 }
 
-@media  screen and (min-width: 768px) {
-    .modal-product-text {
+@media screen and (min-width: 768px) {
+  .modal-product-text {
     font-size: 16px;
-        width: 256px;
+    width: 256px;
     line-height: 1.25;
     padding-top: 24px;
-    }
+    margin-top: 24px;
+
+    height: 80px;
+  }
 }
 
 .modal-product-wrapper-price {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 40px;
 }
 
-@media  screen and (min-width: 768px) {
-    .modal-product-wrapper-price {
-       padding-top: 48px;
-    } 
+@media screen and (min-width: 768px) {
+  .modal-product-wrapper-price {
+    padding-top: 48px;
+  }
 }
 
 .modal-product-price {
-    font-family: "Neue Montreal Medium";
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-    line-height: 1.1;
-    display: flex;
-    align-items: flex-end;
+  font-family: 'Neue Montreal Medium';
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.1;
+  display: flex;
+  align-items: flex-end;
 }
 
-
-@media  screen and (min-width: 768px) {
-    .modal-product-price {
+@media screen and (min-width: 768px) {
+  .modal-product-price {
     font-size: 20px;
-        line-height: 1.2;
-    }  
+    line-height: 1.2;
+  }
 }
 
 .modal-product-btn-price {
-    color: var(--title-white-text-color);
-    font-family: "Neue Montreal Medium";
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 1.28;
-border-radius: 30px;
-background: var(--secondary-bg-green-color);
-display: flex;
-padding: 10px 24px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-border: none;
+  color: var(--title-white-text-color);
+  font-family: 'Neue Montreal Medium';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.28;
+  border-radius: 30px;
+  background: var(--secondary-bg-green-color);
+  display: flex;
+  padding: 10px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
 }
 
 .modal-product-btn-price:hover,
 .modal-product-btn-price:focus {
-    background:var(--primary-bg-green-color);
+  background: var(--primary-bg-green-color);
 }
 
-
-@media  screen and (min-width: 768px) {
-    .modal-product-btn-price {
+@media screen and (min-width: 768px) {
+  .modal-product-btn-price {
     font-size: 16px;
     line-height: 1.25;
     padding: 10px 28px;
-    }
+  }
 }
 
 .modal-btn-svg {
 }
 .modal-icon-svg {
-    fill: var(--primary-bg-color);
+  fill: var(--primary-bg-color);
 }
-

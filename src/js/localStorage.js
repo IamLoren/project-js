@@ -1,3 +1,4 @@
+import {getLength} from './header.js';
 export const save = (key, value) => {
     try {
         const serializedState = JSON.stringify(value);
@@ -5,7 +6,8 @@ export const save = (key, value) => {
     } catch (error) {
         console.error("Set state error: ", error.message);
     }
-};
+    getLength();
+    };
 
 export const load = key => {
     try {
@@ -14,8 +16,10 @@ export const load = key => {
     } catch (error) {
         console.error("Get state error: ", error.message);
     }
+    getLength();
 };
 
 export function remove(key) {
     localStorage.removeItem(key);
+    getLength();
 }
