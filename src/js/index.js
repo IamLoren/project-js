@@ -28,7 +28,7 @@ const productListPopular = document.querySelector('.products-list-popular');
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     const dataFromLocalStorage = load("product");
-    document.querySelector('#header-length').innerHTML = `${dataFromLocalStorage.length}`;
+    document.querySelector('#header-length').innerHTML = `${dataFromLocalStorage === undefined ? '0' : dataFromLocalStorage.length}`;
 
     const allProduct = await getAllProducts();
     const arrOfAllProducts = allProduct.results;
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     cards.forEach(card => {
       card.addEventListener('click', openProductModal);
     });
-    
+
     const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
 addToCartBtn.forEach(btn => {
   btn.addEventListener('click', saveToLocalStorage)
