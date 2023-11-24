@@ -28,9 +28,13 @@ export async function getAllProducts() {
 export async function getProductsByQuery(queryParams) {
   let response;
   let { keyword, category, endpoint } = queryParams;
-  if (category === 'Categories') {
-     response = await axios.get(`${BASE_URL}?keyword=${keyword}&${endpoint}=true&limit=9`);
-  } else {
+  if (category === 'Categories' && keyword === '') {
+     response = await axios.get(`${BASE_URL}?${endpoint}=true&limit=9`);
+  } else if (category !== 'Categories' && keyword === '') {
+    response = await axios.get(`${BASE_URL}?category=${category}&${endpoint}=true&limit=9`);
+  } else if (category === 'Categories') {
+    response = await axios.get(`${BASE_URL}?keyword=${keyword}&${endpoint}=true&limit=9`);
+  }else {
      response = await axios.get(`${BASE_URL}?keyword=${keyword}&category=${category}&${endpoint}=true&limit=9`);
   }
   return response.data;
