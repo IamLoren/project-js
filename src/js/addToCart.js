@@ -1,4 +1,16 @@
-const arrProducts = [];
+import { arrProducts } from "./index";
+
+export function firstLoad(key) {
+    try {
+        const serializedState = localStorage.getItem(key);
+        if (serializedState) {
+            arrProducts = JSON.parse(serializedState);
+          }
+          return serializedState === null ? undefined : JSON.parse(serializedState);
+    } catch (error) {
+        console.error("Get state error: ", error.message);
+    }
+};
 
 export function saveToLocalStorage(event) {
    const id = event.currentTarget.getAttribute('data-id');
@@ -16,7 +28,10 @@ export function saveToLocalStorage(event) {
     };
 
     arrProducts.push(productData);
-    
+
     localStorage.setItem("product", JSON.stringify(arrProducts));
+
+    
   }
 
+ 
