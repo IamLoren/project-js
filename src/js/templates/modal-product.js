@@ -1,17 +1,40 @@
 // import { getProducttById } from '../api.js';
 // import { save, load, remove } from '../localStorage.js';
 
+
+
 import pathToSvg from '../../images/icons.svg';
+
 
 export function closeModal() {
   const modalProductBackdrop = document.querySelector('.modal-product-backdrop');
   const closeModalButton = document.querySelector('.modal-btn-close');
+  // const addToCartBtn = document.querySelector('.js-addToCart-btn');
+  // console.log(addToCartBtn);
+
+  
+
+  // addToCartBtn.addEventListener('click', event => {
+  //   if (event.target === addToCartBtn) {
+  //     modalProductBackdrop.classList.add('is-hidden');
+  //   }
+  // });
 
   const onClickCloseModal = () => {
     modalProductBackdrop.remove();
     modalProductBackdrop.classList.add('is-hidden');
     document.body.classList.remove('is-overflow-hidden');
   };
+
+  // addToCartBtn.addEventListener('click', event => {
+  //   addToCartBtn = 'BUTTON'
+  //   if(event.target === 'BUTTON') {
+  //     onClickCloseModal();
+  //     modalProductBackdrop.classList.add('is-hidden');
+  //   }
+  // })
+  
+
 
   const onEscapeCloseModal = event => {
     if(event.key === 'Escape') {
@@ -23,10 +46,11 @@ export function closeModal() {
   const onClickOutModalProduct = event => {
     if(event.target === modalProductBackdrop) {
         onClickCloseModal();
-        modalProductBackdrop.classList.add('is-hidden');
+        modalProductBackdrop.classList.remove('is-hidden');
     }
   } 
 
+  
   closeModalButton.addEventListener('click', onClickCloseModal);
   document.addEventListener('keydown', onEscapeCloseModal);
   document.addEventListener('click', onClickOutModalProduct);
@@ -34,35 +58,6 @@ export function closeModal() {
 }
 
 
-
-
-
-// open-close-Modal
-
-// const openModalProduct = document.querySelectorAll('.product-card');
-// const closeModalProduct = document.querySelector('[data-modal-close]');
-// const modalProduct = document.querySelector('[data-modal]');
-
-// openModalProduct.addEventListener('click', toggleModalProduct);
-// closeModalProduct.addEventListener('click', toggleModalProduct);
-
-// function toggleModalProduct() {
-//     modalProduct.classList.toggle('is-hidden');
-// }
-
-// modalProduct.addEventListener('click', function(event) {
-//     if (event.target !== modalProduct) {
-//         modalProduct.classList.add('is-hidden');
-//     }
-// });
-
-// document.addEventListener('keydown', function(event) {
-//     if (event.key === 'Escape') {
-//         modalProduct.classList.remove('is-hidden');
-//     }
-// });
-
-//
 
 export function onRenderModalProduct(product) {
   let { name, category, desc, img, price, size, popularity, _id } = product;
@@ -108,7 +103,7 @@ export function onRenderModalProduct(product) {
       
               <div class="modal-product-wrapper-price">
                   <p class="modal-product-price"><span>&#36;</span>${price}</p>
-                  <button data-id=${_id} type="button" class="modal-product-btn-price">
+                  <button data-id=${_id} type="submit" class="modal-product-btn-price">
                       Add to 
                       <svg class="modal-btn-svg" width="18" height="18">
                           <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
@@ -123,8 +118,9 @@ export function onRenderModalProduct(product) {
 //
 
 // додання до корзини add to - remove to////////
+// const addToCartFromModalProduct = document.querySelector('data-id');
+// console.log(addToCartFromModalProduct);
 
-// const addToCartFromModalProduct = document.querySelector('.modal-product-btn-price');
 
 // function addToCartFromModalProduct(event) {
 //     const btnModalProdroduct = event.target;
