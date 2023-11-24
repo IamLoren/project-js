@@ -4,8 +4,9 @@ import {
   changeCategoriesValue,
   changeTypesValue,
   collectQueryParameters,
+
 } from './drop-downs.js';
-import { getProducts, getAllProducts, getDiscountProducts, getPopularProducts } from './api.js';
+import {   getProductsByQuery, getAllProducts, getDiscountProducts, getPopularProducts } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
 
@@ -17,7 +18,7 @@ const categoriesItem = document.querySelectorAll('.filters-categories-item');
 const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 const productsListGeneral = document.querySelector('.products-list-general');
 const productListDiscount = document.querySelector('.products-list-discount')
-const productListPopular = document.querySelector('.products-list-popular')
+const productListPopular = document.querySelector('.products-list-popular');
 
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const allProduct = await getAllProducts();
     const arrOfAllProducts = allProduct.results;
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
+    // renderPagination();
     let cards = document.querySelectorAll('.product-card-general');
     cards.forEach(card => {
       card.addEventListener('click', openProductModal);
@@ -74,7 +76,12 @@ searchForm.addEventListener('submit', async event => {
   event.preventDefault();
   try {
     const queryParameters = collectQueryParameters();
-    await getProducts(queryParameters, page, perPage);
+    console.log(queryParameters)
+    const response = await getProductsByQuery(queryParameters);
+    console.log(response)
+    const productForRender = response.results;
+    productsListGeneral.innerHTML = '';
+    renderMarkup(productForRender, 'general', productsListGeneral);
   } catch (error) {
     console.log(error);
   }

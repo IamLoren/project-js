@@ -11,7 +11,7 @@ import axios from 'axios';
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
 export async function getAllProducts() {
-    const response = await axios.get(`${BASE_URL}`);
+    const response = await axios.get(`${BASE_URL}?limit=9`);
     return response.data;
   }
 
@@ -25,15 +25,14 @@ export async function getAllProducts() {
     return response.data;
   }
 
-export async function getProducts(userInput, page, perPage) {
-  const params = new URLSearchParams({
-    keyword,
-    category,
-    byPopularity,
-    limit,
-    page,
-  });
-  const response = await axios.get(`${BASE_URL}?${params}`);
+export async function getProductsByQuery(queryParams) {
+  let response;
+  let { keyword, category, endpoint } = queryParams;
+  if (category === 'Categories') {
+     response = await axios.get(`${BASE_URL}?keyword=${keyword}&${endpoint}=true&limit=9`);
+  } else {
+     response = await axios.get(`${BASE_URL}?keyword=${keyword}&category=${category}&${endpoint}=true&limit=9`);
+  }
   return response.data;
 }
 
