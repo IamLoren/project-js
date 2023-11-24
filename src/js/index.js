@@ -17,7 +17,7 @@ const categoriesItem = document.querySelectorAll('.filters-categories-item');
 const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 const productsListGeneral = document.querySelector('.products-list-general');
 const productListDiscount = document.querySelector('.products-list-discount')
-const productListPopular = document.querySelector('.products-list-popular')
+const productListPopular = document.querySelector('.products-list-popular');
 
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const allProduct = await getAllProducts();
     const arrOfAllProducts = allProduct.results;
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
+    renderPagination();
     let cards = document.querySelectorAll('.product-card-general');
     cards.forEach(card => {
       card.addEventListener('click', openProductModal);
