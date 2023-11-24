@@ -50,7 +50,7 @@ export function changeTypesValue(event) {
 
 export function collectQueryParameters() {
     const endpoint = document.querySelector('.filters-allTypes').textContent.split(' ').join('');
-    const category = document.querySelector('.filters-categories').textContent;
+    const category = document.querySelector('.filters-categories').textContent.split(' ').join('_').replace('/', '&');
     const searchWord = document.querySelector('.filters-input').value;
     const  queryParameters = {
         category,
