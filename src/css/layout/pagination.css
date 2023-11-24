@@ -23,6 +23,7 @@
     font-weight: 500;
     line-height: 1.4;
     text-align: center;
+    display: flex;
     align-items: center;
     justify-content: center;
   }
@@ -43,6 +44,15 @@
   .pagination-number {
     width: 40px;
     height: 40px;
+    border-radius: 60%;
+  }
+  .pagination-item-arrow:hover,
+  .pagination-item-arrow:focus,
+  .pagination-item:hover,
+  .pagination-item:focus {
+    background-color: var(--secondary-bg-green-color);
+    color: var(--title-white-text-color);
+
     border-radius: 60%;
   }
 }
