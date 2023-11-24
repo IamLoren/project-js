@@ -28,14 +28,19 @@ export async function getAllProducts() {
 export async function getProductsByQuery(queryParams) {
   let response;
   let { keyword, category, endpoint } = queryParams;
-  if (category === 'Categories' && keyword === '') {
+  const params = new URLSearchParams({
+    keyword,
+    category,
+    endpoint,
+    limit: 9
+  });
+ 
+  if ((category === 'Categories' || category === 'Show all') && keyword === '') {
      response = await axios.get(`${BASE_URL}?${endpoint}=true&limit=9`);
-  } else if (category !== 'Categories' && keyword === '') {
-    response = await axios.get(`${BASE_URL}?category=${category}&${endpoint}=true&limit=9`);
-  } else if (category === 'Categories') {
+  } else if (category === 'Categories' || category === 'Show all') {
     response = await axios.get(`${BASE_URL}?keyword=${keyword}&${endpoint}=true&limit=9`);
   }else {
-     response = await axios.get(`${BASE_URL}?keyword=${keyword}&category=${category}&${endpoint}=true&limit=9`);
+    response = await axios.get(`${BASE_URL}?${params}`);
   }
   return response.data;
 }
