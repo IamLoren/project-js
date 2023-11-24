@@ -1,6 +1,6 @@
 // const container = document.querySelector('pagination-container');
 
-function renderPagination(pages) {
+export function renderPagination(pages) {
   return `<div class="pagination-container container">
 
   <div class="pagination-item-arrow">
