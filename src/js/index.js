@@ -95,15 +95,17 @@ searchForm.addEventListener('submit', async event => {
     const productForRender = response.results;
     productsListGeneral.innerHTML = '';
     renderMarkup(productForRender, 'general', productsListGeneral);
+
+    let cardsDisc = document.querySelectorAll('.discount-product-card');
+    cardsDisc.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
+    
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+addToCartBtn.forEach(btn => {
+  btn.addEventListener('click', saveToLocalStorage)
+})
   } catch (error) {
     console.log(error);
   }
 });
-
-
-//ОБРОБКА КЛІКУ ПО КНОПЦІ КАРТКИ
-
-const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
-addToCartBtn.forEach(btn => {
-  btn.addEventListener('click', console.log('BAM!'))
-})
