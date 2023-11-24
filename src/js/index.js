@@ -9,8 +9,9 @@ import {
 import {   getProductsByQuery, getAllProducts, getDiscountProducts, getPopularProducts } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
-
-import { renderPagination } from './pagination.js'
+import { saveToLocalStorage } from './addToCart.js';
+import { renderPagination } from './pagination.js';
+import { load } from './localStorage.js';
 
 const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
@@ -26,16 +27,24 @@ const productListPopular = document.querySelector('.products-list-popular');
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
+    const dataFromLocalStorage = load("product");
+    document.querySelector('#header-length').innerHTML = `${dataFromLocalStorage.length}`;
+
     const allProduct = await getAllProducts();
     const arrOfAllProducts = allProduct.results;
     const pages = allProduct.totalPages;
-    console.log(pages)
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
-    document.querySelector('.products-list-general').insertAdjacentHTML('beforeend', renderPagination(pages))
+    document.querySelector('.products-list-general').insertAdjacentHTML('beforeend', renderPagination(pages));
+
     let cards = document.querySelectorAll('.product-card-general');
     cards.forEach(card => {
       card.addEventListener('click', openProductModal);
     });
+    
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+addToCartBtn.forEach(btn => {
+  btn.addEventListener('click', saveToLocalStorage)
+})
 
     const arrOfDiscountProducts = await getDiscountProducts();
     renderMarkup(arrOfDiscountProducts, 'discount', productListDiscount);
@@ -90,3 +99,11 @@ searchForm.addEventListener('submit', async event => {
     console.log(error);
   }
 });
+
+
+//ОБРОБКА КЛІКУ ПО КНОПЦІ КАРТКИ
+
+const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+addToCartBtn.forEach(btn => {
+  btn.addEventListener('click', console.log('BAM!'))
+})
