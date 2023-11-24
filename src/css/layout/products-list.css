@@ -1,3 +1,28 @@
+body {
+  overflow-x: hidden;
+}
+::-webkit-scrollbar,
+::-webkit-scrollbar:horizontal {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:horizontal {
+  background: var(--primary-bg-green-color);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:horizontal:hover {
+  background: var(--secondary-bg-green-color);
+}
+
 .product-card-general {
   border-radius: 20px;
   background-color: var(--card-bg-color);
@@ -53,7 +78,6 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
-  padding-bottom: 37px;
   justify-content: center;
 }
 .span-info-value {
@@ -113,6 +137,13 @@
   border-radius: 10px;
   padding: 12px;
   background-color: var(--card-bg-color);
+  position: relative;
+}
+
+.popular-card-btn {
+  position: absolute;
+  top: 5%;
+  right: 3%;
 }
 
 .popular-title {
@@ -135,7 +166,7 @@
   width: 56px;
 }
 .popular-card-info {
-  width: 152px;
+  width: 184px;
 }
 .popular-card-title {
   color: #010101;
@@ -188,9 +219,10 @@
   flex-direction: column;
   row-gap: 20px;
   width: 300px;
-  height: 450px;
+  height: 400px;
   overflow: scroll;
   overflow-x: hidden;
+  margin-bottom: 80px;
 }
 
 .discount-title {
@@ -203,10 +235,11 @@
   margin-bottom: 20px;
 }
 .discount-product-card {
+  width: 280;
+  height: 232px;
   background-color: var(--card-bg-color);
   border-radius: 15px;
   padding: 16px;
-  padding-bottom: 100px;
 }
 .discount-img-wrapper {
   padding: 18px 95px;
@@ -259,8 +292,11 @@
     width: 335px;
   }
   .products-list-discount {
-    width: 335px;
-    height: 484px;
+    width: 328px;
+    height: 470px;
+  }
+  .discount-product-card {
+    width: 315px;
   }
 }
 
@@ -340,15 +376,17 @@
     flex-direction: row;
     flex-wrap: nowrap;
     column-gap: 16px;
-    padding-bottom: 64px;
-    margin-bottom: 0;
+    margin-bottom: 64px;
+    padding-bottom: 10px;
 
     flex-direction: row;
     overflow-x: scroll;
-    height: 200px;
+    overflow-y: hidden;
+    height: 115px;
+    width: 600px;
   }
   .popular-product-card {
-    width: 275px;
+    width: 450px;
   }
 
   .popular-title {
@@ -361,7 +399,7 @@
     width: 56px;
   }
   .popular-card-info {
-    width: 152px;
+    width: 180px;
   }
   .popular-card-title {
     font-size: 20px;
@@ -377,8 +415,11 @@
   .products-list-discount {
     column-gap: 32px;
     flex-direction: column;
-    height: 484px;
-    width: 353px;
+    flex-wrap: wrap;
+    height: 250px;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
   }
 
   .discount-title {
@@ -402,18 +443,15 @@
   }
   .product-list-container {
     display: flex;
-    column-gap: 20px;
   }
   .products-list-general {
     flex-direction: row;
     flex-wrap: wrap;
-    row-gap: 40px;
-    column-gap: 20px;
-    padding-bottom: 0px;
   }
 
   .product-card-general {
-    width: 292px;
+    width: 282px;
+    height: 363px;
   }
 
   .card-img {
@@ -431,7 +469,7 @@
     margin-bottom: 10px;
   }
   .general-span-container {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     padding-left: 20px;
     justify-content: start;
   }
@@ -507,7 +545,11 @@
 
   .products-list-discount {
     row-gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    height: 414px;
+    width: 333px;
+    overflow: scroll;
+    overflow-x: hidden;
   }
 
   .discount-title {
