@@ -1,0 +1,48 @@
+@media only screen and (max-width: 768px) {
+  .pagination-container {
+    display: flex;
+    margin: 20px auto 61px;
+    align-items: center;
+  }
+
+  .pagination-number-container {
+    margin: 0 auto;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .pagination-item {
+    width: 40px;
+    height: 40px;
+    border-color: transparent;
+    color: #a3a3a3;
+    font-family: 'Neue Montreal Medium';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.4;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pagination-item-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 60%;
+    padding: 8px;
+    align-items: center;
+    background-color: var(--card-bg-color);
+  }
+
+  .pagination-arrow {
+    fill: #a3a3a3;
+  }
+
+  .pagination-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 60%;
+  }
+}
