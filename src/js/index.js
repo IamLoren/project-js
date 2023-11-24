@@ -24,7 +24,7 @@ const productListPopular = document.querySelector('.products-list-popular');
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     const allProduct = await getAllProducts();
-     arrOfAllProducts = allProduct.results;
+    const arrOfAllProducts = allProduct.results;
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
     renderPagination();
     let cards = document.querySelectorAll('.product-card-general');
