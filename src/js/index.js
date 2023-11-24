@@ -4,8 +4,9 @@ import {
   changeCategoriesValue,
   changeTypesValue,
   collectQueryParameters,
+
 } from './drop-downs.js';
-import { getProducts, getAllProducts, getDiscountProducts, getPopularProducts } from './api.js';
+import {   getProductsByQuery, getAllProducts, getDiscountProducts, getPopularProducts } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
 
@@ -75,7 +76,12 @@ searchForm.addEventListener('submit', async event => {
   event.preventDefault();
   try {
     const queryParameters = collectQueryParameters();
-    await getProducts(queryParameters, page, perPage);
+    console.log(queryParameters)
+    const response = await getProductsByQuery(queryParameters);
+    console.log(response)
+    const productForRender = response.results;
+    productsListGeneral.innerHTML = '';
+    renderMarkup(productForRender, 'general', productsListGeneral);
   } catch (error) {
     console.log(error);
   }
