@@ -161,7 +161,7 @@ export function onRenderModalProduct(product) {
 
 //
 
-// додання до корзини add to - remove to////////
+// додання до корзини add to - remove to///
 // const addToCartFromModalProduct = document.querySelector('data-id');
 // console.log(addToCartFromModalProduct);
 
