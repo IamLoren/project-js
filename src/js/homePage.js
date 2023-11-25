@@ -16,7 +16,7 @@ import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
 import {saveToLocalStorage }  from './addToCart.js';
 import { renderPagination } from './pagination.js';
-import { load } from './localStorage.js';
+import localStorageAPI from './localStorage.js';
 
 const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
@@ -30,23 +30,24 @@ const productListPopular = document.querySelector('.products-list-popular');
 export let arrProducts = [];
 
 
-const dataFromLocalStorage = firstLoad('product');
-document.querySelector('#header-length').innerHTML = `${
-  dataFromLocalStorage === undefined ? '0' : dataFromLocalStorage.length
-}`;
-dataFromLocalStorage === undefined
-  ? null
-  : (arrProducts = dataFromLocalStorage);
+const fillarrProducts = () => {
+  const dataFromLS = localStorageAPI.load('product');
+
+  if (dataFromLS === undefined) {
+    document.querySelector('#header-length').innerHTML = '0'
+    return;
+  }
+  document.querySelector('#header-length').innerHTML = dataFromLS.length;
+  arrProducts = dataFromLS;
+};
+
+fillarrProducts();
+
 
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const dataFromLocalStorage = load('product');
-    document.querySelector('#header-length').innerHTML = `${
-      dataFromLocalStorage === undefined ? '0' : dataFromLocalStorage.length
-    }`;
-
     const allProduct = await getAllProducts();
     const arrOfAllProducts = allProduct.results;
     const pages = allProduct.totalPages;
@@ -61,8 +62,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       card.addEventListener('click', openProductModal);
     });
 
-   
-
+  
     const arrOfDiscountProducts = await getDiscountProducts();
     renderMarkup(arrOfDiscountProducts, 'discount', productListDiscount);
     let cardsDisc = document.querySelectorAll('.discount-product-card');
@@ -140,14 +140,4 @@ import { subscribeMailNewProduct } from './footer.js';
 const form = document.querySelector(".footer-form");
 form.addEventListener("submit", subscribeMailNewProduct)
 
- function firstLoad(key) {
-  try {
-      const serializedState = localStorage.getItem(key);
-      if (serializedState) {
-          arrProducts = JSON.parse(serializedState);
-        }
-        return serializedState === null ? undefined : JSON.parse(serializedState);
-  } catch (error) {
-      console.error("Get state error: ", error.message);
-  }
-};
+ 
