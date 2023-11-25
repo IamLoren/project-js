@@ -133,3 +133,6 @@ searchForm.addEventListener('submit', async event => {
   }
 });
 
+import { subscribeMailNewProduct } from './footer.js';
+const form = document.querySelector(".footer-form");
+form.addEventListener("submit", subscribeMailNewProduct)
