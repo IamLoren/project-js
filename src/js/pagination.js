@@ -1,8 +1,21 @@
 // const container = document.querySelector('pagination-container');
 import iconsPath from '../images/icons.svg';
+import Pagination from 'tui-pagination';
+
+import { searchForm, productsListGeneral } from '../js/index.js';
+
+const container = document.querySelector('#tui-pagination-container');
+const option = {
+  totalItems: 0,
+  ItemsPerPage: 9,
+  visiblePages: 5,
+  page: 1,
+};
+const pagination = new Pagination(container, option);
 
 export function renderPagination(pages) {
   return `<div class="pagination-container container">
+
 
   <div class="pagination-item-arrow">
 <svg class="pagination-arrow" width="27" height="27">
