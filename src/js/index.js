@@ -60,10 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       card.addEventListener('click', openProductModal);
     });
 
-    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
-    addToCartBtn.forEach(btn => {
-      btn.addEventListener('click', saveToLocalStorage);
-    });
+   
 
     const arrOfDiscountProducts = await getDiscountProducts();
     renderMarkup(arrOfDiscountProducts, 'discount', productListDiscount);
@@ -77,6 +74,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     let cardsPop = document.querySelectorAll('.popular-product-card');
     cardsPop.forEach(card => {
       card.addEventListener('click', openProductModal);
+
+      const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+      addToCartBtn.forEach(btn => {
+        btn.addEventListener('click', saveToLocalStorage);
+      });
     });
   } catch (error) {
     console.log(error);
