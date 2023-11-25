@@ -107,32 +107,33 @@ function renderCartEmpty() {
 /* витягую ціну*/
 const prices = cartProducts.map(object => object.price);
 console.log(typeof prices[0]);
-// document.querySelector('.cart-shopping-list').innerHTML =
-//   '<p class="cart-empty">Корзина пуста</p>';
 
-// let counterValue = 1;
+document.querySelector('.cart-shopping-list').innerHTML =
+  '<p class="cart-empty">Корзина пуста</p>';
 
-// const decrementButton = document.querySelector(".cart-counter-decrement");
-// decrementButton.addEventListener("click", () => {
-//     if (counterValue === 1) {
-//         decrementButton.setAttribute('disabled', true);
-//     } else {
-//         counterValue -= 1;
-//         decrementButton.removeAttribute('disabled');
-//     }
-//     updateInterface();
-// });
+let counterValue = 1;
 
-// const incrementButton = document.querySelector(".cart-counter-increment");
-// incrementButton.addEventListener("click", () => {
-//     counterValue += 1;
-//     decrementButton.removeAttribute('disabled');
+const decrementButton = document.querySelector('.cart-counter-decrement');
+decrementButton.addEventListener('click', () => {
+  if (counterValue === 1) {
+    decrementButton.setAttribute('disabled', true);
+  } else {
+    counterValue -= 1;
+    decrementButton.removeAttribute('disabled');
+  }
+  updateInterface();
+});
 
-//     updateInterface();
-// });
+const incrementButton = document.querySelector('.cart-counter-increment');
+incrementButton.addEventListener('click', () => {
+  counterValue += 1;
+  decrementButton.removeAttribute('disabled');
 
-// function updateInterface() {
-//     const spanValue = document.querySelector(".cart-counter-value");
+  updateInterface();
+});
 
-//     spanValue.textContent = counterValue;
-// }
+function updateInterface() {
+  const spanValue = document.querySelector('.cart-counter-value');
+
+  spanValue.textContent = counterValue;
+}
