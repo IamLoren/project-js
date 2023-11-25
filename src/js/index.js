@@ -4,7 +4,6 @@ import {
   changeCategoriesValue,
   changeTypesValue,
   collectQueryParameters,
-
 } from './drop-downs.js';
 import {   getProductsByQuery, getAllProducts, getDiscountProducts, getPopularProducts } from './api.js';
 import { renderMarkup } from './templates/cards.js';
@@ -22,7 +21,7 @@ const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 const productsListGeneral = document.querySelector('.products-list-general');
 const productListDiscount = document.querySelector('.products-list-discount')
 const productListPopular = document.querySelector('.products-list-popular');
-export let arrProducts = [];
+let arrProducts = [];
 
 
 const dataFromLocalStorage = firstLoad("product");
@@ -117,3 +116,8 @@ addToCartBtn.forEach(btn => {
   }
 });
 
+
+
+// ІМЕНОВАНИЙ ЕКСПОРТ
+
+export { arrProducts };
