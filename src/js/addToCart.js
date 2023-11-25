@@ -1,6 +1,5 @@
-import { arrProducts } from "./index.js";
 
-export function firstLoad(key) {
+export function firstLoad(key, arrProducts) {
     try {
         const serializedState = localStorage.getItem(key);
         if (serializedState) {
