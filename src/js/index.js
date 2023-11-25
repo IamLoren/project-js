@@ -13,7 +13,7 @@ import {
 } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
-import { saveToLocalStorage } from './addToCart.js';
+import { saveToLocalStorage, firstLoad } from './addToCart.js';
 import { renderPagination } from './pagination.js';
 import { load } from './localStorage.js';
 
@@ -26,6 +26,15 @@ const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 const productsListGeneral = document.querySelector('.products-list-general');
 const productListDiscount = document.querySelector('.products-list-discount');
 const productListPopular = document.querySelector('.products-list-popular');
+export let arrProducts = [];
+
+const dataFromLocalStorage = firstLoad('product');
+document.querySelector('#header-length').innerHTML = `${
+  dataFromLocalStorage === undefined ? '0' : dataFromLocalStorage.length
+}`;
+dataFromLocalStorage === undefined
+  ? null
+  : (arrProducts = dataFromLocalStorage);
 
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
@@ -102,10 +111,7 @@ searchForm.addEventListener('submit', async event => {
     const productForRender = response.results;
     productsListGeneral.innerHTML = '';
     renderMarkup(productForRender, 'general', productsListGeneral);
-    productsListGeneral.insertAdjacentHTML(
-      'beforeend',
-      renderPagination(pages)
-    );
+
     let cardsDisc = document.querySelectorAll('.discount-product-card');
     cardsDisc.forEach(card => {
       card.addEventListener('click', openProductModal);

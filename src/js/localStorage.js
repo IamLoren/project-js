@@ -1,4 +1,5 @@
 import {getLength} from './header.js';
+import {arrProducts} from './addToCart.js'
 export const save = (key, value) => {
     try {
         const serializedState = JSON.stringify(value);
@@ -16,7 +17,7 @@ export const load = key => {
     } catch (error) {
         console.error("Get state error: ", error.message);
     }
-    getLength();
+
 };
 
 export function remove(key) {
