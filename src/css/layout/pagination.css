@@ -35,10 +35,14 @@
     padding: 8px;
     align-items: center;
     background-color: var(--card-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .pagination-arrow {
-    fill: #a3a3a3;
+    fill: transparent;
+    stroke: #a3a3a3;
   }
 
   .pagination-number {

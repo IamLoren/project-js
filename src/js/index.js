@@ -4,9 +4,13 @@ import {
   changeCategoriesValue,
   changeTypesValue,
   collectQueryParameters,
-
 } from './drop-downs.js';
-import {   getProductsByQuery, getAllProducts, getDiscountProducts, getPopularProducts } from './api.js';
+import {
+  getProductsByQuery,
+  getAllProducts,
+  getDiscountProducts,
+  getPopularProducts,
+} from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
 import { saveToLocalStorage } from './addToCart.js';
@@ -20,21 +24,26 @@ const downBtn = document.querySelectorAll('.filters-down-svg');
 const categoriesItem = document.querySelectorAll('.filters-categories-item');
 const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 const productsListGeneral = document.querySelector('.products-list-general');
-const productListDiscount = document.querySelector('.products-list-discount')
+const productListDiscount = document.querySelector('.products-list-discount');
 const productListPopular = document.querySelector('.products-list-popular');
 
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const dataFromLocalStorage = load("product");
-    document.querySelector('#header-length').innerHTML = `${dataFromLocalStorage === undefined ? '0' : dataFromLocalStorage.length}`;
+    const dataFromLocalStorage = load('product');
+    document.querySelector('#header-length').innerHTML = `${
+      dataFromLocalStorage === undefined ? '0' : dataFromLocalStorage.length
+    }`;
 
     const allProduct = await getAllProducts();
     const arrOfAllProducts = allProduct.results;
     const pages = allProduct.totalPages;
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
-    document.querySelector('.products-list-general').insertAdjacentHTML('beforeend', renderPagination(pages));
+    productsListGeneral.insertAdjacentHTML(
+      'beforeend',
+      renderPagination(pages)
+    );
 
     let cards = document.querySelectorAll('.product-card-general');
     cards.forEach(card => {
@@ -42,9 +51,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
-addToCartBtn.forEach(btn => {
-  btn.addEventListener('click', saveToLocalStorage)
-})
+    addToCartBtn.forEach(btn => {
+      btn.addEventListener('click', saveToLocalStorage);
+    });
 
     const arrOfDiscountProducts = await getDiscountProducts();
     renderMarkup(arrOfDiscountProducts, 'discount', productListDiscount);
@@ -59,7 +68,6 @@ addToCartBtn.forEach(btn => {
     cardsPop.forEach(card => {
       card.addEventListener('click', openProductModal);
     });
-
   } catch (error) {
     console.log(error);
   }
@@ -81,30 +89,32 @@ allTypesItem.forEach(item => {
   item.addEventListener('click', changeTypesValue);
 });
 
-
 // ФІЛЬТРАЦІЯ ТОВАРІВ
-
 
 searchForm.addEventListener('submit', async event => {
   event.preventDefault();
   try {
     const queryParameters = collectQueryParameters();
-    console.log(queryParameters)
+    console.log(queryParameters);
     const response = await getProductsByQuery(queryParameters);
-    console.log(response)
+    console.log(response);
+    const pages = response.totalPages;
     const productForRender = response.results;
     productsListGeneral.innerHTML = '';
     renderMarkup(productForRender, 'general', productsListGeneral);
-
+    productsListGeneral.insertAdjacentHTML(
+      'beforeend',
+      renderPagination(pages)
+    );
     let cardsDisc = document.querySelectorAll('.discount-product-card');
     cardsDisc.forEach(card => {
       card.addEventListener('click', openProductModal);
     });
-    
+
     const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
-addToCartBtn.forEach(btn => {
-  btn.addEventListener('click', saveToLocalStorage)
-})
+    addToCartBtn.forEach(btn => {
+      btn.addEventListener('click', saveToLocalStorage);
+    });
   } catch (error) {
     console.log(error);
   }
