@@ -1,19 +1,19 @@
-import { arrProducts } from "./homePage.js";
+
 import { getProducttById } from "./api.js";
 import iconsPath from "../images/icons.svg"
 
 
-export function firstLoad(key) {
-    try {
-        const serializedState = localStorage.getItem(key);
-        if (serializedState) {
-            arrProducts = JSON.parse(serializedState);
-          }
-          return serializedState === null ? undefined : JSON.parse(serializedState);
-    } catch (error) {
-        console.error("Get state error: ", error.message);
-    }
-};
+// export function firstLoad(key) {
+//     try {
+//         const serializedState = localStorage.getItem(key);
+//         if (serializedState) {
+//             arrProducts = JSON.parse(serializedState);
+//           }
+//           return serializedState === null ? undefined : JSON.parse(serializedState);
+//     } catch (error) {
+//         console.error("Get state error: ", error.message);
+//     }
+// };
 
 export async function saveToLocalStorage(event) {
    const id = event.currentTarget.getAttribute('data-id');
