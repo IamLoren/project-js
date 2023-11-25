@@ -1,8 +1,15 @@
 import { load, remove, save } from './localStorage.js';
 import iconsPath from '../images/icons.svg';
+import { arrProducts } from './index.js';
+/*
+import {getLength} from './header.js'
 
-console.log(load('product'));
-
+import {arrProducts} from './index.js'
+export function getLength() {
+    document.querySelector('#header-length').innerHTML = arrProducts.length;
+   
+}
+*/
 /* берем значення зі сховища*/
 const cartProducts = load('product');
 
@@ -36,8 +43,8 @@ function removeId(event) {
   const productId = ParentElement.getAttribute('data-product-id');
   console.log(productId);
   let newArr = cartProducts.filter(item => item.id !== productId);
-  console.log(newArr);
-  save('product', newArr);
+  // totalPrice();
+  localStorage.setItem('product', JSON.stringify(newArr));
   renderCarts(newArr);
 }
 /* */
@@ -74,10 +81,10 @@ function renderCartProduct(product) {
         <div class="cart-info-bottom">
           <p class="cart-info-price">${price}</p>
   
-          <div class="cart-counter">
-            <button class="cart-counter-decrement" type="button">-</button>
-            <span class="cart-counter-value">1</span>
-            <button class="cart-counter-increment" type="button">+</button>
+          <div class="cart-counter-wrapper">
+            <button class="cart-counter-decrement" type="button" data-action="minus">-</button>
+            <span class="cart-counter-value" data-counter>1</span>
+            <button class="cart-counter-increment" type="button" data-action="plus">+</button>
           </div>
         </div>
       </div>
@@ -104,36 +111,44 @@ function renderCartEmpty() {
       `;
 }
 
-/* витягую ціну*/
-const prices = cartProducts.map(object => object.price);
-console.log(typeof prices[0]);
+/* вирахування загальної ціни*/
+function totalPrice() {
+  const spanTotalPrice = document.querySelector('.js-total-price');
+  const prices = cartProducts.map(object => object.price);
+  console.log('prices', prices);
 
-// document.querySelector('.cart-shopping-list').innerHTML =
-//   '<p class="cart-empty">Корзина пуста</p>';
+  const totalPrice = prices
+    .map(value => value.slice(1, value.length))
+    .reduce((current, previous) => Number(current) + Number(previous), 0)
+    .toFixed(2);
+  console.log(totalPrice);
+  spanTotalPrice.textContent = totalPrice;
+}
+totalPrice();
 
-// let counterValue = 1;
+/* розрахунок ціни*/
 
-// const decrementButton = document.querySelector('.cart-counter-decrement');
-// decrementButton.addEventListener('click', () => {
-//   if (counterValue === 1) {
-//     decrementButton.setAttribute('disabled', true);
-//   } else {
-//     counterValue -= 1;
-//     decrementButton.removeAttribute('disabled');
-//   }
-//   updateInterface();
-// });
-
-// const incrementButton = document.querySelector('.cart-counter-increment');
-// incrementButton.addEventListener('click', () => {
-//   counterValue += 1;
-//   decrementButton.removeAttribute('disabled');
-
-//   updateInterface();
-// });
-
-// function updateInterface() {
-//   const spanValue = document.querySelector('.cart-counter-value');
-
-//   spanValue.textContent = counterValue;
+// function calculatePrice(params) {
+//   const cartProducts = document.querySelector('.cart-products');
 // }
+
+/* кнопки + та - */
+window.addEventListener('click', event => {
+  let counter;
+  if (
+    event.target.dataset.action === 'plus' ||
+    event.target.dataset.action === 'minus'
+  ) {
+    const counterWrapper = event.target.closest('.cart-counter-wrapper');
+    counter = counterWrapper.querySelector('[data-counter]');
+  }
+
+  if (event.target.dataset.action === 'plus') {
+    counter.innerHTML = ++counter.innerHTML;
+  }
+
+  if (event.target.dataset.action === 'minus') {
+    if (parseInt(counter.innerHTML) > 1)
+      counter.innerHTML = --counter.innerHTML;
+  }
+});
