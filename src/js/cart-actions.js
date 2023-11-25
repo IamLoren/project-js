@@ -1,6 +1,5 @@
 import { load, remove, save } from './localStorage.js';
 import iconsPath from '../images/icons.svg';
-import { arrProducts } from './homePage.js';
 /*
 import {getLength} from './header.js'
 
