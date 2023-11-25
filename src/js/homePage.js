@@ -136,3 +136,15 @@ searchForm.addEventListener('submit', async event => {
 import { subscribeMailNewProduct } from './footer.js';
 const form = document.querySelector(".footer-form");
 form.addEventListener("submit", subscribeMailNewProduct)
+
+ function firstLoad(key) {
+  try {
+      const serializedState = localStorage.getItem(key);
+      if (serializedState) {
+          arrProducts = JSON.parse(serializedState);
+        }
+        return serializedState === null ? undefined : JSON.parse(serializedState);
+  } catch (error) {
+      console.error("Get state error: ", error.message);
+  }
+};
