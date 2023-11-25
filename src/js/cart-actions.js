@@ -1,4 +1,4 @@
-import { load, remove, save } from './localStorage.js';
+import localStorageAPI from './localStorage.js';
 import iconsPath from '../images/icons.svg';
 /*
 import {getLength} from './header.js'
@@ -10,7 +10,7 @@ export function getLength() {
 }
 */
 /* берем значення зі сховища*/
-const cartProducts = load('product');
+const cartProducts = localStorageAPI.load('product');
 console.log(cartProducts);
 function renderCarts(cartProducts) {
   if (cartProducts) {
@@ -26,7 +26,7 @@ renderCarts(cartProducts);
 /* видаляємо всі значення при натисканні на кнопку*/
 document.querySelector('.delete-all-text').addEventListener('click', () => {
   //   localStorage.clear();
-  remove('product');
+  localStorageAPI.remove('product');
   document.querySelector('.section-cart').innerHTML = renderCartEmpty();
 });
 /* видалення одного елемента */
