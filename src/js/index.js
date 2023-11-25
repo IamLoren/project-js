@@ -26,7 +26,7 @@ const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 const productsListGeneral = document.querySelector('.products-list-general');
 const productListDiscount = document.querySelector('.products-list-discount');
 const productListPopular = document.querySelector('.products-list-popular');
-export let arrProducts = [];
+let arrProducts = [];
 
 const dataFromLocalStorage = firstLoad('product');
 document.querySelector('#header-length').innerHTML = `${
@@ -129,3 +129,9 @@ searchForm.addEventListener('submit', async event => {
     console.log(error);
   }
 });
+
+
+// ІМЕНОВАНИЙ ЕКСПОРТ
+
+export { arrProducts };
+
