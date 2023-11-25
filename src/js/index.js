@@ -9,7 +9,8 @@ import {
 import {   getProductsByQuery, getAllProducts, getDiscountProducts, getPopularProducts } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
-import { saveToLocalStorage, firstLoad } from './addToCart.js';
+import saveToLocalStorage  from './addToCart.js';
+import  firstLoad from './addToCart.js';
 import { renderPagination } from './pagination.js';
 import { load } from './localStorage.js';
 
