@@ -4,6 +4,7 @@ import {
   changeCategoriesValue,
   changeTypesValue,
   collectQueryParameters,
+  filterBySearchParameter,
 } from './drop-downs.js';
 import {
   getProductsByQuery,
@@ -104,13 +105,15 @@ searchForm.addEventListener('submit', async event => {
   event.preventDefault();
   try {
     const queryParameters = collectQueryParameters();
-    console.log(queryParameters);
+    const filteredParameter = queryParameters.filterSearch;
+    console.log(filteredParameter);
     const response = await getProductsByQuery(queryParameters);
-    console.log(response);
     const pages = response.totalPages;
     const productForRender = response.results;
+    const filteredProducts = filterBySearchParameter(filteredParameter, productForRender);
+    console.log(productForRender);
     productsListGeneral.innerHTML = '';
-    renderMarkup(productForRender, 'general', productsListGeneral);
+    renderMarkup(filteredProducts, 'general', productsListGeneral);
     productsListGeneral.insertAdjacentHTML(
       'beforeend',
       renderPagination(pages)
