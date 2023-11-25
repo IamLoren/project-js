@@ -24,6 +24,7 @@ body {
 }
 
 .product-card-general {
+  position: relative;
   border-radius: 20px;
   background-color: var(--card-bg-color);
   
@@ -593,4 +594,16 @@ body {
   .span-price {
     font-size: 20px;
   }
+}
+
+
+/* Discount additional */
+.general-discount-svg {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  display: none;
+}
+.discount-label {
+  display: block;
 }

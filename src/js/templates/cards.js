@@ -1,7 +1,7 @@
 import iconsPath from '../../images/icons.svg';
 
 export function createProductCard(product) {
-  let { img, name, category, size, popularity, price, _id } = product;
+  let { img, name, category, size, popularity, price, _id, is10PercentOff } = product;
   return `
       <li class="product-card-general">
           <div class="img-wrapper">
@@ -31,6 +31,9 @@ export function createProductCard(product) {
                       </svg>
                   </button>
               </div>
+              <svg class="general-discount-svg ${is10PercentOff ? "discount-label" : null}" width="60" height="60">
+                <use href="${iconsPath}#icon-discount"></use>
+              </svg>
       </li>
       `;
 }
