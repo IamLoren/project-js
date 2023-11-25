@@ -49,13 +49,34 @@ export function changeTypesValue(event) {
 }
 
 export function collectQueryParameters() {
-    const endpoint = document.querySelector('.filters-allTypes').textContent.split(' ').join('');
+    const filterSearch = document.querySelector('.filters-allTypes').textContent.split(' ').join('');
     const category = document.querySelector('.filters-categories').textContent.split(' ').join('_').replace('/', '&');
     const searchWord = document.querySelector('.filters-input').value;
     const  queryParameters = {
         category,
         keyword: searchWord,
-        endpoint: `by${endpoint}`
+        filterSearch: `by${filterSearch}`
     }
     return queryParameters;
+}
+
+export function filterBySearchParameter(parameter, productForRender) {
+    if (parameter === "byAtoZ" || parameter === "byShowall") {
+        return productForRender;
+    }
+    if (parameter === "byZtoA") {
+        return productForRender.reverse();
+    }
+    if (parameter === "byLessthan10$") {
+        return productForRender.filter(product => product.price < 10);
+    }
+    if (parameter === "byGreaterthan10$") {
+        return productForRender.filter(product => product.price >= 10);
+    }
+    if (parameter === "byPopular") {
+        return [...productForRender].filter(product => product.popularity > 0).sort((product1, product2) => product2.popularity - product1.popularity);
+    }
+    if (parameter === "byNotpopular") {
+        return productForRender.filter(product => product.popularity === 0);
+    }
 }

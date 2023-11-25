@@ -1,4 +1,4 @@
-import { arrProducts } from "./index";
+import { arrProducts } from './index.js'
 
 export function firstLoad(key) {
     try {

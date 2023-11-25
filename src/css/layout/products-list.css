@@ -26,6 +26,7 @@ body {
 .product-card-general {
   border-radius: 20px;
   background-color: var(--card-bg-color);
+  
 }
 
 .product-card-general:hover {
@@ -64,6 +65,11 @@ body {
   font-size: 12px;
   font-weight: 400;
   line-height: 1.16;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4px;
 }
 .general-card-title {
   color: #010101;
@@ -79,6 +85,7 @@ body {
   gap: 8px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 40px;
 }
 .span-info-value {
   color: #010101;
@@ -142,9 +149,23 @@ body {
 
 .popular-card-btn {
   position: absolute;
-  top: 5%;
+  top: 12%;
   right: 3%;
+
+  border-radius: 50%;
+  border: none;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #E8E8E2;
 }
+
+.popular-card-btn:hover {
+  background-color: #6D8434;
+}
+
 
 .popular-title {
   color: #010101;
@@ -208,6 +229,11 @@ body {
 .popular-cart-svg {
   fill: #6d8434;
 }
+
+.popular-cart-svg:hover,
+.popular-cart-svg:focus {
+    fill: #e8e8e2;
+  }
 
 /**
     |============================
@@ -287,6 +313,7 @@ body {
   .general-span-container {
     padding-left: 20px;
     justify-content: start;
+    padding-right: 20px;
   }
   .products-list-general {
     width: 335px;
@@ -336,7 +363,6 @@ body {
   .general-span-container {
     display: flex;
     gap: 8px;
-    margin-bottom: 40px;
     padding-left: 20px;
     justify-content: start;
   }
@@ -459,8 +485,11 @@ body {
   }
 
   .general-span-info {
-    display: inline-block;
-    margin-right: 8px;
+    /* display: inline-block;
+    margin-right: 8px; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
   }
 
   .general-card-title {
@@ -469,8 +498,9 @@ body {
     margin-bottom: 10px;
   }
   .general-span-container {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     padding-left: 20px;
+    padding-right: 20px;
     justify-content: start;
   }
   .general-card-price {
@@ -532,10 +562,7 @@ body {
     padding: 4px;
     display: flex;
   }
-  .popular-cart-svg:hover,
-  .popular-cart-svg:focus {
-    fill: #e8e8e2;
-  }
+  
 
   /**
         |============================
