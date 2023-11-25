@@ -32,7 +32,7 @@ export function createProductCard(product) {
                       </svg>  
                   </button>
               </div>
-              <svg class="general-discount-svg ${is10PercentOff ? "discount-label" : null}" width="60" height="60">
+              <svg class="general-discount-svg ${is10PercentOff ? "discount-label" : ""}" width="60" height="60">
                 <use href="${iconsPath}#icon-discount"></use>
               </svg>
       </li>

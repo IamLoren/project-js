@@ -1,6 +1,6 @@
 import { load, remove, save } from './localStorage.js';
 import iconsPath from '../images/icons.svg';
-import { arrProducts } from './index.js';
+import { arrProducts } from './homePage.js';
 /*
 import {getLength} from './header.js'
 
@@ -12,7 +12,7 @@ export function getLength() {
 */
 /* берем значення зі сховища*/
 const cartProducts = load('product');
-
+console.log(cartProducts);
 function renderCarts(cartProducts) {
   if (cartProducts) {
     const cartItemsHTML = cartProducts

@@ -1,10 +1,7 @@
-<<<<<<< Updated upstream
-import { arrProducts } from './index.js'
-=======
-import { arrProducts } from "./index.js";
-import iconsPath from "../images/icons.svg"
+import { arrProducts } from "./homePage.js";
 import { getProducttById } from "./api.js";
->>>>>>> Stashed changes
+import iconsPath from "../images/icons.svg"
+
 
 export function firstLoad(key) {
     try {
