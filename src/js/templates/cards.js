@@ -57,7 +57,7 @@ export function createPopularCard(product) {
                     </div>
                 </div>
                     
-                <button data-id=${_id} type="submit" class="addToCart-btn popular-card-btn js-addToCart-btn">
+                <button data-id=${_id} type="submit" class="popular-card-btn js-addToCart-btn">
                     <svg class="popular-cart-svg" width="12" height="12">
                         <use href="${iconsPath}#icon-shopping-cart"></use>
                     </svg>
