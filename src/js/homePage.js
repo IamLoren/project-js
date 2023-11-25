@@ -34,6 +34,9 @@ const dataFromLocalStorage = firstLoad('product');
 document.querySelector('#header-length').innerHTML = `${
   dataFromLocalStorage === undefined ? '0' : dataFromLocalStorage.length
 }`;
+dataFromLocalStorage === undefined
+  ? null
+  : (arrProducts = dataFromLocalStorage);
 
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
