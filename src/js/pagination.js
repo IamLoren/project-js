@@ -12,12 +12,20 @@ const option = {
   page: 1,
 };
 const pagination = new Pagination(container, option);
+page = pagination.getCurrentPage();
+
+console.log(page);
+pagination.reset(response.data.total);
+container.classList.remove('is-hidden');
+
+const createUserPagination = async event => {
+  const currentPage = event.page;
+};
+pagination.on('afterMove', createUserPagination);
 
 export function renderPagination(pages) {
   return `<div class="pagination-container container">
-
-
-  <div class="pagination-item-arrow">
+<div class="pagination-item-arrow">
 <svg class="pagination-arrow" width="27" height="27">
   <use href="${iconsPath}#icon-caret-small-left"></use>
 </svg>

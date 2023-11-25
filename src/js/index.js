@@ -14,20 +14,23 @@ import {
 } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
-import {saveToLocalStorage, firstLoad }  from './addToCart.js';
+import { saveToLocalStorage, firstLoad } from './addToCart.js';
 import { renderPagination } from './pagination.js';
 import { load } from './localStorage.js';
 
-const searchForm = document.querySelector('.filters-form');
+export const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
 const allSearchInput = document.querySelector('.filters-allTypes');
 const downBtn = document.querySelectorAll('.filters-down-svg');
 const categoriesItem = document.querySelectorAll('.filters-categories-item');
 const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
-const productsListGeneral = document.querySelector('.products-list-general');
+export const productsListGeneral = document.querySelector(
+  '.products-list-general'
+);
 const productListDiscount = document.querySelector('.products-list-discount');
 const productListPopular = document.querySelector('.products-list-popular');
 export let arrProducts = [];
+export const arrOfAllProducts = [];
 
 const dataFromLocalStorage = firstLoad('product');
 document.querySelector('#header-length').innerHTML = `${
@@ -47,13 +50,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     }`;
 
     const allProduct = await getAllProducts();
-    const arrOfAllProducts = allProduct.results;
-    const pages = allProduct.totalPages;
+    arrOfAllProducts = allProduct.results;
+    // const pages = allProduct.totalPages;
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
-    productsListGeneral.insertAdjacentHTML(
-      'beforeend',
-      renderPagination(pages)
-    );
+    // productsListGeneral.insertAdjacentHTML(
+    //   'beforeend',
+    //   renderPagination(pages));
 
     let cards = document.querySelectorAll('.product-card-general');
     cards.forEach(card => {
@@ -110,14 +112,16 @@ searchForm.addEventListener('submit', async event => {
     const response = await getProductsByQuery(queryParameters);
     const pages = response.totalPages;
     const productForRender = response.results;
-    const filteredProducts = filterBySearchParameter(filteredParameter, productForRender);
+    const filteredProducts = filterBySearchParameter(
+      filteredParameter,
+      productForRender
+    );
     console.log(productForRender);
     productsListGeneral.innerHTML = '';
     renderMarkup(filteredProducts, 'general', productsListGeneral);
-    productsListGeneral.insertAdjacentHTML(
-      'beforeend',
-      renderPagination(pages)
-    );
+    // productsListGeneral.insertAdjacentHTML(
+    //   'beforeend',
+    //   renderPagination(pages));
 
     let cardsDisc = document.querySelectorAll('.discount-product-card');
     cardsDisc.forEach(card => {
@@ -132,4 +136,3 @@ searchForm.addEventListener('submit', async event => {
     console.log(error);
   }
 });
-
