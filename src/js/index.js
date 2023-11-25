@@ -4,6 +4,7 @@ import {
   changeCategoriesValue,
   changeTypesValue,
   collectQueryParameters,
+  filterBySearchParameter,
 } from './drop-downs.js';
 import {
   getProductsByQuery,
@@ -13,7 +14,7 @@ import {
 } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
-import { saveToLocalStorage, firstLoad } from './addToCart.js';
+import {saveToLocalStorage, firstLoad }  from './addToCart.js';
 import { renderPagination } from './pagination.js';
 import { load } from './localStorage.js';
 
@@ -26,7 +27,7 @@ const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 const productsListGeneral = document.querySelector('.products-list-general');
 const productListDiscount = document.querySelector('.products-list-discount');
 const productListPopular = document.querySelector('.products-list-popular');
-let arrProducts = [];
+export let arrProducts = [];
 
 const dataFromLocalStorage = firstLoad('product');
 document.querySelector('#header-length').innerHTML = `${
@@ -47,14 +48,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const allProduct = await getAllProducts();
     const arrOfAllProducts = allProduct.results;
-
-    // const pages = allProduct.totalPages;
-
-    // renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
-    // productsListGeneral.insertAdjacentHTML(
-    //   'beforeend',
-    //   renderPagination(pages)
-    // );
+    const pages = allProduct.totalPages;
+    renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
+    productsListGeneral.insertAdjacentHTML(
+      'beforeend',
+      renderPagination(pages)
+    );
 
     let cards = document.querySelectorAll('.product-card-general');
     cards.forEach(card => {
@@ -106,18 +105,19 @@ searchForm.addEventListener('submit', async event => {
   event.preventDefault();
   try {
     const queryParameters = collectQueryParameters();
-    console.log(queryParameters);
+    const filteredParameter = queryParameters.filterSearch;
+    console.log(filteredParameter);
     const response = await getProductsByQuery(queryParameters);
-    console.log(response);
-    // const pages = response.totalPages;
+    const pages = response.totalPages;
     const productForRender = response.results;
+    const filteredProducts = filterBySearchParameter(filteredParameter, productForRender);
+    console.log(productForRender);
     productsListGeneral.innerHTML = '';
-    renderMarkup(productForRender, 'general', productsListGeneral);
-
-    // productsListGeneral.insertAdjacentHTML(
-    //   'beforeend',
-    //   renderPagination(pages)
-    // );
+    renderMarkup(filteredProducts, 'general', productsListGeneral);
+    productsListGeneral.insertAdjacentHTML(
+      'beforeend',
+      renderPagination(pages)
+    );
 
     let cardsDisc = document.querySelectorAll('.discount-product-card');
     cardsDisc.forEach(card => {
@@ -133,6 +133,3 @@ searchForm.addEventListener('submit', async event => {
   }
 });
 
-// ІМЕНОВАНИЙ ЕКСПОРТ
-
-export { arrProducts };
