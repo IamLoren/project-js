@@ -29,6 +29,7 @@ const productListDiscount = document.querySelector('.products-list-discount');
 const productListPopular = document.querySelector('.products-list-popular');
 export let arrProducts = [];
 
+
 const dataFromLocalStorage = firstLoad('product');
 document.querySelector('#header-length').innerHTML = `${
   dataFromLocalStorage === undefined ? '0' : dataFromLocalStorage.length
