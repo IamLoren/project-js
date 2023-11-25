@@ -20,5 +20,4 @@ export async function openProductModal(event) {
   // document.querySelector('.modal-product-backdrop').classList.remove('is-hidden');
   document.body.classList.add('is-overflow-hidden');
   addToCartTheProduct();
-
 }
