@@ -1,4 +1,4 @@
-import { load, remove } from './localStorage.js';
+import { load, remove, save } from './localStorage.js';
 import iconsPath from '../images/icons.svg';
 
 console.log(load('product'));
@@ -6,20 +6,41 @@ console.log(load('product'));
 /* берем значення зі сховища*/
 const cartProducts = load('product');
 
-if (cartProducts) {
-  const cartItemsHTML = cartProducts
-    .map(product => renderCartProduct(product))
-    .join('');
-  document.querySelector('.cart-shopping-list').innerHTML = cartItemsHTML;
-} else {
-  document.querySelector('.section-cart').innerHTML = renderEmptyCart();
+function renderCarts(cartProducts) {
+  if (cartProducts) {
+    const cartItemsHTML = cartProducts
+      .map(product => renderCartProduct(product))
+      .join('');
+    document.querySelector('.cart-shopping-list').innerHTML = cartItemsHTML;
+  } else {
+    document.querySelector('.section-cart').innerHTML = renderCartEmpty();
+  }
 }
-
+renderCarts(cartProducts);
 /* видаляємо всі значення при натисканні на кнопку*/
 document.querySelector('.delete-all-text').addEventListener('click', () => {
-  localStorage.clear();
-  document.querySelector('.section-cart').innerHTML = renderEmptyCart();
+  //   localStorage.clear();
+  remove('product');
+  document.querySelector('.section-cart').innerHTML = renderCartEmpty();
 });
+/* видалення одного елемента */
+
+let removeCartItems = document.querySelectorAll('.cart-delete-icon');
+console.log(removeCartItems);
+removeCartItems.forEach(removeItem => {
+  removeItem.addEventListener('click', removeId);
+});
+
+function removeId(event) {
+  const ParentElement = event.target.closest('li');
+  const productId = ParentElement.getAttribute('data-product-id');
+  console.log(productId);
+  let newArr = cartProducts.filter(item => item.id !== productId);
+  console.log(newArr);
+  save('product', newArr);
+  renderCarts(newArr);
+}
+/* */
 
 /* рендер картки*/
 function renderCartProduct(product) {
@@ -64,7 +85,7 @@ function renderCartProduct(product) {
       `;
 }
 /* рендер пустої корзини*/
-function renderEmptyCart() {
+function renderCartEmpty() {
   return `
   <div class="cart-empty">
   <img
@@ -83,6 +104,9 @@ function renderEmptyCart() {
       `;
 }
 
+/* витягую ціну*/
+const prices = cartProducts.map(object => object.price);
+console.log(typeof prices[0]);
 // document.querySelector('.cart-shopping-list').innerHTML =
 //   '<p class="cart-empty">Корзина пуста</p>';
 
