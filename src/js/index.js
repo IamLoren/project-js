@@ -111,6 +111,10 @@ searchForm.addEventListener('submit', async event => {
     const productForRender = response.results;
     productsListGeneral.innerHTML = '';
     renderMarkup(productForRender, 'general', productsListGeneral);
+    productsListGeneral.insertAdjacentHTML(
+      'beforeend',
+      renderPagination(pages)
+    );
 
     let cardsDisc = document.querySelectorAll('.discount-product-card');
     cardsDisc.forEach(card => {
