@@ -1,5 +1,5 @@
 import {getLength} from './header.js';
-import {arrProducts} from './addToCart.js'
+
 export const save = (key, value) => {
     try {
         const serializedState = JSON.stringify(value);
