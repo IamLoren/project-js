@@ -1,40 +1,86 @@
 // import { getProducttById } from '../api.js';
-// import { save, load, remove } from '../localStorage.js';
-
-
+import { save, load, remove } from '../localStorage.js';
+import {firstLoad, saveToLocalStorage} from '../addToCart.js';
+import {arrProducts} from '../index.js';
 
 import pathToSvg from '../../images/icons.svg';
+
+// const addToCartFromModalProduct = document.querySelectorAll('.modal-product-btn-price');
+// addToCartFromModalProduct.forEach(btn => {
+//   btn.addEventListener('click', saveToLocalStorage)
+// });
+
+export function addToCartTheProduct() {
+  const addToCartFromModalProduct = document.querySelector('.modal-product-btn-price');
+  
+//    addToCartFromModalProduct.forEach(btn => {
+    addToCartFromModalProduct.addEventListener('click', event => { 
+
+        const productId = event.target.dataset.id;
+        const textBtn = event.target.innerText;
+        // const loadProduct = firstLoad();
+
+        // console.log(loadProduct);
+
+        if (textBtn === 'Add to') {
+            if (event.target.innerText === 'Add to') {
+                event.target.innerText = 'Remove from';
+                const id = event.currentTarget.getAttribute('data-id');
+    const parentElement = event.target.closest('.modal-product');
+    const nameOfProduct = parentElement.querySelector('.modal-title').textContent;
+    const price = parentElement.querySelector('.modal-product-price').textContent;
+    const img = parentElement.querySelector('.modal-product-img').src;
+     const localStorage = window.localStorage;
+   
+     const productData = {
+       id,
+       name: nameOfProduct,
+       price,
+       img,
+     };
+ 
+     arrProducts.push(productData);
+ 
+     localStorage.setItem("product", JSON.stringify(arrProducts));
+     document.querySelector('#header-length').innerHTML = arrProducts.length;
+            } else {
+            // if (!isProductInCart(productId)) {
+            //     event.target.innerText = 'Remove from';
+            //     save(productId);
+            // } else {
+                console.log(`This product is already in the cart!`);
+            }
+        } else if (textBtn === 'Remove from') {
+            if (isProductInCart(productId)) {
+                event.target.innerText = 'Add to';
+                remove(productId);
+            } else {
+                console.log(`This product is not in the cart!`);
+            }
+        }
+    });
+}
+
+
+// addToCartFromModalProduct.forEach(btn => {
+//   btn.addEventListener('click', handleAddToCartClick);
+// });
+
+// console.log(addToCartTheProduct);
+
+
+
 
 
 export function closeModal() {
   const modalProductBackdrop = document.querySelector('.modal-product-backdrop');
   const closeModalButton = document.querySelector('.modal-btn-close');
-  // const addToCartBtn = document.querySelector('.js-addToCart-btn');
-  // console.log(addToCartBtn);
-
-  
-
-  // addToCartBtn.addEventListener('click', event => {
-  //   if (event.target === addToCartBtn) {
-  //     modalProductBackdrop.classList.add('is-hidden');
-  //   }
-  // });
 
   const onClickCloseModal = () => {
     modalProductBackdrop.remove();
     modalProductBackdrop.classList.add('is-hidden');
     document.body.classList.remove('is-overflow-hidden');
   };
-
-  // addToCartBtn.addEventListener('click', event => {
-  //   addToCartBtn = 'BUTTON'
-  //   if(event.target === 'BUTTON') {
-  //     onClickCloseModal();
-  //     modalProductBackdrop.classList.add('is-hidden');
-  //   }
-  // })
-  
-
 
   const onEscapeCloseModal = event => {
     if(event.key === 'Escape') {
@@ -50,7 +96,6 @@ export function closeModal() {
     }
   } 
 
-  
   closeModalButton.addEventListener('click', onClickCloseModal);
   document.addEventListener('keydown', onEscapeCloseModal);
   document.addEventListener('click', onClickOutModalProduct);
@@ -62,7 +107,6 @@ export function closeModal() {
 export function onRenderModalProduct(product) {
   let { name, category, desc, img, price, size, popularity, _id } = product;
 
-//   console.log(img)
   return `
           <div class="modal-product-backdrop" data-modal>
           <div class="modal-product">
@@ -117,7 +161,7 @@ export function onRenderModalProduct(product) {
 
 //
 
-// додання до корзини add to - remove to////////
+// додання до корзини add to - remove to///
 // const addToCartFromModalProduct = document.querySelector('data-id');
 // console.log(addToCartFromModalProduct);
 
