@@ -117,3 +117,6 @@ addToCartBtn.forEach(btn => {
   }
 });
 
+import { subscribeMailNewProduct } from './footer.js';
+const form = document.querySelector(".footer-form");
+form.addEventListener("submit", subscribeMailNewProduct)
