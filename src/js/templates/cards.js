@@ -26,9 +26,10 @@ export function createProductCard(product) {
               <div class="general-card-price">
                   <span class="general-span-price">&#36;${price}</span>
                   <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn">
-                      <svg class="cart-svg" width="18" height="18">
+                      <svg class="cart-svg " width="18" height="18">
                           <use href="${iconsPath}#icon-shopping-cart"></use>
-                      </svg>
+                         
+                      </svg>  
                   </button>
               </div>
               <svg class="general-discount-svg ${is10PercentOff ? "discount-label" : null}" width="60" height="60">

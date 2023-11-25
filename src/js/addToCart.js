@@ -1,4 +1,10 @@
+<<<<<<< Updated upstream
 import { arrProducts } from './index.js'
+=======
+import { arrProducts } from "./index.js";
+import iconsPath from "../images/icons.svg"
+import { getProducttById } from "./api.js";
+>>>>>>> Stashed changes
 
 export function firstLoad(key) {
     try {
@@ -12,26 +18,31 @@ export function firstLoad(key) {
     }
 };
 
-export function saveToLocalStorage(event) {
+export async function saveToLocalStorage(event) {
    const id = event.currentTarget.getAttribute('data-id');
-   const parentElement = event.target.closest('li');
-   const nameOfProduct = parentElement.querySelector('.general-card-title').textContent;
-   const price = parentElement.querySelector('.general-span-price').textContent;
-   const img = parentElement.querySelector('.card-img').src;
+   const passSvg = event.currentTarget.querySelector('use');
+   passSvg.setAttribute('href', `${iconsPath}#icon-checkmark`)
+   const productData = {};
+
+   try {
+    const product = await getProducttById(id);
+   console.log(product);
+    const { category,  size, _id, name, price, img  } = product;
+    productData.category = category;
+    productData.size = size;
+    productData._id = _id;
+    productData.name = name;
+    productData.price = price;
+    productData.img = img;
+   } catch (error) {
+    console.log(error);
+   }
     const localStorage = window.localStorage;
-  
-    const productData = {
-      id,
-      name: nameOfProduct,
-      price,
-      img,
-    };
 
     arrProducts.push(productData);
+   
 
     localStorage.setItem("product", JSON.stringify(arrProducts));
-
-    
   }
 
  
