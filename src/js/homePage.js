@@ -49,7 +49,6 @@ fillarrProducts();
   const paramsFromLS = localStorageAPI.load('queryParams');
    if (!paramsFromLS) {
     localStorageAPI.save('queryParams', {keyword:'', category: '', page: 1, limit: 6});
-
    }
  }
 loadQueryParamsFromLS()
@@ -115,14 +114,12 @@ searchForm.addEventListener('submit', async event => {
   try {
     const queryParameters = collectQueryParameters();
     const filteredParameter = queryParameters.filterSearch;
-    console.log(filteredParameter);
     const response = await getProductsByQuery(queryParameters);
     const productForRender = response.results;
     const filteredProducts = filterBySearchParameter(
       filteredParameter,
       productForRender
     );
-    console.log(productForRender);
     productsListGeneral.innerHTML = '';
     if (filteredProducts.length === 0) {
       const sorryMessage = renderSorryMessage();
@@ -158,7 +155,6 @@ export async function addToCartFromModal(event) {
                 </svg>`;
     try {
       const product = await getProducttById(id);
-      console.log(product);
       const { category, size, _id, name, price, img } = product;
       productData.category = category;
       productData.size = size;
