@@ -19,7 +19,7 @@ import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
 import { saveToLocalStorage } from './addToCart.js';
 import { renderPagination } from './pagination.js';
-import localStorageAPI from './localStorage.js';
+
 
 const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
@@ -30,20 +30,6 @@ const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 const productsListGeneral = document.querySelector('.products-list-general');
 const productListDiscount = document.querySelector('.products-list-discount');
 const productListPopular = document.querySelector('.products-list-popular');
-export let arrProducts = [];
-
-const fillarrProducts = () => {
-  const dataFromLS = localStorageAPI.load('product');
-
-  if (dataFromLS === undefined) {
-    document.querySelector('#header-length').innerHTML = '0';
-    return;
-  }
-  document.querySelector('#header-length').innerHTML = dataFromLS.length;
-  arrProducts = dataFromLS;
-};
-
-fillarrProducts();
 
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
@@ -148,9 +134,9 @@ export async function addToCartFromModal(event) {
   const isInCart = arrProducts.some(product => product.id === id); 
          
         if (!isInCart) {
-          event.currentTarget.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
-            <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
-            </svg>`;
+        event.currentTarget.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
+                <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
+                </svg>`;
             try {
                 const product = await getProducttById(id);
                console.log(product);
@@ -173,7 +159,7 @@ export async function addToCartFromModal(event) {
             
                 getLength();
     
-            
+               
       
         } 
 
@@ -181,17 +167,15 @@ export async function addToCartFromModal(event) {
        event.currentTarget.innerHTML = `Add to <svg class="modal-btn-svg" width="18" height="18">
         <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
         </svg>`;
-        // Видалити продукт з arrProducts
+        // Видаляємо продукт з arrProducts
         const idCard = event.currentTarget.getAttribute('data-id');
         arrProducts = arrProducts.filter(item => item.id !== idCard);
       
-        // Оновити локальне сховище із оновленим масивом arrProducts
+        // Оновлюємо локалсторідж
         localStorage.setItem('product', JSON.stringify(arrProducts));
       
-        // Оновити текст і значок кнопки
        
-      
-        // Оновити лічильник довжини
+    
         getLength();
     }
  
