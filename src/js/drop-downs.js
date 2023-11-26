@@ -1,3 +1,6 @@
+import localStorageAPI from './localStorage.js';
+
+
 export function openDropDown(event) {
 const parentElement = this.closest('.filters-wrap');
 const svgElement = parentElement.querySelector('.filters-down-svg');
@@ -57,6 +60,16 @@ export function collectQueryParameters() {
         keyword: searchWord,
         filterSearch: `by${filterSearch}`
     }
+
+    const paramsForBack = {
+        category,
+        keyword: searchWord,
+        page: 1,
+        limit: 6,
+    }
+
+    localStorageAPI.save('queryParams', paramsForBack);
+    console.log(localStorageAPI.load('queryParams'));
     return queryParameters;
 }
 

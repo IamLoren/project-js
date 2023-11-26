@@ -8,8 +8,16 @@ import axios from 'axios';
 
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
-export async function getAllProducts() {
-    const response = await axios.get(`${BASE_URL}?limit=9`);
+export async function getAllProducts(queryParams) {
+  let {keyword, category, page, limit} =  queryParams
+  const params = new URLSearchParams({
+    keyword,
+    category,
+    page,
+    limit,
+
+  })
+    const response = await axios.get(`${BASE_URL}?${params}`);
     return response.data;
   }
 
