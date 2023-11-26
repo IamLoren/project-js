@@ -121,37 +121,41 @@
       <form class="cart-order-info-form">
         <p class="cart-order-info-text">Enter your details for the order</p>
         <label class="cart-order-info-label">
+        </label>
           <input
             class="cart-order-info-input"
             type="text"
             placeholder="Name:"
             required
+            id="name"
           />
-        </label>
         <label class="cart-order-info-label">
+        </label>
           <input
             class="cart-order-info-input"
             type="tel"
             placeholder="Phone number:"
             required
+            id="phone"
           />
-        </label>
         <label class="cart-order-info-label">
+        </label>
           <input
             class="cart-order-info-input"
             type="text"
             placeholder="Delivery address:"
             required
+            id="address"
           />
+        <label class="cart-order-info-label datetime-label">
+          Delivery date and time:
         </label>
-        <label class="cart-order-info-label">
           <input
-            class="cart-order-info-input datetime"
-            type="text"
-            placeholder="Delivery date and time:"
-            required
+          class="cart-order-info-input datetime"
+          id="datetime"
+          type="text"
+          name="datetime"
           />
-        </label>
         <button class="cart-order-info-btn" type="submit">Send</button>
       </form>
     </div>
