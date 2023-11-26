@@ -1,4 +1,4 @@
-import { getProducttById } from '../api.js';
+// import { getProducttById } from '../api.js';
 import { arrProducts } from '../homePage.js';
 
 
