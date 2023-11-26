@@ -82,7 +82,7 @@ function renderCartProduct(product) {
   
           <div class="cart-counter-wrapper">
             <button class="cart-counter-decrement" type="button" data-action="minus">-</button>
-            <span class="cart-counter-value" data-counter>1</span>
+            <span class="cart-counter-value" data-counter>5</span>
             <button class="cart-counter-increment" type="button" data-action="plus">+</button>
           </div>
         </div>
@@ -96,7 +96,7 @@ function renderCartEmpty() {
   <div class="cart-empty">
   <img
     class="cart-empty-img"
-    src="../../images/tomatoes.jpg"
+    src="./images/yellow-shopping-basket.webp"
     alt="Empty cart"
   />
   <p class="cart-empty-text">
@@ -111,24 +111,39 @@ function renderCartEmpty() {
 }
 
 /* вирахування загальної ціни*/
-function totalPrice() {
-  const spanTotalPrice = document.querySelector('.js-total-price');
-  const prices = cartProducts.map(object => object.price);
-  console.log('prices', prices);
+// function totalPrice() {
+//   const spanTotalPrice = document.querySelector('.js-total-price');
+//   const prices = cartProducts.map(object => object.price);
+//   console.log('prices', prices);
 
-  const totalPrice = prices
-    .reduce((current, previous) => Number(current) + Number(previous), 0)
-    .toFixed(2);
-  console.log(totalPrice);
-  spanTotalPrice.textContent = totalPrice;
-}
-totalPrice();
+//   const totalPrice = prices
+//     .reduce((current, previous) => Number(current) + Number(previous), 0)
+//     .toFixed(2);
+//   console.log(totalPrice);
+//   spanTotalPrice.textContent = totalPrice;
+// }
+// totalPrice();
 
 /* розрахунок ціни*/
 
-// function calculatePrice(params) {
-//   const cartProducts = document.querySelector('.cart-products');
-// }
+function calculatePrice() {
+  const cartItems = document.querySelectorAll('.cart-shopping-item');
+  const spanTotalPrice = document.querySelector('.js-total-price');
+  console.log(cartItems);
+  let totalPrice = 0;
+
+  cartItems.forEach(item => {
+    console.log(item);
+
+    const amountEl = item.querySelector('[data-counter]');
+    const priceEl = item.querySelector('.cart-info-price');
+
+    const currentPrice = Number(amountEl.innerHTML) * Number(priceEl.innerHTML);
+    console.log(currentPrice);
+    totalPrice += currentPrice;
+  });
+  spanTotalPrice.innerHTML = totalPrice.toFixed(2);
+}
 
 /* кнопки + та - */
 window.addEventListener('click', event => {
@@ -143,10 +158,12 @@ window.addEventListener('click', event => {
 
   if (event.target.dataset.action === 'plus') {
     counter.innerHTML = ++counter.innerHTML;
+    calculatePrice();
   }
 
   if (event.target.dataset.action === 'minus') {
     if (parseInt(counter.innerHTML) > 1)
       counter.innerHTML = --counter.innerHTML;
+    calculatePrice();
   }
 });
