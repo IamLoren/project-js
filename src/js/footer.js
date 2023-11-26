@@ -1,4 +1,6 @@
 import axios from 'axios';
+import { Notify } from 'notiflix';
+
 const form = document.querySelector('.footer-form');
 form.addEventListener('submit', subscribeMailNewProduct);
 
@@ -15,15 +17,15 @@ export function subscribeMailNewProduct(event) {
     })
     .then(response => {
       if (response.status === 201) {
-        alert(
+        Notify.success(
           'Welcome to the Food Boutique! 🥦🍓 With Food Boutique, you are not just subscribing to food, you are signing up for a fresher, fitter, and happier you. Get ready to elevate your wellness journey, one bite at a time!'
         );
       } else {
-        alert('Oops, something went wrong...');
+        Notify.failure('Oops, something went wrong...');
       }
     })
     .catch(error => {
-      alert('Subscription already exists');
+      Notify.warning('Subscription already exists!');
     });
 
   emailInput.value = '';
