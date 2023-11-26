@@ -59,12 +59,12 @@
   background-color: var(--secondary-bg-green-color);
   color: var(--title-white-text-color);
 }
-.tui-pagination.tui-first,
-.tui-pagination.tui-last {
+.tui-pagination .tui-first,
+.tui-pagination .tui-last {
   display: none;
 }
 
-.tui-pagination.tui-next-is-ellip {
+.tui-pagination .tui-next-is-ellip {
   display: none;
 }
 .pagination-item-arrow {
