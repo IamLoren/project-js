@@ -1,3 +1,4 @@
+
 body {
   background: var(--primary-bg-color);
 }
@@ -512,12 +513,6 @@ body {
   }
 }
 
-@media only screen and (min-width: 768px) and (max-width: 1440px) {
-  .cart-order-info {
-    width: 500px;
-  }
-}
-
 @media only screen and (min-width: 1440px) {
   .cart-order-info {
     width: 590px;
@@ -542,11 +537,6 @@ body {
   }
 }
 
-.datetime-label {
-  margin-left: 10px;
-  font-family: Neue Montreal Medium;
-}
-
 .cart-order-info-input {
   color: var(--title-black-text-color);
   border-radius: 30px;
@@ -561,15 +551,12 @@ body {
 
 @media only screen and (min-width: 768px) and (max-width: 1440px) {
   .cart-order-info-input {
+    width: 500px;
     margin-bottom: 20px;
     padding: 15px 20px 15px 20px;
     font-size: 18px;
     line-height: 1.33;
   }
-}
-
-.datetime {
-  margin-top: 5px;
 }
 
 .cart-order-info-btn {
@@ -597,3 +584,4 @@ body {
     line-height: 1.2;
   }
 }
+
