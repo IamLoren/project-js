@@ -4,7 +4,7 @@ import iconsPath from '../images/icons.svg';
 
 export function addNumberProd() {
     const arrFromLS = localStorageAPI.load('product');
-    document.querySelector('.cart-number-purchases').innerHTML = `${arrFromLS.length}`;
+    document.querySelector('.cart-number-purchases').innerHTML = `${arrFromLS} ? ${arrFromLS.length} : '0'`;
 }
 addNumberProd();
 
