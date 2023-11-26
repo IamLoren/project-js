@@ -2,6 +2,7 @@
 import { getProducttById } from "./api.js";
 import iconsPath from "../images/icons.svg"
 import {arrProducts} from './homePage.js';
+import {getLength} from './header.js'
 
 // export function firstLoad(key) {
 //     try {
@@ -18,7 +19,8 @@ import {arrProducts} from './homePage.js';
 export async function saveToLocalStorage(event) {
    const id = event.currentTarget.getAttribute('data-id');
    const passSvg = event.currentTarget.querySelector('use');
-   passSvg.setAttribute('href', `${iconsPath}#icon-checkmark`)
+   passSvg.setAttribute('href', `${iconsPath}#icon-checkmark`);
+   event.currentTarget.setAttribute('disabled', 'true');
    const productData = {};
 
    try {
@@ -40,6 +42,7 @@ export async function saveToLocalStorage(event) {
    
 
     localStorage.setItem("product", JSON.stringify(arrProducts));
+    getLength();
   }
 
  
