@@ -1,11 +1,12 @@
 import localStorageAPI from './localStorage.js';
 import iconsPath from '../images/icons.svg';
-import emptyCart from '../images/yellow-shopping-basket.webp'
-
+import emptyCart from '../images/yellow-shopping-basket.webp';
 
 export function addNumberProd() {
-    const arrFromLS = localStorageAPI.load('product');
-    document.querySelector('.cart-number-purchases').innerHTML = `${arrFromLS ? arrFromLS.length : '0'} `;
+  const arrFromLS = localStorageAPI.load('product');
+  document.querySelector('.cart-number-purchases').innerHTML = `${
+    arrFromLS ? arrFromLS.length : '0'
+  } `;
 }
 addNumberProd();
 
@@ -32,12 +33,12 @@ function renderCarts(cartProducts) {
 }
 renderCarts(cartProducts);
 /* видаляємо всі значення при натисканні на кнопку*/
-document.querySelector('.delete-all-text').addEventListener('click', () => {
+document.querySelector('.delete-all-box').addEventListener('click', () => {
   //   localStorage.clear();
   localStorageAPI.remove('product');
   document.querySelector('.section-cart').innerHTML = renderCartEmpty();
 });
-
+/* видаляємо по item */
 const productList = document.querySelector('.cart-shopping-list ');
 productList.addEventListener('click', onDeleteItemClick);
 
@@ -61,6 +62,8 @@ function onDeleteItemClick(event) {
   localStorage.setItem('product', JSON.stringify(cartProducts));
   renderCarts(cartProducts);
   calculatePrice();
+  addScroll();
+  addNumberProd();
   if (cartProducts.length === 0) {
     document.querySelector('.section-cart').innerHTML = renderCartEmpty();
   }
