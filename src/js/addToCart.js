@@ -2,20 +2,8 @@
 import { getProducttById } from "./api.js";
 import iconsPath from "../images/icons.svg"
 import {getLength} from './header.js'
-import {arrProducts} from './homePage.js';
+import { arrProducts } from './homePage.js';
 
-
-// export function firstLoad(key) {
-//     try {
-//         const serializedState = localStorage.getItem(key);
-//         if (serializedState) {
-//             arrProducts = JSON.parse(serializedState);
-//           }
-//           return serializedState === null ? undefined : JSON.parse(serializedState);
-//     } catch (error) {
-//         console.error("Get state error: ", error.message);
-//     }
-// };
 
 export async function saveToLocalStorage(event) {
    const id = event.currentTarget.getAttribute('data-id');
