@@ -47,12 +47,21 @@ const fillarrProducts = () => {
 };
 
 fillarrProducts();
+ function loadQueryParamsFromLS () {
+  const paramsFromLS = localStorageAPI.load('queryParams');
+   if (!paramsFromLS) {
+    localStorageAPI.save('queryParams', {keyword:'', category: '', page: 1, limit: 6});
 
+   }
+ }
+loadQueryParamsFromLS()
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const allProduct = await getAllProducts();
+    const paramsFromLS = localStorageAPI.load('queryParams');
+    console.log(paramsFromLS);
+    const allProduct = await getAllProducts(paramsFromLS);
     const arrOfAllProducts = allProduct.results;
     const pages = allProduct.totalPages;
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);

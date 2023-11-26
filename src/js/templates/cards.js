@@ -1,7 +1,10 @@
 import iconsPath from '../../images/icons.svg';
+import { arrProducts } from '../homePage.js';
 
 export function createProductCard(product) {
   let { img, name, category, size, popularity, price, _id, is10PercentOff } = product;
+  const isInCart = arrProducts.some(product => product.id === _id);
+
   return `
       <li class="product-card-general">
           <div class="img-wrapper">
@@ -26,9 +29,9 @@ export function createProductCard(product) {
     
               <div class="general-card-price">
                   <span class="general-span-price">&#36;${price}</span>
-                  <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn">
+                  <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn" ${isInCart ? 'disabled': ''}>
                       <svg class="cart-svg " width="18" height="18">
-                          <use href="${iconsPath}#icon-shopping-cart"></use>
+                          <use href="${iconsPath}${isInCart ? '#icon-checkmark' : '#icon-shopping-cart'}"></use>
                          
                       </svg>  
                   </button>
@@ -42,6 +45,8 @@ export function createProductCard(product) {
 
 export function createPopularCard(product) {
   const { img, name, category, size, popularity, _id } = product;
+  const isInCart = arrProducts.some(product => product.id === _id);
+
 
   return `
         <li class="popular-product-card">
@@ -63,9 +68,9 @@ export function createPopularCard(product) {
                     </div>
                 </div>
                     
-                <button data-id=${_id} type="submit" class="popular-card-btn js-addToCart-btn">
+                <button data-id=${_id} type="submit" class="popular-card-btn js-addToCart-btn" ${isInCart ? 'disabled': ''}>
                     <svg class="popular-cart-svg" width="12" height="12">
-                        <use href="${iconsPath}#icon-shopping-cart"></use>
+                        <use href="${iconsPath}${isInCart ? '#icon-checkmark' : '#icon-shopping-cart'}"></use>
                     </svg>
                 </button>
             
@@ -75,6 +80,8 @@ export function createPopularCard(product) {
 
 export function createDiscountCard(product) {
   const { img, name, price, _id } = product;
+  const isInCart = arrProducts.some(product => product.id === _id);
+
 
   return `
       <li class="discount-product-card">
@@ -96,9 +103,9 @@ export function createDiscountCard(product) {
 
           <div class="discount-card-price">
               <span class="span-price">&#36;${price}</span>
-              <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn">
+              <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn" ${isInCart ? 'disabled': ''}>
                   <svg class="cart-svg" width="18" height="18">
-                      <use href="${iconsPath}#icon-shopping-cart"></use>
+                      <use href="${iconsPath}${isInCart ? '#icon-checkmark' : '#icon-shopping-cart'}"></use>
                   </svg>
               </button>
           </div>
