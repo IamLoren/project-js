@@ -67,6 +67,11 @@
   fill: var(--primary-bg-color) ;
    padding: 6px; 
 }
+.header-logotype-icon:hover,
+.header-logotype-icon:focus {
+  background-color: var(--primary-bg-green-color) ;
+  fill: var(--primary-bg-color) ;
+}
 .header-logotype-icon-card {
   width: 38px;
   height: 38px;
