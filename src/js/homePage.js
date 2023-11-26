@@ -20,6 +20,7 @@ import { openProductModal } from './card-button.js';
 import { saveToLocalStorage } from './addToCart.js';
 import { renderPagination } from './pagination.js';
 import localStorageAPI from './localStorage.js';
+import {renderSorryMessage} from './templates/renderSorryMessage.js'
 
 const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
@@ -130,12 +131,19 @@ searchForm.addEventListener('submit', async event => {
     );
     console.log(productForRender);
     productsListGeneral.innerHTML = '';
-    renderMarkup(filteredProducts, 'general', productsListGeneral);
-    productsListGeneral.insertAdjacentHTML(
-      'beforeend',
-      renderPagination(pages)
-    );
-
+    if (filteredProducts.length === 0) {
+      const sorryMessage = renderSorryMessage();
+      productsListGeneral.insertAdjacentHTML(
+        'beforeend',
+        sorryMessage
+      );
+    } else {
+      renderMarkup(filteredProducts, 'general', productsListGeneral);
+      productsListGeneral.insertAdjacentHTML(
+        'beforeend',
+        renderPagination(pages)
+      );
+    }
     let cardsDisc = document.querySelectorAll('.discount-product-card');
     cardsDisc.forEach(card => {
       card.addEventListener('click', openProductModal);

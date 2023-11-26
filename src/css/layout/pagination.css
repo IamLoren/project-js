@@ -1,3 +1,110 @@
+#tui-pagination-container {
+  display: flex;
+  margin: 20px auto 61px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tui-pagination .tui-first,
+.tui-pagination .tui-prev,
+.tui-pagination .tui-next,
+.tui-pagination .tui-last,
+.tui-pagination .tui-prev-is-ellip,
+.tui-pagination .tui-next-is-ellip {
+  width: 40px;
+  height: 40px;
+  border-radius: 60%;
+  border: 0;
+  border-color: transparent;
+  background-color: transparent;
+  color: #a3a3a3;
+  font-family: 'Neue Montreal Medium';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tui-pagination {
+  margin: 0 auto;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.tui-page-btn {
+  border-radius: 60%;
+  width: 40px;
+  height: 40px;
+  border-radius: 60%;
+}
+
+.tui-pagination .tui-page-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 60%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tui-pagination .tui-prev,
+.tui-pagination .tui-next {
+  background-color: var(--card-bg-color);
+}
+.tui-pagination .tui-is-selected {
+  background-color: var(--secondary-bg-green-color);
+  color: var(--title-white-text-color);
+}
+.tui-pagination .tui-first,
+.tui-pagination .tui-last {
+  display: none;
+}
+
+.tui-pagination .tui-next-is-ellip {
+  display: none;
+}
+.pagination-item-arrow {
+  padding: 8px;
+  align-items: center;
+  background-color: var(--card-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-arrow {
+  fill: transparent;
+  stroke: #a3a3a3;
+}
+
+.pagination-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 60%;
+}
+.pagination-item-arrow:hover,
+.pagination-item-arrow:focus,
+.pagination-item:hover,
+.pagination-item:focus {
+  background-color: var(--secondary-bg-green-color);
+  color: var(--title-white-text-color);
+
+  border-radius: 60%;
+}
+@media only screen and (min-width: 768px) {
+  #tui-pagination-container {
+    /* display: flex; */
+    margin-left: 148px;
+    margin-right: 148px;
+    /* align-items: center;
+  justify-content: space-between; */
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .pagination-container {
     display: flex;
@@ -58,5 +165,11 @@
     color: var(--title-white-text-color);
 
     border-radius: 60%;
+  }
+
+  #tui-pagination-container {
+    margin-right: 148px;
+    /* align-items: center;
+  justify-content: space-between; */
   }
 }
