@@ -145,6 +145,8 @@ function calculatePrice() {
   spanTotalPrice.innerHTML = totalPrice.toFixed(2);
 }
 
+calculatePrice();
+
 /* кнопки + та - */
 window.addEventListener('click', event => {
   let counter;
