@@ -1,3 +1,4 @@
+
 import Pagination from 'tui-pagination';
 //import 'tui-pagination/dist/tui-pagination.css';
 import { getAllProducts, getProductsByQuery } from './api.js';
@@ -55,27 +56,3 @@ const createUserPagination = async event => {
 pagination.on('afterMove', createUserPagination);
 
 document.addEventListener('DOMContentLoaded', onRenderPage);
-
-// export function renderPagination(pages) {
-//   return `<div class="pagination-container container">
-
-//   <div class="pagination-item-arrow">
-// <svg class="pagination-arrow" width="27" height="27">
-//   <use href="${iconsPath}#icon-caret-small-left"></use>
-// </svg>
-//   </div>
-//     <div class="pagination-number-container">
-//   <div class="pagination-item ">1</div>
-//   <div class="pagination-item ">2</div>
-//   <div class="pagination-item ">...</div>
-//   <div class="pagination-item ">${pages - 1}</div>
-//   <div class="pagination-item ">${pages}</div>
-//     </div>
-//   <div class="pagination-item-arrow">
-// <svg class="pagination-arrow" width="27" height="27">
-//   <use href="${iconsPath}#icon-caret-small-right"></use>
-// </svg>
-
-// </div>
-// </div>`;
-// }

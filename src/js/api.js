@@ -7,7 +7,6 @@ import axios from 'axios';
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
 export async function getAllProducts() {
-  console.log(getAllProducts.page);
 
   const response = await axios.get(
     `${BASE_URL}?page=${getAllProducts.page}&limit=9`

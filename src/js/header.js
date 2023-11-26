@@ -1,4 +1,5 @@
-import {arrProducts} from './homePage.js'
+import { arrProducts } from "./homePage.js";
+
 export function getLength() {
     document.querySelector('#header-length').innerHTML = arrProducts.length;
     // const array = localStorage.getItem('array');
@@ -10,3 +11,4 @@ export function getLength() {
 }
 // import {getLength} from './header.js'
 // getLength();
+
