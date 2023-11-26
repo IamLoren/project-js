@@ -9,6 +9,7 @@ export function createProductCard(product) {
               class="card-img"
               src="${img}"
               alt="${name}"
+              loading="lazy"
             />
           </div>
   
@@ -49,6 +50,7 @@ export function createPopularCard(product) {
                 class="popular-card-img"
                 src="${img}"
                 alt="${name}"
+                loading="lazy"
               />
             </div>
     
@@ -81,6 +83,7 @@ export function createDiscountCard(product) {
           class="discount-card-img"
           src="${img}"
           alt="${name}"
+          loading="lazy"
         />
         <svg class="discount-svg-icon" width="60" height="60">
           <use href="${iconsPath}#icon-discount"></use>
