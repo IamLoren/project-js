@@ -24,9 +24,9 @@ body {
 }
 
 .product-card-general {
+  position: relative;
   border-radius: 20px;
   background-color: var(--card-bg-color);
-  
 }
 
 .product-card-general:hover {
@@ -34,6 +34,7 @@ body {
     0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
     0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
     0px 208px 286px 0px rgba(0, 0, 0, 0.07);
+    transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
 }
 
 .product-list {
@@ -45,6 +46,7 @@ body {
   flex-direction: column;
   gap: 20px;
   padding-bottom: 80px;
+  width: 320px;
 }
 .product-card-general {
   width: 100%;
@@ -121,6 +123,7 @@ body {
   border-radius: 50%;
   background: #6d8434;
   border: none;
+  transition: background-color .25s cubic-bezier(.4,0,.2,1);
 }
 
 .cart-svg {
@@ -145,6 +148,15 @@ body {
   padding: 12px;
   background-color: var(--card-bg-color);
   position: relative;
+  
+}
+
+.popular-product-card:hover {
+  box-shadow: 0px 9.1px 16.53437px 0px rgba(0, 0, 0, 0.02),
+    0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
+    0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
+    0px 208px 286px 0px rgba(0, 0, 0, 0.07);
+    transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
 }
 
 .popular-card-btn {
@@ -160,12 +172,15 @@ body {
   justify-content: center;
 
   background-color: #E8E8E2;
+  transition: background-color .25s cubic-bezier(.4,0,.2,1);
+  fill: #6D8434;
+
+  background-color: #e8e8e2;
 }
 
 .popular-card-btn:hover {
-  background-color: #6D8434;
+  background-color: #6d8434;
 }
-
 
 .popular-title {
   color: #010101;
@@ -232,8 +247,8 @@ body {
 
 .popular-cart-svg:hover,
 .popular-cart-svg:focus {
-    fill: #e8e8e2;
-  }
+  fill: #e8e8e2;
+}
 
 /**
     |============================
@@ -266,6 +281,13 @@ body {
   background-color: var(--card-bg-color);
   border-radius: 15px;
   padding: 16px;
+}
+.discount-product-card:hover {
+  box-shadow: 0px 9.1px 16.53437px 0px rgba(0, 0, 0, 0.02),
+    0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
+    0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
+    0px 208px 286px 0px rgba(0, 0, 0, 0.07);
+    transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
 }
 .discount-img-wrapper {
   padding: 18px 95px;
@@ -333,6 +355,7 @@ body {
   }
 
   .products-list-general {
+    width: 704px;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 32px;
@@ -473,6 +496,7 @@ body {
   .products-list-general {
     flex-direction: row;
     flex-wrap: wrap;
+    width: 925px;
   }
 
   .product-card-general {
@@ -562,7 +586,6 @@ body {
     padding: 4px;
     display: flex;
   }
-  
 
   /**
         |============================
@@ -593,4 +616,15 @@ body {
   .span-price {
     font-size: 20px;
   }
+}
+
+/* Discount additional */
+.general-discount-svg {
+  position: absolute;
+  top: 3px;
+  right: 10px;
+  display: none;
+}
+.discount-label {
+  display: block;
 }

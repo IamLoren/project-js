@@ -14,9 +14,9 @@ import {
 } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
-import {saveToLocalStorage, firstLoad }  from './addToCart.js';
+import { saveToLocalStorage } from './addToCart.js';
 import { renderPagination } from './pagination.js';
-import { load } from './localStorage.js';
+import localStorageAPI from './localStorage.js';
 
 const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
@@ -29,23 +29,23 @@ const productListDiscount = document.querySelector('.products-list-discount');
 const productListPopular = document.querySelector('.products-list-popular');
 export let arrProducts = [];
 
-const dataFromLocalStorage = firstLoad('product');
-document.querySelector('#header-length').innerHTML = `${
-  dataFromLocalStorage === undefined ? '0' : dataFromLocalStorage.length
-}`;
-dataFromLocalStorage === undefined
-  ? null
-  : (arrProducts = dataFromLocalStorage);
+const fillarrProducts = () => {
+  const dataFromLS = localStorageAPI.load('product');
+
+  if (dataFromLS === undefined) {
+    document.querySelector('#header-length').innerHTML = '0';
+    return;
+  }
+  document.querySelector('#header-length').innerHTML = dataFromLS.length;
+  arrProducts = dataFromLS;
+};
+
+fillarrProducts();
 
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const dataFromLocalStorage = load('product');
-    document.querySelector('#header-length').innerHTML = `${
-      dataFromLocalStorage === undefined ? '0' : dataFromLocalStorage.length
-    }`;
-
     const allProduct = await getAllProducts();
     const arrOfAllProducts = allProduct.results;
     const pages = allProduct.totalPages;
@@ -60,11 +60,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       card.addEventListener('click', openProductModal);
     });
 
-    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
-    addToCartBtn.forEach(btn => {
-      btn.addEventListener('click', saveToLocalStorage);
-    });
-
     const arrOfDiscountProducts = await getDiscountProducts();
     renderMarkup(arrOfDiscountProducts, 'discount', productListDiscount);
     let cardsDisc = document.querySelectorAll('.discount-product-card');
@@ -77,6 +72,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     let cardsPop = document.querySelectorAll('.popular-product-card');
     cardsPop.forEach(card => {
       card.addEventListener('click', openProductModal);
+
+      const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+      addToCartBtn.forEach(btn => {
+        btn.addEventListener('click', saveToLocalStorage);
+      });
     });
   } catch (error) {
     console.log(error);
@@ -110,7 +110,10 @@ searchForm.addEventListener('submit', async event => {
     const response = await getProductsByQuery(queryParameters);
     const pages = response.totalPages;
     const productForRender = response.results;
-    const filteredProducts = filterBySearchParameter(filteredParameter, productForRender);
+    const filteredProducts = filterBySearchParameter(
+      filteredParameter,
+      productForRender
+    );
     console.log(productForRender);
     productsListGeneral.innerHTML = '';
     renderMarkup(filteredProducts, 'general', productsListGeneral);
@@ -132,4 +135,3 @@ searchForm.addEventListener('submit', async event => {
     console.log(error);
   }
 });
-

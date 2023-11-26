@@ -158,7 +158,7 @@ body {
   line-height: 1.11;
 }
 
-.cart-counter {
+.cart-counter-wrapper {
   border: 1px solid var(--secondary-text-color);
   border-radius: 100px;
   align-items: center;
@@ -405,7 +405,7 @@ body {
   .cart-properties-list {
     margin-bottom: 46px;
   }
-  .cart-counter {
+  .cart-counter-wrapper {
     font-size: 20px;
     line-height: 1.2;
     padding: 5px;

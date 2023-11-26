@@ -1,7 +1,7 @@
 import iconsPath from '../../images/icons.svg';
 
 export function createProductCard(product) {
-  let { img, name, category, size, popularity, price, _id } = product;
+  let { img, name, category, size, popularity, price, _id, is10PercentOff } = product;
   return `
       <li class="product-card-general">
           <div class="img-wrapper">
@@ -9,6 +9,7 @@ export function createProductCard(product) {
               class="card-img"
               src="${img}"
               alt="${name}"
+              loading="lazy"
             />
           </div>
   
@@ -26,11 +27,15 @@ export function createProductCard(product) {
               <div class="general-card-price">
                   <span class="general-span-price">&#36;${price}</span>
                   <button data-id=${_id} type="submit" class="addToCart-btn js-addToCart-btn">
-                      <svg class="cart-svg" width="18" height="18">
+                      <svg class="cart-svg " width="18" height="18">
                           <use href="${iconsPath}#icon-shopping-cart"></use>
-                      </svg>
+                         
+                      </svg>  
                   </button>
               </div>
+              <svg class="general-discount-svg ${is10PercentOff ? "discount-label" : ""}" width="60" height="60">
+                <use href="${iconsPath}#icon-discount"></use>
+              </svg>
       </li>
       `;
 }
@@ -45,6 +50,7 @@ export function createPopularCard(product) {
                 class="popular-card-img"
                 src="${img}"
                 alt="${name}"
+                loading="lazy"
               />
             </div>
     
@@ -77,6 +83,7 @@ export function createDiscountCard(product) {
           class="discount-card-img"
           src="${img}"
           alt="${name}"
+          loading="lazy"
         />
         <svg class="discount-svg-icon" width="60" height="60">
           <use href="${iconsPath}#icon-discount"></use>
