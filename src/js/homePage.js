@@ -43,8 +43,8 @@ const fillarrProducts = () => {
   document.querySelector('#header-length').innerHTML = dataFromLS.length;
   arrProducts = dataFromLS;
 };
-
 fillarrProducts();
+
  function loadQueryParamsFromLS () {
   const paramsFromLS = localStorageAPI.load('queryParams');
    if (!paramsFromLS) {
@@ -53,6 +53,7 @@ fillarrProducts();
    }
  }
 loadQueryParamsFromLS()
+
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
 document.addEventListener('DOMContentLoaded', async () => {
