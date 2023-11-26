@@ -1,6 +1,6 @@
 import localStorageAPI from './localStorage.js';
 import iconsPath from '../images/icons.svg';
-
+import emptyCart from '../images/yellow-shopping-basket.webp'
 
 
 export function addNumberProd() {
@@ -115,7 +115,7 @@ function renderCartEmpty() {
   <div class="cart-empty">
   <img
     class="cart-empty-img"
-    src="./images/yellow-shopping-basket.webp"
+    src="${emptyCart}"
     alt="Empty cart"
   />
   <p class="cart-empty-text">
