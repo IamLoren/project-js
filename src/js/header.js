@@ -1,3 +1,4 @@
+
 import {arrProducts} from './homePage.js'
 export function getLength() {
     document.querySelector('#header-length').innerHTML = arrProducts.length;
@@ -10,3 +11,4 @@ export function getLength() {
 }
 // import {getLength} from './header.js'
 // getLength();
+
