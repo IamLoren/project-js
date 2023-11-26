@@ -19,7 +19,7 @@ import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
 import { saveToLocalStorage } from './addToCart.js';
 import { renderPagination } from './pagination.js';
-
+import localStorageAPI from './localStorage.js';
 
 const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
