@@ -31,6 +31,22 @@ const productsListGeneral = document.querySelector('.products-list-general');
 const productListDiscount = document.querySelector('.products-list-discount');
 const productListPopular = document.querySelector('.products-list-popular');
 
+export let arrProducts = [];
+
+
+const fillarrProducts = () => {
+  const dataFromLS = localStorageAPI.load('product');
+
+  if (dataFromLS === undefined) {
+    document.querySelector('#header-length').innerHTML = '0';
+    return;
+  }
+  document.querySelector('#header-length').innerHTML = dataFromLS.length;
+  arrProducts = dataFromLS;
+};
+
+fillarrProducts();
+
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
 document.addEventListener('DOMContentLoaded', async () => {
