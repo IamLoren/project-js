@@ -1,4 +1,5 @@
 @import url('./base/normalize.css');
+@import url('~node_modules/tui-pagination/dist/tui-pagination.css');
 @import url('./base/reset.css');
 @import url('./utils/variables.css');
 @import url('./base/common.css');

@@ -15,7 +15,7 @@ import {
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
 import { saveToLocalStorage } from './addToCart.js';
-import { renderPagination } from './pagination.js';
+// import { renderPagination } from './pagination.js';
 import localStorageAPI from './localStorage.js';
 
 const searchForm = document.querySelector('.filters-form');
@@ -48,12 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     const allProduct = await getAllProducts();
     const arrOfAllProducts = allProduct.results;
-    const pages = allProduct.totalPages;
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
-    productsListGeneral.insertAdjacentHTML(
-      'beforeend',
-      renderPagination(pages)
-    );
 
     let cards = document.querySelectorAll('.product-card-general');
     cards.forEach(card => {
@@ -108,7 +103,6 @@ searchForm.addEventListener('submit', async event => {
     const filteredParameter = queryParameters.filterSearch;
     console.log(filteredParameter);
     const response = await getProductsByQuery(queryParameters);
-    const pages = response.totalPages;
     const productForRender = response.results;
     const filteredProducts = filterBySearchParameter(
       filteredParameter,
@@ -117,10 +111,6 @@ searchForm.addEventListener('submit', async event => {
     console.log(productForRender);
     productsListGeneral.innerHTML = '';
     renderMarkup(filteredProducts, 'general', productsListGeneral);
-    productsListGeneral.insertAdjacentHTML(
-      'beforeend',
-      renderPagination(pages)
-    );
 
     let cardsDisc = document.querySelectorAll('.discount-product-card');
     cardsDisc.forEach(card => {
