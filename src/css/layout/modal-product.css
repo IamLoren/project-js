@@ -191,11 +191,7 @@ height: 212px;
   color: rgba(1, 1, 1, 0.7);
   font-family: 'Neue Montreal Regular';
   width: 100%;
-  /* width: 295px; */
-  overflow-y:scroll;
-  /* overflow-x: is-hidden; */
-  /* margin: auto; */
-  /* height: 100%; */
+  overflow-y: auto;
   padding-top: 20px;
   height: 74px;
   padding: 5px;
@@ -209,7 +205,6 @@ height: 212px;
     line-height: 1.25;
     padding-top: 24px;
     height: 113px;
-    overflow-y:scroll;
   }
 }
 
