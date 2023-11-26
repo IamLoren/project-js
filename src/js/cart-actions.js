@@ -117,7 +117,6 @@ function totalPrice() {
   console.log('prices', prices);
 
   const totalPrice = prices
-    .map(value => value.slice(1, value.length))
     .reduce((current, previous) => Number(current) + Number(previous), 0)
     .toFixed(2);
   console.log(totalPrice);
