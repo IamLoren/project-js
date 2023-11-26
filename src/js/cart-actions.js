@@ -129,17 +129,17 @@ function renderCartEmpty() {
 function calculatePrice() {
   const cartItems = document.querySelectorAll('.cart-shopping-item');
   const spanTotalPrice = document.querySelector('.js-total-price');
-  console.log(cartItems);
+  // console.log(cartItems);
   let totalPrice = 0;
 
   cartItems.forEach(item => {
-    console.log(item);
+    // console.log(item);
 
     const amountEl = item.querySelector('[data-counter]');
     const priceEl = item.querySelector('.cart-info-price');
 
     const currentPrice = Number(amountEl.innerHTML) * Number(priceEl.innerHTML);
-    console.log(currentPrice);
+    // console.log(currentPrice);
     totalPrice += currentPrice;
   });
   spanTotalPrice.innerHTML = totalPrice.toFixed(2);
