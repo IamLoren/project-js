@@ -508,14 +508,6 @@ body {
     padding: 19px 57px;
   }
 
-  .general-span-info {
-    /* display: inline-block;
-    margin-right: 8px; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-  }
-
   .general-card-title {
     font-size: 20px;
     line-height: 1.12;
@@ -526,6 +518,8 @@ body {
     padding-left: 20px;
     padding-right: 20px;
     justify-content: start;
+    width: 240px;
+    flex-wrap: wrap;
   }
   .general-card-price {
     padding: 0 20px 20px 20px;
