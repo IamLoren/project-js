@@ -8,6 +8,17 @@ const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
 export async function getAllProducts(queryParams) {
   let {keyword, category, page, limit} =  queryParams
+
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 768) {
+    limit = 6; 
+  } else if (screenWidth >= 768 && screenWidth < 1440) {
+    limit = 8; 
+  } else {
+    limit = 9;
+  }
+  
   const params = new URLSearchParams({
     keyword,
     category,
