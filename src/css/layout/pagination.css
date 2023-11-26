@@ -1,8 +1,12 @@
 #tui-pagination-container {
   display: flex;
-  margin: 20px auto 61px;
+  gap: 8px;
   align-items: center;
   justify-content: space-between;
+  margin-top: 20px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 61px;
 }
 
 .tui-pagination .tui-first,
@@ -103,9 +107,9 @@
     /* align-items: center;
   justify-content: space-between; */
   }
-}
+  /* } */
 
-@media only screen and (max-width: 768px) {
+  /* @media only screen and (min-width: 768px) and (max-width: 1440px) { */
   .pagination-container {
     display: flex;
     margin: 20px auto 61px;
