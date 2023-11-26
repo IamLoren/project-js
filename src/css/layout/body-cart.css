@@ -1,6 +1,4 @@
-<<<<<<< Updated upstream
-
-body {
+/* body {
   background: var(--primary-bg-color);
 }
 
@@ -584,9 +582,8 @@ body {
     font-size: 20px;
     line-height: 1.2;
   }
-}
+} */
 
-=======
 body {
   background: var(--primary-bg-color);
 }
@@ -1170,4 +1167,3 @@ body {
     line-height: 1.2;
   }
 }
->>>>>>> Stashed changes
