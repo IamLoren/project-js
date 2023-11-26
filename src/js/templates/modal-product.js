@@ -1,128 +1,99 @@
-// import { getProducttById } from '../api.js';
-import { save, load, remove } from '../localStorage.js';
-import {firstLoad, saveToLocalStorage} from '../addToCart.js';
+import { getProducttById } from '../api.js';
+// import { save, load, remove } from '../localStorage.js';
+// import {firstLoad, saveToLocalStorage} from '../addToCart.js';
 import {arrProducts} from '../homePage.js';
+import {getLength} from '../header.js'
+
 
 import pathToSvg from '../../images/icons.svg';
 
 
+
 export function addToCartTheProduct() {
   const addToCartFromModalProduct = document.querySelector('.modal-product-btn-price');
-  
-   //    addToCartFromModalProduct.forEach(btn => {
-    // addToCartFromModalProduct.addEventListener('click', event => { 
+  const productData = {};
+  addToCartFromModalProduct.addEventListener('click', async event => {
 
-        // const productId = event.target.dataset.id;
-        const textBtn = event.target.innerText;
-        // const loadProduct = firstLoad();
-
-        // console.log(loadProduct);
-
-        // const id = event.currentTarget.getAttribute('data-id');
-        //         const parentElement = event.target.closest('.modal-product');
-        //         const nameOfProduct = parentElement.querySelector('.modal-title').textContent;
-        //         const price = parentElement.querySelector('.modal-product-price').textContent;
-        //         const img = parentElement.querySelector('.modal-product-img').src;
-        //         const localStorage = window.localStorage;
-   
-        //         const productData = {
-        //         id,
-        //         name: nameOfProduct,
-        //         price,
-        //         img,
-        //         };
-
-        
-
-       ///////////
-
-        // addToCartFromModalProduct.addEventListener('click', event => { 
-        //     addToCartFromModalProduct.textContent = isInCart ? 'Remove' : 'Add';
-
-        //     const id = event.currentTarget.getAttribute('data-id');
-        //         const parentElement = event.target.closest('.modal-product');
-        //         const nameOfProduct = parentElement.querySelector('.modal-title').textContent;
-        //         const price = parentElement.querySelector('.modal-product-price').textContent;
-        //         const img = parentElement.querySelector('.modal-product-img').src;
-        //         const localStorage = window.localStorage;
-   
-        //         const productData = {
-        //         id,
-        //         name: nameOfProduct,
-        //         price,
-        //         img,
-        //         };
-
-        //         const isInCart = arrProducts.some(product => product.id === id);
-        //         const loadProduct = firstLoad();
-
-        //     if (isInCart) {
-        //         const updatedItems = isInCart.filter(product => product.id !== id);
-        //         localStorage.setItem("product", JSON.stringify(updatedItems));
-        //         document.querySelector('#header-length').innerHTML = arrProducts.length;
-        //         event.target.innerHTML = `Add to <svg class="modal-btn-svg" width="18" height="18">
-        //         <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
-        //         </svg>`;
-        //     } else {
-        //         arrProducts.push(productData);
-        //         localStorage.setItem("product", JSON.stringify(loadProduct));
-        //         document.querySelector('#header-length').innerHTML = arrProducts.length;
-        //         event.target.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
-        //         <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
-        //         </svg>`;
-        //     }    
-         ////////////////       
-
-        // if (!isInCart) {
-        //     event.target.innerHTML = `Add to <svg class="modal-btn-svg" width="18" height="18">
-        //     <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
-        //     </svg>`;
-        //     // return;
-       
-        //     // if (textBtn === 'Add to') {
-        
-        //         // event.target.innerText = 'Remove from';
-        //         event.target.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
-        //         <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
-        //         </svg>`
-
-        //         firstLoad('product');
-        //         console.log(firstLoad('product'));
+    const textBtn = event.target.innerText;
  
-        //         arrProducts.push(productData);
+    const id = event.currentTarget.getAttribute('data-id');
+   
+            const isInCart = arrProducts.some(product => product.id === id); 
+         
+        if (textBtn === 'Add to') {
+
+            try {
+                const product = await getProducttById(id);
+               console.log(product);
+                const { category,  size, _id, name, price, img  } = product;
+                productData.category = category;
+                productData.size = size;
+                productData.id = _id;
+                productData.name = name;
+                productData.price = price;
+                productData.img = img;
+               } catch (error) {
+                console.log(error);
+               }
+                const localStorage = window.localStorage;
             
-        //         localStorage.setItem("product", JSON.stringify(arrProducts));
-        //         document.querySelector('#header-length').innerHTML = arrProducts.length;
-          
-        //     // } 
-        // } 
-        // // const isNotInCart = arrProducts.some(product => product.id === id);
-        
-        // if (isInCart) {
-        //     event.target.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
-        //     <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
-        //     </svg>`;
+                arrProducts.push(productData);
+               
+            
+                localStorage.setItem("product", JSON.stringify(arrProducts));
+            
+                getLength();
+    
+            event.target.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
+            <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
+            </svg>`;
+      
+        } 
 
-        //     const idCard = event.currentTarget.getAttribute('data-id');
-        //     let newArray = arrProducts.filter(item => item.id !== idCard)
+    // if (textBtn === 'Remove from') {
 
-        //     localStorage.setItem("product", JSON.stringify(newArray));
-        // };
-}
+    //     event.target.innerHTML = `Add to <svg class="modal-btn-svg" width="18" height="18">
+    //         <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
+    //         </svg>`;
+    //     const idCard = event.currentTarget.getAttribute('data-id');
+    //     let newArray = arrProducts.filter(item => item.id !== idCard)
+
+    //     localStorage.setItem("product", JSON.stringify(newArray));
+       
+    //     getLength();
+    // }
+    if (textBtn === 'Remove from') {
+        // Видалити продукт з arrProducts
+        const idCard = event.currentTarget.getAttribute('data-id');
+        arrProducts = arrProducts.filter(item => item.id !== idCard);
+      
+        // Оновити локальне сховище із оновленим масивом arrProducts
+        localStorage.setItem('product', JSON.stringify(arrProducts));
+      
+        // Оновити текст і значок кнопки
+        event.target.innerHTML = 'Add to <svg class="modal-btn-svg" width="18" height="18"><use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use></svg>';
+      
+        // Оновити лічильник довжини
+        getLength();
+    }
+  })
+} 
 
 
+       
 
-  //    addToCartFromModalProduct.forEach(btn => {
+
+    
     // const removeToCartFromModalProduct = document.querySelector('.remove-modal-product-btn-price');
     // removeToCartFromModalProduct.addEventListener('click', event => { 
 
-        // const isInCart = arrProducts.some(product => product.id === id);
+    //     const isInCart = arrProducts.some(product => product.id === id);
 
     // if (isInCart) {
     //     event.target.innerHTML = `Remove to <svg class="modal-btn-svg" width="18" height="18">
     // <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
     //     </svg>`;
-        // return;
+    //     return;
     
   
 
@@ -135,9 +106,9 @@ export function addToCartTheProduct() {
     // let newArray = arrProducts.filter(item => item.id !== idCard)
     // console.log(newArray);
 
-    // перевірити яка працює
+    // // перевірити яка працює
 
-    // save('product', newArray);
+    // // save('product', newArray);
 
     // localStorage.setItem("product", JSON.stringify(newArray));
 
@@ -182,9 +153,10 @@ export function closeModal() {
 
 
 export function onRenderModalProduct(product) {
-    // const isInCart = arrProducts.some(product => product.id === id);
-    // console.log(isInCart);
+    
     let { name, category, desc, img, price, size, popularity, _id } = product;
+    const isInCart = arrProducts.some(product => product.id === _id);
+    //  console.log(isInCart);
 
         // if (!isInCart) {
   return `
@@ -228,7 +200,7 @@ export function onRenderModalProduct(product) {
               <div class="modal-product-wrapper-price">
                   <p class="modal-product-price"><span>&#36;</span>${price}</p>
                   <button data-id=${_id} type="submit" class="modal-product-btn-price">
-                      Add to 
+                  ${isInCart ? 'Remove from' : 'Add to'} 
                       <svg class="modal-btn-svg" width="18" height="18">
                           <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
                       </svg>
