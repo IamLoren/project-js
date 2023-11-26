@@ -5,6 +5,7 @@ import {getLength} from './header.js'
 import { arrProducts } from './homePage.js';
 
 
+
 export async function saveToLocalStorage(event) {
    const id = event.currentTarget.getAttribute('data-id');
    const passSvg = event.currentTarget.querySelector('use');
