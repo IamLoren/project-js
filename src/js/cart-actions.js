@@ -1,17 +1,17 @@
 import localStorageAPI from './localStorage.js';
 import iconsPath from '../images/icons.svg';
-/*
-import {getLength} from './header.js'
 
-import {arrProducts} from './index.js'
-export function getLength() {
-    document.querySelector('#header-length').innerHTML = arrProducts.length;
-   
-}
-*/
 /* берем значення зі сховища*/
+
 const cartProducts = localStorageAPI.load('product');
-console.log(cartProducts);
+// console.log(cartProducts);
+document.addEventListener('DOMContentLoaded', event => {
+  if (cartProducts.length === 0) {
+    document.querySelector('.section-cart').innerHTML = renderCartEmpty();
+  }
+  addScroll();
+});
+
 function renderCarts(cartProducts) {
   if (cartProducts) {
     const cartItemsHTML = cartProducts
@@ -29,22 +29,33 @@ document.querySelector('.delete-all-text').addEventListener('click', () => {
   localStorageAPI.remove('product');
   document.querySelector('.section-cart').innerHTML = renderCartEmpty();
 });
-/* видалення одного елемента */
 
-let removeCartItems = document.querySelectorAll('.cart-delete-icon');
-console.log(removeCartItems);
-removeCartItems.forEach(removeItem => {
-  removeItem.addEventListener('click', removeId);
-});
+const productList = document.querySelector('.cart-shopping-list ');
+productList.addEventListener('click', onDeleteItemClick);
 
-function removeId(event) {
-  const ParentElement = event.target.closest('li');
-  const productId = ParentElement.getAttribute('data-product-id');
-  console.log(productId);
-  let newArr = cartProducts.filter(item => item.id !== productId);
-  // totalPrice();
-  localStorage.setItem('product', JSON.stringify(newArr));
-  renderCarts(newArr);
+function onDeleteItemClick(event) {
+  if (!event.target.closest('.cart-delete-icon')) {
+    return;
+  }
+  localStorage.setItem('product', JSON.stringify());
+  const cardEl = event.target.closest('li');
+
+  const id = cardEl.dataset.productId;
+  // console.log(id);
+
+  const index = cartProducts.findIndex(object => object.id === id);
+  // console.log('індекс', cartProducts);
+  if (index !== -1) {
+    cartProducts.splice(index, 1);
+    // console.log('видалений', cartProducts);
+  }
+  // console.log('видалений');
+  localStorage.setItem('product', JSON.stringify(cartProducts));
+  renderCarts(cartProducts);
+  calculatePrice();
+  if (cartProducts.length === 0) {
+    document.querySelector('.section-cart').innerHTML = renderCartEmpty();
+  }
 }
 /* */
 
@@ -78,11 +89,11 @@ function renderCartProduct(product) {
         </ul>
   
         <div class="cart-info-bottom">
-          <p class="cart-info-price">${price}</p>
+         <p class="cart-info-price">&#36;<span class="js-cart-info-price">${price}</span></p>
   
           <div class="cart-counter-wrapper">
             <button class="cart-counter-decrement" type="button" data-action="minus">-</button>
-            <span class="cart-counter-value" data-counter>5</span>
+            <span class="cart-counter-value" data-counter>1</span>
             <button class="cart-counter-increment" type="button" data-action="plus">+</button>
           </div>
         </div>
@@ -110,20 +121,6 @@ function renderCartEmpty() {
       `;
 }
 
-/* вирахування загальної ціни*/
-// function totalPrice() {
-//   const spanTotalPrice = document.querySelector('.js-total-price');
-//   const prices = cartProducts.map(object => object.price);
-//   console.log('prices', prices);
-
-//   const totalPrice = prices
-//     .reduce((current, previous) => Number(current) + Number(previous), 0)
-//     .toFixed(2);
-//   console.log(totalPrice);
-//   spanTotalPrice.textContent = totalPrice;
-// }
-// totalPrice();
-
 /* розрахунок ціни*/
 
 function calculatePrice() {
@@ -136,7 +133,7 @@ function calculatePrice() {
     // console.log(item);
 
     const amountEl = item.querySelector('[data-counter]');
-    const priceEl = item.querySelector('.cart-info-price');
+    const priceEl = item.querySelector('.js-cart-info-price');
 
     const currentPrice = Number(amountEl.innerHTML) * Number(priceEl.innerHTML);
     // console.log(currentPrice);
@@ -167,3 +164,16 @@ window.addEventListener('click', event => {
     calculatePrice();
   }
 });
+
+function addScroll() {
+  const productsCount = productList.querySelectorAll(
+    '.cart-shopping-item'
+  ).length;
+  // console.log(productsCount);
+
+  if (productsCount > 3) {
+    productList.style.overflowY = 'scroll';
+  } else {
+    productList.style.overflowY = 'hidden';
+  }
+}
