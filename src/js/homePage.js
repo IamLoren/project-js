@@ -14,7 +14,7 @@ import {
 } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
-import {saveToLocalStorage }  from './addToCart.js';
+import { saveToLocalStorage } from './addToCart.js';
 import { renderPagination } from './pagination.js';
 import localStorageAPI from './localStorage.js';
 
@@ -29,12 +29,11 @@ const productListDiscount = document.querySelector('.products-list-discount');
 const productListPopular = document.querySelector('.products-list-popular');
 export let arrProducts = [];
 
-
 const fillarrProducts = () => {
   const dataFromLS = localStorageAPI.load('product');
 
   if (dataFromLS === undefined) {
-    document.querySelector('#header-length').innerHTML = '0'
+    document.querySelector('#header-length').innerHTML = '0';
     return;
   }
   document.querySelector('#header-length').innerHTML = dataFromLS.length;
@@ -42,7 +41,6 @@ const fillarrProducts = () => {
 };
 
 fillarrProducts();
-
 
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
@@ -62,7 +60,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       card.addEventListener('click', openProductModal);
     });
 
-  
     const arrOfDiscountProducts = await getDiscountProducts();
     renderMarkup(arrOfDiscountProducts, 'discount', productListDiscount);
     let cardsDisc = document.querySelectorAll('.discount-product-card');
@@ -113,7 +110,10 @@ searchForm.addEventListener('submit', async event => {
     const response = await getProductsByQuery(queryParameters);
     const pages = response.totalPages;
     const productForRender = response.results;
-    const filteredProducts = filterBySearchParameter(filteredParameter, productForRender);
+    const filteredProducts = filterBySearchParameter(
+      filteredParameter,
+      productForRender
+    );
     console.log(productForRender);
     productsListGeneral.innerHTML = '';
     renderMarkup(filteredProducts, 'general', productsListGeneral);
@@ -135,9 +135,3 @@ searchForm.addEventListener('submit', async event => {
     console.log(error);
   }
 });
-
-import { subscribeMailNewProduct } from './footer.js';
-const form = document.querySelector(".footer-form");
-form.addEventListener("submit", subscribeMailNewProduct)
-
- 

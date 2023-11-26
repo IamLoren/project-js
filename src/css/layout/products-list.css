@@ -27,7 +27,6 @@ body {
   position: relative;
   border-radius: 20px;
   background-color: var(--card-bg-color);
-  
 }
 
 .product-card-general:hover {
@@ -47,6 +46,7 @@ body {
   flex-direction: column;
   gap: 20px;
   padding-bottom: 80px;
+  width: 320px;
 }
 .product-card-general {
   width: 100%;
@@ -174,12 +174,13 @@ body {
   background-color: #E8E8E2;
   transition: background-color .25s cubic-bezier(.4,0,.2,1);
   fill: #6D8434;
+
+  background-color: #e8e8e2;
 }
 
 .popular-card-btn:hover {
-  background-color: #6D8434;
+  background-color: #6d8434;
 }
-
 
 .popular-title {
   color: #010101;
@@ -246,8 +247,8 @@ body {
 
 .popular-cart-svg:hover,
 .popular-cart-svg:focus {
-    fill: #e8e8e2;
-  }
+  fill: #e8e8e2;
+}
 
 /**
     |============================
@@ -354,6 +355,7 @@ body {
   }
 
   .products-list-general {
+    width: 704px;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 32px;
@@ -494,6 +496,7 @@ body {
   .products-list-general {
     flex-direction: row;
     flex-wrap: wrap;
+    width: 925px;
   }
 
   .product-card-general {
@@ -583,7 +586,6 @@ body {
     padding: 4px;
     display: flex;
   }
-  
 
   /**
         |============================
@@ -615,7 +617,6 @@ body {
     font-size: 20px;
   }
 }
-
 
 /* Discount additional */
 .general-discount-svg {
