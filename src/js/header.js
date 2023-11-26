@@ -1,4 +1,7 @@
-import {arrProducts} from './homePage.js'
+import { fillarrProducts,  arrProducts } from "./headerCounter";
+
+fillarrProducts();
+
 export function getLength() {
     document.querySelector('#header-length').innerHTML = arrProducts.length;
     // const array = localStorage.getItem('array');
@@ -8,5 +11,3 @@ export function getLength() {
     // } 
     // document.querySelector('#header-length').innerHTML = array.length;  
 }
-// import {getLength} from './header.js'
-// getLength();
