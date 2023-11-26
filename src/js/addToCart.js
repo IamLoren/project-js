@@ -1,4 +1,4 @@
-
+// import {arrProducts} from "./homePage.js"
 import { getProducttById } from "./api.js";
 import iconsPath from "../images/icons.svg"
 import {getLength} from './header.js'
@@ -20,7 +20,8 @@ import {arrProducts} from './homePage.js';
 export async function saveToLocalStorage(event) {
    const id = event.currentTarget.getAttribute('data-id');
    const passSvg = event.currentTarget.querySelector('use');
-   passSvg.setAttribute('href', `${iconsPath}#icon-checkmark`)
+   passSvg.setAttribute('href', `${iconsPath}#icon-checkmark`);
+   event.currentTarget.setAttribute('disabled', 'true');
    const productData = {};
 
    try {

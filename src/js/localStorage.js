@@ -1,4 +1,4 @@
-import {getLength} from './header.js';
+
 
 export const save = (key, value) => {
     try {
@@ -7,7 +7,6 @@ export const save = (key, value) => {
     } catch (error) {
         console.error("Set state error: ", error.message);
     }
-    getLength();
     };
 
 export const load = key => {
@@ -22,5 +21,11 @@ export const load = key => {
 
 export function remove(key) {
     localStorage.removeItem(key);
-    getLength();
+
 }
+
+export default {
+    save,
+    load,
+    remove,
+  };
