@@ -1,6 +1,8 @@
 
 import { getProducttById } from "./api.js";
 import iconsPath from "../images/icons.svg"
+import {getLength} from './header.js'
+import {arrProducts} from './homePage.js';
 
 
 // export function firstLoad(key) {
@@ -27,7 +29,7 @@ export async function saveToLocalStorage(event) {
     const { category,  size, _id, name, price, img  } = product;
     productData.category = category;
     productData.size = size;
-    productData._id = _id;
+    productData.id = _id;
     productData.name = name;
     productData.price = price;
     productData.img = img;
@@ -40,6 +42,8 @@ export async function saveToLocalStorage(event) {
    
 
     localStorage.setItem("product", JSON.stringify(arrProducts));
+
+    getLength();
   }
 
  
