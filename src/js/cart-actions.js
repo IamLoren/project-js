@@ -1,14 +1,13 @@
 import localStorageAPI from './localStorage.js';
 import iconsPath from '../images/icons.svg';
-/*
-import {getLength} from './header.js'
 
-import {arrProducts} from './index.js'
-export function getLength() {
-    document.querySelector('#header-length').innerHTML = arrProducts.length;
-   
+
+export function addNumberProd() {
+    const arrFromLS = localStorageAPI.load('product');
+    document.querySelector('.cart-number-purchases').innerHTML = `${arrFromLS.length}`;
 }
-*/
+addNumberProd();
+
 /* берем значення зі сховища*/
 const cartProducts = localStorageAPI.load('product');
 console.log(cartProducts);
