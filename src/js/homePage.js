@@ -48,7 +48,7 @@ fillarrProducts();
  function loadQueryParamsFromLS () {
   const paramsFromLS = localStorageAPI.load('queryParams');
    if (!paramsFromLS) {
-    localStorageAPI.save('queryParams', {keyword:'', category: '', page: 1, limit: 6});
+    localStorageAPI.save('queryParams', {keyword:'', category:'', page: 1, limit: 6});
    }
  }
 loadQueryParamsFromLS()
@@ -58,7 +58,6 @@ loadQueryParamsFromLS()
 document.addEventListener('DOMContentLoaded', async () => {
   try {
     const paramsFromLS = localStorageAPI.load('queryParams');
-    console.log(paramsFromLS);
     const allProduct = await getAllProducts(paramsFromLS);
     const arrOfAllProducts = allProduct.results;
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
