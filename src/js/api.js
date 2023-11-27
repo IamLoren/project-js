@@ -47,22 +47,33 @@ export async function getPopularProducts() {
 
 export async function getProductsByQuery(queryParams) {
   let response;
-  let { keyword, category, endpoint } = queryParams;
+  let { keyword = '', category, page = 1, limit } = queryParams;
+
+  const screenWidth = window.innerWidth;
+
+  if (screenWidth < 768) {
+    limit = 6; 
+  } else if (screenWidth >= 768 && screenWidth < 1440) {
+    limit = 8; 
+  } else {
+    limit = 9;
+  }
+
   const params = new URLSearchParams({
     keyword,
     category,
-    endpoint,
     limit: 9,
+    page,
   });
 
   if (
-    (category === 'Categories' || category === 'Show all') &&
+    (category === 'Categories' || category === 'Show_all') &&
     keyword === ''
   ) {
-    response = await axios.get(`${BASE_URL}?${endpoint}=true&limit=9`);
-  } else if (category === 'Categories' || category === 'Show all') {
+    response = await axios.get(`${BASE_URL}`);
+  } else if (category === 'Categories' || category === 'Show_all') {
     response = await axios.get(
-      `${BASE_URL}?keyword=${keyword}&${endpoint}=true&limit=9`
+      `${BASE_URL}?keyword=${keyword}&${params}`
     );
   } else {
     response = await axios.get(`${BASE_URL}?${params}`);
