@@ -1,10 +1,11 @@
 import Pagination from 'tui-pagination';
-//import 'tui-pagination/dist/tui-pagination.css';
+import 'tui-pagination/dist/tui-pagination.css';
 import { getAllProducts, getProductsByQuery } from './api.js';
 import { createProductCard, renderMarkup } from './templates/cards.js';
 
 const productsListGeneral = document.querySelector('.products-list-general');
 const container = document.querySelector('#tui-pagination-container');
+
 const options = {
   totalItems: 0,
   ItemsPerPage: 9,
@@ -13,42 +14,43 @@ const options = {
 };
 
 const pagination = new Pagination(container, options);
-page = pagination.getCurrentPage();
+let qpage = pagination.getCurrentPage();
 
-console.log(page);
+// console.log(dataForPagination);
+// pagination.reset(options.totalItems);
+// console.log(pagination.totalItems);
 
-const onRenderPage = async () => {
-  try {
-    // робимо запит
-    console.log(getAllProducts);
-    const allProducts = await getAllProducts();
-    console.log(allProducts.results);
-    renderMarkup(allProducts.results, 'general', productsListGeneral);
-    // Розмітка
-    pagination.reset(allProducts.totalPages);
-    container.classList.remove('is-hidden');
-  } catch (err) {
-    console.log(err);
-    Report.failure(err.message, 'Please reload!');
-  }
-};
+// const onRenderPage = async () => {
+//   try {
+//     // робимо запит
+//     console.log(getAllProducts);
+//     const allProducts = await getAllProducts();
+//     console.log(allProducts.results);
+//     renderMarkup(allProducts.results, 'general', productsListGeneral);
+//     // Розмітка
+//     pagination.reset(allProducts.totalPages);
+//     container.classList.remove('is-hidden');
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
 
-const createUserPagination = async event => {
-  const currentPage = event.page;
-  getAllProducts.page = currentPage;
-  console.log(currentPage);
+// const createUserPagination = async event => {
+//   const currentPage = event.page;
+//   getAllProducts.page = currentPage;
+//   console.log(currentPage);
 
-  try {
-    const allProducts = await getAllProducts();
-    console.log(allProducts.results);
-    page = pagination.getCurrentPage();
-    console.log(page);
+//   try {
+//     const allProducts = await getAllProducts();
+//     console.log(allProducts.results);
+//     page = pagination.getCurrentPage();
+//     console.log(qpage);
 
-    renderMarkup(allProducts.results, 'general', productsListGeneral);
-  } catch (err) {
-    console.log(err);
-  }
-};
-pagination.on('afterMove', createUserPagination);
+//     renderMarkup(allProducts.results, 'general', productsListGeneral);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
+// pagination.on('afterMove', createUserPagination);
 
-document.addEventListener('DOMContentLoaded', onRenderPage);
+// document.addEventListener('DOMContentLoaded', onRenderPage);
