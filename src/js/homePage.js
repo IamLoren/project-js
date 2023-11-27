@@ -123,6 +123,7 @@ searchForm.addEventListener('submit', async event => {
       filteredParameter,
       productForRender
     );
+
     productsListGeneral.innerHTML = '';
     if (filteredProducts.length === 0) {
       const sorryMessage = renderSorryMessage();
@@ -148,7 +149,6 @@ searchForm.addEventListener('submit', async event => {
 
 export async function addToCartFromModal(event) {
   const productData = {};
-  const textBtn = event.target.innerText;
   const id = event.currentTarget.getAttribute('data-id');
   const isInCart = arrProducts.some(product => product.id === id);
 
@@ -195,6 +195,8 @@ export async function addToCartFromModal(event) {
         <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
         </svg>`;
     // Видаляємо продукт з arrProducts
+
+    
     const idCard = event.currentTarget.getAttribute('data-id');
     arrProducts = arrProducts.filter(item => item.id !== idCard);
 
@@ -206,6 +208,7 @@ export async function addToCartFromModal(event) {
         if (_id === id) {
           passSvg.setAttribute('href', `${iconsPath}#icon-shopping-cart`);
           btn.disabled = false;
+
         }
 
       })
