@@ -49,11 +49,11 @@ align-items: center;
     fill: var(--primary-bg-color);
     padding: 8px;
     border-radius: 10px;
-    border: 1px solid rgba(232, 232, 226, 0.30);
+    border: 1px solid var(--footer-border-color);
 }
 .footer-soc-svg:hover,
 .footer-soc-svg:focus {
-    background: rgba(232, 232, 226, 0.20);
+    background: var(--footer-bg-color);
     border-radius: 10px;
 }
 
@@ -67,7 +67,7 @@ margin-bottom: 14px;
     padding-bottom: 80px;
 }
 .footer-text {
-    color: rgba(232, 232, 226, 0.70);
+    color: var(--footer-second-color);
     font-size: 14px;
     font-weight: 400;
     line-height: 1.29; /* 128.571% */
@@ -81,8 +81,6 @@ margin-bottom: 14px;
     font-weight: 400;
     line-height: 1.29; /* 128.571% */
     margin-bottom: 20px;
-}
-.footer-form-label {
 }
 
 .footer-form-input {
@@ -98,7 +96,7 @@ margin-bottom: 14px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.29; 
-    color: rgba(232, 232, 226, 0.60); 
+    color: var(--footer-color); 
     font-size: 16px;
     font-family: 'Neue Montreal Regular';
   }
@@ -222,7 +220,7 @@ margin-bottom: 8px;
             font-size: 16px;
             font-weight: 400;
             line-height: 1.5; 
-            color: rgba(232, 232, 226, 0.60); 
+            color: var(--footer-color); 
             font-size: 16px;
             font-family: 'Neue Montreal Regular';
           }
@@ -267,9 +265,7 @@ margin-bottom: 8px;
     .footer-left{
         padding-right: 78px;
     }
-    .footer-right{
-        /* width: 410px; */
-    }
+  
     .footer-title {
         font-weight: 500;
         margin-bottom: 20px;
@@ -302,8 +298,8 @@ margin-bottom: 8px;
             line-height: 1.33em; /* 133.333% */
         }
         .footer-form-input {
-            /* background-color: #6D8434; */
-            color: rgba(232, 232, 226, 0.60);
+            
+            color: var(--footer-color);
             font-size: 16px;
             font-weight: 400;
             line-height: 1.5; 

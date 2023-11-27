@@ -43,9 +43,8 @@ img {
 }
 
 .hero-text {
-  /* width: 292px; */
   width: 100%;
-  color: rgba(1, 1, 1, 0.8);
+  color: var(--hero-color);
   text-align: center;
   font-family: 'Neue Montreal Medium';
   font-size: 14px;
