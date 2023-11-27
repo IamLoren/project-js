@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 import axios from 'axios';
 import 'tui-pagination/dist/tui-pagination.css';
 // import icon from '../../images/icons.svg';
-
+import { getAllProducts } from './api.js';
 import { createProductCard, renderMarkup } from './templates/cards.js';
 import { load, save } from './localStorage.js';
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
@@ -12,7 +12,7 @@ const container = document.querySelector('#tui-pagination-container');
 
 const options = {
   itemsPerPage: 1,
-  visiblePages: 7,
+  visiblePages: 5,
   page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
@@ -40,11 +40,12 @@ const pagination = new Pagination(container, options);
 let qpage = pagination.getCurrentPage();
 
 console.log(qpage);
+
 const getProducts = async params => {
   try {
     const { keyword, category, page, limit, sort } = params;
     const response = await axios.get(
-      `${BASE_URL}?keyword=${keyword}&category=${category}&page=${page}&limit=${limit}&${sort}`
+      `https://food-boutique.b.goit.study/api/products`
     );
     return response.data;
   } catch (err) {
@@ -52,15 +53,20 @@ const getProducts = async params => {
     throw err;
   }
 };
+qpage = 5;
+
 const onRenderPage = async () => {
   try {
     // робимо запит
-    const allProducts = await getProducts({ page: qpage });
-
-    console.log('Product', allProducts, '0', allProducts.results);
+    // const allProducts = await getAllProducts({ page: qpage });
+    const productLength = getProducts({ page: qpage });
+    const arrLength = productLength.response;
+    console.log('qle', arrLength);
+    console.log('le', productLength);
+    console.log('pro', allProducts);
     renderMarkup(allProducts.results, 'general', productsListGeneral);
     // Розмітка
-    pagination.reset(allProducts.totalPages);
+    pagination.reset(100);
     container.classList.remove('is-hidden');
   } catch (err) {
     console.log(err);
@@ -70,13 +76,15 @@ const onRenderPage = async () => {
 const createUserPagination = async event => {
   const currentPage = event.page;
   getAllProducts.page = currentPage;
-  console.log(currentPage);
+
+  console.log(currentPage, getProducts.page);
 
   try {
-    const allProducts = await getAllProducts();
+    const allProducts = await getProducts({ page: currentPage });
     console.log('qpage', allProducts.results);
-    qpage = pagination.getCurrentPage();
-    console.log(qpage);
+
+    // qpage = pagination.getCurrentPage();
+    // console.log(qpage);
 
     renderMarkup(allProducts.results, 'general', productsListGeneral);
   } catch (err) {
