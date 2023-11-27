@@ -21,7 +21,7 @@
   border: 0;
   border-color: transparent;
   background-color: transparent;
-  color: #a3a3a3;
+  color:  var(--pagination-color);
   font-family: 'Neue Montreal Medium';
   font-size: 14px;
   font-style: normal;
@@ -82,7 +82,7 @@
 
 .pagination-arrow {
   fill: transparent;
-  stroke: #a3a3a3;
+  stroke: var(--pagination-color);
 }
 
 .pagination-number {
@@ -127,7 +127,7 @@
     width: 40px;
     height: 40px;
     border-color: transparent;
-    color: #a3a3a3;
+    color: var(--pagination-color);
     font-family: 'Neue Montreal Medium';
     font-size: 14px;
     font-style: normal;
@@ -153,7 +153,7 @@
 
   .pagination-arrow {
     fill: transparent;
-    stroke: #a3a3a3;
+    stroke: var(--pagination-color);
   }
 
   .pagination-number {
