@@ -21,7 +21,7 @@ export function createProductCard(product) {
                   <div class="general-span-container">
                   <span class="general-span-info">Category:<span class="span-info-value">${category}</span></span>
 
-                  <span class="general-span-info">Size:</span><span class="span-info-value">${size}</span>
+                  <span class="general-span-info">Size:<span class="span-info-value">${size}</span></span>
 
                   <span class="general-span-info">Popularity:<span class="span-info-value">${popularity}</span></span>
                   </div>
