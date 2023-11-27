@@ -298,6 +298,10 @@ footer {
   line-height: 1.11;
 }
 
+.cart-empty-description {
+  width: 90%;
+}
+
 .cart-empty-link {
   color: var(--secondary-bg-green-color);
   text-decoration: none;
@@ -321,6 +325,10 @@ footer {
   .cart-properties-list {
     margin-bottom: 36px;
     flex-wrap: nowrap;
+  }
+
+  .cart-empty-description {
+    width: 90%;
   }
 }
 
