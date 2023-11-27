@@ -62,7 +62,7 @@ export async function getProductsByQuery(queryParams) {
   const params = new URLSearchParams({
     keyword,
     category,
-    limit: 9,
+    limit,
     page,
   });
 

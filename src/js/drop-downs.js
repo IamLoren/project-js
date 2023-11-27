@@ -64,12 +64,12 @@ export function collectQueryParameters() {
     const paramsForBack = {
         category,
         keyword: searchWord,
-        page: 1,
-        limit: 6,
+        page,
+        limit,
     }
 
     localStorageAPI.save('queryParams', paramsForBack);
-    console.log(localStorageAPI.load('queryParams'));
+    console.log(paramsForBack);
     return queryParameters;
 }
 
