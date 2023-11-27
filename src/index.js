@@ -11,3 +11,4 @@ import './js/templates/modal-product.js';
 import './js/footer.js';
 import './js/templates/renderSorryMessage.js';
 import './js/scroll-to-up.js';
+import './js/slider.js';
