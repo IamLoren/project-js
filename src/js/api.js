@@ -27,7 +27,7 @@ export async function getAllProducts(queryParams) {
     params.append('keyword', keyword);
 }
 
-if ((category !== '') && (category !== 'Show_all')) {
+if ((category !== '') && (category !== 'Show_all') && (category !== 'Categories')) {
   params.append('category', category);
 }
 
@@ -73,7 +73,7 @@ export async function getProductsByQuery(queryParams) {
     params.append('keyword', keyword);
 }
 
-if (category !== '' && category !== 'Show_all') {
+if ((category !== '') && (category !== 'Show_all') && (category !== 'Categories')) {
     params.append('category', category);
 }
 
