@@ -3,6 +3,7 @@ import iconsPath from '../images/icons.svg';
 import emptyCart from '../images/yellow-shopping-basket.webp';
 /* хедер */
 import { getLength } from './header.js';
+import { order } from './api.js';
 
 export function addNumberProd() {
   const arrFromLS = localStorageAPI.load('product');
@@ -192,3 +193,53 @@ function addScroll() {
     productList.style.overflowY = 'hidden';
   }
 }
+
+// modal order open
+
+const orderFormModal = document.querySelector('.cart-form');
+orderFormModal.addEventListener('submit', openModalOrder);
+
+function openModalOrder(event) {
+  event.preventDefault();
+  document.body.insertAdjacentHTML('afterbegin', createMarkupOrderModal());
+}
+
+function createMarkupOrderModal() {
+  return `
+  <div class="order-backdrop">
+  <div class="order-modal">
+      <svg class="order-close-icon">
+        <use href="${iconsPath}#icon-close"></use>
+      </svg>
+      <img class="order-image" src="./images/tomatoes.jpg" alt="order-image">
+      <h2 class="order-title">Order success</h2>
+      <p class="order-text">Thank you for shopping at Food Boutique. Your order has been received and is now being freshly prepared just for you! Get ready to indulge in nourishing goodness, delivered right to your doorstep. We're thrilled to be part of your journey to better health and happiness.</p>
+  </div>
+  </div>
+  `;
+}
+
+
+// document.body.addEventListener('click', (event) => {
+//   const orderBackdrop = document.querySelector('.order-backdrop');
+//   if (event.target.closest(".order-close-icon") || event.target.closest(".order-backdrop")) {
+//     orderBackdrop.classList.add('is-hidden');
+
+//     document.querySelector('.section-cart').innerHTML = renderCartEmpty();
+//     localStorageAPI.remove('product');
+//     getLength();
+//   }
+// });
+document.body.addEventListener('click', closeOrderModal);
+
+function closeOrderModal() {
+  const orderBackdrop = document.querySelector('.order-backdrop');
+  if (event.target.closest(".order-close-icon") || event.target.closest(".order-backdrop")) {
+    orderBackdrop.classList.add('is-hidden');
+
+    document.querySelector('.section-cart').innerHTML = renderCartEmpty();
+    localStorageAPI.remove('product');
+    getLength();
+  }
+}
+

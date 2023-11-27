@@ -1,9 +1,4 @@
 import axios from 'axios';
-
-//НАГАДУЮ, ЩО, ВИКЛИКАЮЧИ КОЖНУ З ЦИХ ФУНКЦІЙ У СЕБЕ В КОДІ, ВАМ ЇХ ТРЕБА ОГОРНУТИ В БЛОК TRY {} CACH{}.
-//ЯКЩО ВЕСЬ ВАШ ПОДАЛЬШИЙ КОД ЗАЛЕЖИТЬ ВІД РЕЗУЛЬТАТУ ВИКОНАННЯ ЦІЄЇ ФУНКЦІЇ, ВИ СТАВИТЕ ПЕРЕД ЇЇ НАЗВОЮ (ПЕРЕД ВИКЛИКОМ) ОПЕРАТОР AWAYT, А ПЕРЕД ТІЄЮ
-//ФУНКЦІЄЮ, ЯКА МІСТИТЬ В СОБІ ДАНИЙ ЗАПИТ НА СЕРВЕР, СТАВИТЕ ОПЕРАТОР ASYNC
-
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
 export async function getAllProducts(queryParams) {
@@ -20,12 +15,17 @@ export async function getAllProducts(queryParams) {
   }
   
   const params = new URLSearchParams({
-    keyword,
-    category,
     page,
     limit,
-
   })
+  if (keyword !== '') {
+    params.append('keyword', keyword);
+}
+
+if ((category !== '') && (category !== 'Show_all') && (category !== 'Categories')) {
+  params.append('category', category);
+}
+
     const response = await axios.get(`${BASE_URL}?${params}`);
     return response.data;
   }
@@ -47,7 +47,7 @@ export async function getPopularProducts() {
 
 export async function getProductsByQuery(queryParams) {
   let response;
-  let { keyword = '', category, page = 1, limit } = queryParams;
+  let { keyword, category, page = 1, limit } = queryParams;
 
   const screenWidth = window.innerWidth;
 
@@ -60,24 +60,20 @@ export async function getProductsByQuery(queryParams) {
   }
 
   const params = new URLSearchParams({
-    keyword,
-    category,
     limit,
     page,
   });
 
-  if (
-    (category === 'Categories' || category === 'Show_all') &&
-    keyword === ''
-  ) {
-    response = await axios.get(`${BASE_URL}`);
-  } else if (category === 'Categories' || category === 'Show_all') {
-    response = await axios.get(
-      `${BASE_URL}?keyword=${keyword}&${params}`
-    );
-  } else {
-    response = await axios.get(`${BASE_URL}?${params}`);
-  }
+  if (keyword !== '') {
+    params.append('keyword', keyword);
+}
+
+if ((category !== '') && (category !== 'Show_all') && (category !== 'Categories')) {
+    params.append('category', category);
+}
+
+ response = await axios.get(`${BASE_URL}?${params}`);
+ 
   return response.data;
 }
 
@@ -115,14 +111,3 @@ export async function order(order) {
   );
   return response.data;
 }
-
-// PUT
-//   export async function updateClient(id, data) {
-
-//     const response = await axios.put(`https://food-boutique.b.goit.study/api/subscription`, data,{
-//       headers: {
-//         'content-type': 'application/json',
-//       },
-//     })
-//   return response.data
-//   }
