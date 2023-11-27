@@ -268,7 +268,7 @@ body {
   border-radius: 30px;
   background: var(--secondary-bg-green-color);
   padding: 12px;
-  color: #e8e8e2;
+  color: var(--title-white-text-color);
   outline: transparent;
   border: none;
   font-family: 'Neue Montreal Medium';
@@ -559,10 +559,10 @@ body {
 .cart-order-info-btn {
   width: 100%;
   background: var(--secondary-bg-green-color);
-  color: #e8e8e2;
+  color: var(--title-white-text-color);
   border: none;
   border-radius: 30px;
-  outline: #0000;
+  outline: var(--title-black-text-color);
   padding: 12px;
   font-family: Neue Montreal Medium;
   font-size: 14px;

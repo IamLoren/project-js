@@ -1,17 +1,66 @@
 .scroll-to-up-btn {
-  
-    
-  
-   
+    display: none;
+  position: fixed;
+  /* width: 24px;
+  height:24px;
+  right: 10px;
+  bottom: 10px; */
+  width: 2rem;
+  height: 2rem;
+  right: 7vw;
+  bottom: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: up-down 10s ease infinite;
+  border-radius: 50%;
+  transition: opacity 1s ease-in-out;
+  transform: translateY(0px);
  
-
+  fill: var(--primary-bg-green-color); 
+  border: none;
+  background: #e8e8e24d var(--primary-bg-color);
+  box-shadow: 0 0.25rem 0.5rem 0 var(--primary-bg-green-color);
+  transition-duration: .7s;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+}
+@media screen and (min-width: 768px) {
+  .scroll-to-up-btn {
+    /* width: 40px;
+    height:40px;
+    right: 20px;
+    bottom: 20px; */
+    right: 5vw;
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 .scroll-to-up-btn:hover,
 .scroll-to-up-btn:focus {
+    fill: var(--secondary-bg-green-color); 
+    background: var(--primary-bg-color); 
+    box-shadow: inset 0px 20px 15px 6px #95b151a1, -1px 0px 15px 5px #95b151;
+    opacity: 1;
+  transition-duration: .7s;
+  animation: slide-in-bottom .7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
-.svg-scroll-up {
-  
-}
-.icon-scroll-up {
-}
+
+  @keyframes slide-in-bottom {
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+      }
+      25% {
+        transform: translateY(-5px);
+      }
+      50% {
+        transform: translateY(0px);
+      }
+      100% {
+        transform: translateY(10px);
+       
+      }
+  }
