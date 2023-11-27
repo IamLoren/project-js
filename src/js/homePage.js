@@ -127,7 +127,7 @@ searchForm.addEventListener('submit', async event => {
     } else {
       renderMarkup(filteredProducts, 'general', productsListGeneral);
     }
-    let cardsDisc = document.querySelectorAll('.discount-product-card');
+    let cardsDisc = document.querySelectorAll('product-card-general');
     cardsDisc.forEach(card => {
       card.addEventListener('click', openProductModal);
     });
