@@ -1,9 +1,4 @@
 import axios from 'axios';
-
-//НАГАДУЮ, ЩО, ВИКЛИКАЮЧИ КОЖНУ З ЦИХ ФУНКЦІЙ У СЕБЕ В КОДІ, ВАМ ЇХ ТРЕБА ОГОРНУТИ В БЛОК TRY {} CACH{}.
-//ЯКЩО ВЕСЬ ВАШ ПОДАЛЬШИЙ КОД ЗАЛЕЖИТЬ ВІД РЕЗУЛЬТАТУ ВИКОНАННЯ ЦІЄЇ ФУНКЦІЇ, ВИ СТАВИТЕ ПЕРЕД ЇЇ НАЗВОЮ (ПЕРЕД ВИКЛИКОМ) ОПЕРАТОР AWAYT, А ПЕРЕД ТІЄЮ
-//ФУНКЦІЄЮ, ЯКА МІСТИТЬ В СОБІ ДАНИЙ ЗАПИТ НА СЕРВЕР, СТАВИТЕ ОПЕРАТОР ASYNC
-
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
 export async function getAllProducts(queryParams) {
@@ -27,7 +22,7 @@ export async function getAllProducts(queryParams) {
     params.append('keyword', keyword);
 }
 
-if ((category !== '') && (category !== 'Show_all')) {
+if ((category !== '') && (category !== 'Show_all') && (category !== 'Categories')) {
   params.append('category', category);
 }
 
@@ -73,7 +68,7 @@ export async function getProductsByQuery(queryParams) {
     params.append('keyword', keyword);
 }
 
-if (category !== '' && category !== 'Show_all') {
+if ((category !== '') && (category !== 'Show_all') && (category !== 'Categories')) {
     params.append('category', category);
 }
 
@@ -116,14 +111,3 @@ export async function order(order) {
   );
   return response.data;
 }
-
-// PUT
-//   export async function updateClient(id, data) {
-
-//     const response = await axios.put(`https://food-boutique.b.goit.study/api/subscription`, data,{
-//       headers: {
-//         'content-type': 'application/json',
-//       },
-//     })
-//   return response.data
-//   }
