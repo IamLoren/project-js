@@ -15,6 +15,17 @@
     --backdrop-background: rgba(1, 1, 1, 0.40);
     --modal-text: rgba(1, 1, 1, 0.70);
     --pagination-color: #a3a3a3;
-    --white-color:#fff;
+    --white-color: #fff;
+    
+    --scroll-color:#e8e8e24d;
+    --span-info-color: rgba(1, 1, 1, 0.3);
+    --hero-color:  rgba(1, 1, 1, 0.8);
+    --footer-color:  rgba(232, 232, 226, 0.60);
+    --footer-second-color: rgba(232, 232, 226, 0.70);
+    --footer-bg-color: rgba(232, 232, 226, 0.20);
+    --footer-border-color: rgba(232, 232, 226, 0.30);
+    --filter-color: rgba(1, 1, 1, 0.50);
+    --body-cart-color: rgba(109, 132, 52, 0.05)
+
 
 }

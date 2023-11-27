@@ -62,7 +62,7 @@ body {
   background-color: var(--primary-bg-color);;
 }
 .general-span-info {
-  color: rgba(1, 1, 1, 0.3);
+  color: var(--span-info-color);
   font-family: 'Neue Montreal Regular';
   font-size: 12px;
   font-weight: 400;
@@ -127,7 +127,7 @@ body {
 }
 
 .cart-svg {
-  fill: #fff;
+  fill:  var(--white-color);
 }
 
 /**
@@ -225,7 +225,7 @@ body {
   align-items: center;
   flex-wrap: wrap;
   gap: 9px;
-  color: rgba(1, 1, 1, 0.3);
+  color: var(--span-info-color);
   font-family: 'Neue Montreal Regular';
   font-size: 12px;
   font-weight: 400;
@@ -247,7 +247,7 @@ body {
 
 .popular-cart-svg:hover,
 .popular-cart-svg:focus {
-  fill: #e8e8e2;
+  fill: var(--primary-bg-color);
 }
 
 /**

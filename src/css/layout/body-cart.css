@@ -204,7 +204,7 @@ body {
 .cart-total-price-box {
   width: 100%;
   border-radius: 8px;
-  background: rgba(109, 132, 52, 0.05);
+  background: var(--body-cart-color);
   padding: 14px 18px;
   display: flex;
   justify-content: space-between;
@@ -242,7 +242,7 @@ body {
 
 .cart-form-input {
   border-radius: 30px;
-  border: 1px solid rgba(1, 1, 1, 0.3);
+  border: 1px solid var(--span-info-color);
   padding: 12px 12px 12px 45px;
   margin-bottom: 14px;
   color: var(--title-black-text-color);
@@ -537,7 +537,7 @@ body {
 .cart-order-info-input {
   color: var(--title-black-text-color);
   border-radius: 30px;
-  border: 1px solid rgba(1, 1, 1, 0.3);
+  border: 1px solid var(--span-info-color);
   padding: 12px 12px 12px 20px;
   font-family: Neue Montreal Regular;
   font-size: 14px;
