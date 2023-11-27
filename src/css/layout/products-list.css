@@ -176,11 +176,12 @@ body {
   transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   fill: var(--secondary-bg-green-color);
 
-  background-color: var(--primary-bg-color);
 }
 
-.popular-card-btn:hover {
+.popular-card-btn:hover,
+.popular-card-btn:focus {
   background-color: var(--secondary-bg-green-color);
+  fill: var(--primary-bg-color);
 }
 
 .popular-title {
@@ -233,22 +234,8 @@ body {
   line-height: 1.16;
 }
 
-.popular-addToCart-btn {
-  width: 20px;
-  height: 20px;
-  margin-left: auto;
-  padding: 4px;
-  border: none;
-  border-radius: 50%;
-}
-
 .popular-cart-svg {
-  fill: var(--secondary-bg-green-color);
-}
-
-.popular-cart-svg:hover,
-.popular-cart-svg:focus {
-  fill: var(--primary-bg-color);
+  width: 100%;
 }
 
 /**
@@ -586,17 +573,7 @@ body {
     row-gap: 8px;
   }
 
-  .popular-addToCart-btn:hover,
-  .popular-addToCart-btn:focus {
-    background: var(--primary-bg-green-color);
-    border: none;
-    border-radius: 30px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    padding: 4px;
-    display: flex;
-  }
+
 
   /**
         |============================
