@@ -8,6 +8,7 @@ import {
   changeTypesValue,
   collectQueryParameters,
   filterBySearchParameter,
+  renderCategoryList,
 } from './drop-downs.js';
 import {
   getProductsByQuery,
@@ -15,6 +16,7 @@ import {
   getDiscountProducts,
   getPopularProducts,
   getProducttById,
+  getCategories,
 } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
@@ -26,7 +28,6 @@ const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
 const allSearchInput = document.querySelector('.filters-allTypes');
 const downBtn = document.querySelectorAll('.filters-down-svg');
-const categoriesItem = document.querySelectorAll('.filters-categories-item');
 const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 const productsListGeneral = document.querySelector('.products-list-general');
 const productListDiscount = document.querySelector('.products-list-discount');
@@ -59,6 +60,13 @@ loadQueryParamsFromLS()
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
+    const listOfCategories = await getCategories();
+    renderCategoryList(listOfCategories);
+    document.querySelectorAll('.filters-categories-item').forEach(item => {
+      item.addEventListener('click', changeCategoriesValue);
+    });
+
+
     const paramsFromLS = localStorageAPI.load('queryParams');
     console.log(paramsFromLS)
     const allProduct = await getAllProducts(paramsFromLS);
@@ -99,10 +107,6 @@ categoriesInput.addEventListener('click', openDropDown);
 allSearchInput.addEventListener('click', openDropDown);
 downBtn.forEach(btn => {
   btn.addEventListener('click', rotateButton);
-});
-
-categoriesItem.forEach(item => {
-  item.addEventListener('click', changeCategoriesValue);
 });
 
 allTypesItem.forEach(item => {
