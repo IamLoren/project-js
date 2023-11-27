@@ -13,23 +13,23 @@ const options = {
 };
 
 const pagination = new Pagination(container, options);
-page = pagination.getCurrentPage();
+qpage = pagination.getCurrentPage();
 
-console.log(page);
+console.log(qpage);
 
 const onRenderPage = async () => {
   try {
     // робимо запит
-    console.log(getAllProducts);
-    const allProducts = await getAllProducts();
-    console.log(allProducts.results);
+    // console.log(getAllProducts.result.data);
+    const allProducts = await getAllProducts({ page: qpage });
+    console.log(qpage, allProducts.results);
     renderMarkup(allProducts.results, 'general', productsListGeneral);
     // Розмітка
     pagination.reset(allProducts.totalPages);
     container.classList.remove('is-hidden');
   } catch (err) {
     console.log(err);
-    Report.failure(err.message, 'Please reload!');
+    // Report.failure(err.message, 'Please reload!');
   }
 };
 

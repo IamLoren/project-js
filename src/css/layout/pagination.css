@@ -1,3 +1,4 @@
+/* import pathToSvg from '../images/icons.svg'; */
 #tui-pagination-container {
   display: flex;
   gap: 8px;
@@ -72,6 +73,8 @@
   display: none;
 }
 .pagination-item-arrow {
+  /* background-image: url('href="../images/#icon-caret-small-left"'); */
+
   padding: 8px;
   align-items: center;
   background-color: var(--card-bg-color);
@@ -98,6 +101,10 @@
   color: var(--title-white-text-color);
 
   border-radius: 60%;
+}
+
+.icon-heart {
+  background-image: url('https://example.com/heart.png');
 }
 @media only screen and (min-width: 768px) {
   #tui-pagination-container {
