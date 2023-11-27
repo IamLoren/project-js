@@ -202,8 +202,6 @@ orderFormModal.addEventListener('submit', openModalOrder);
 function openModalOrder(event) {
   event.preventDefault();
   let buyProduct = localStorageAPI.load('product');
-  const firstImg = buyProduct[0].img;
-  const firstId = buyProduct[0].id;
 
   document.body.insertAdjacentHTML('afterbegin', createMarkupOrderModal(buyProduct));
 }
