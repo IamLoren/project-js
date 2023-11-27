@@ -123,7 +123,7 @@ searchForm.addEventListener('submit', async event => {
       filteredParameter,
       productForRender
     );
-    
+
     productsListGeneral.innerHTML = '';
     if (filteredProducts.length === 0) {
       const sorryMessage = renderSorryMessage();
@@ -207,8 +207,7 @@ export async function addToCartFromModal(event) {
         if (_id === id) {
           passSvg.setAttribute('href', `${iconsPath}#icon-shopping-cart`);
           btn.disabled = false;
-        }
-      
+        }     
       })
       
 
