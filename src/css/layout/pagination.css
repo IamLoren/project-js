@@ -1,12 +1,18 @@
 #tui-pagination-container {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   align-items: center;
   justify-content: space-between;
-  margin-top: 20px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 61px;
+  margin: 20px auto 40px;
+}
+
+.tui-page-btn {
+  border-radius: 60%;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 60%;
+  cursor: pointer;
 }
 
 .tui-pagination .tui-first,
@@ -15,13 +21,9 @@
 .tui-pagination .tui-last,
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip {
-  width: 40px;
-  height: 40px;
-  border-radius: 60%;
-  border: 0;
   border-color: transparent;
   background-color: transparent;
-  color:  var(--pagination-color);
+  color: var(--pagination-color);
   font-family: 'Neue Montreal Medium';
   font-size: 14px;
   font-style: normal;
@@ -36,14 +38,8 @@
 .tui-pagination {
   margin: 0 auto;
   display: flex;
-  gap: 8px;
-  align-items: center;
-}
-.tui-page-btn {
-  border-radius: 60%;
-  width: 40px;
-  height: 40px;
-  border-radius: 60%;
+  /* gap: 8px; */
+  /* align-items: center; */
 }
 
 .tui-pagination .tui-page-btn {
@@ -72,6 +68,7 @@
   display: none;
 }
 .pagination-item-arrow {
+  /* background-image: url('href="../images/#icon-caret-small-left"'); */
   padding: 8px;
   align-items: center;
   background-color: var(--card-bg-color);
@@ -99,81 +96,20 @@
 
   border-radius: 60%;
 }
+
+.icon-heart {
+  background-image: url('https://example.com/heart.png');
+}
 @media only screen and (min-width: 768px) {
   #tui-pagination-container {
-    /* display: flex; */
-    margin-left: 148px;
-    margin-right: 148px;
-    /* align-items: center;
-  justify-content: space-between; */
-  }
-  /* } */
-
-  /* @media only screen and (min-width: 768px) and (max-width: 1440px) { */
-  .pagination-container {
-    display: flex;
-    margin: 20px auto 61px;
-    align-items: center;
-  }
-
-  .pagination-number-container {
-    margin: 0 auto;
-    display: flex;
     gap: 8px;
-    align-items: center;
+    margin: 25px 116px 100px;
   }
+}
+/* } */
 
-  .pagination-item {
-    width: 40px;
-    height: 40px;
-    border-color: transparent;
-    color: var(--pagination-color);
-    font-family: 'Neue Montreal Medium';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .pagination-item-arrow {
-    width: 40px;
-    height: 40px;
-    border-radius: 60%;
-    padding: 8px;
-    align-items: center;
-    background-color: var(--card-bg-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .pagination-arrow {
-    fill: transparent;
-    stroke: var(--pagination-color);
-  }
-
-  .pagination-number {
-    width: 40px;
-    height: 40px;
-    border-radius: 60%;
-  }
-  .pagination-item-arrow:hover,
-  .pagination-item-arrow:focus,
-  .pagination-item:hover,
-  .pagination-item:focus {
-    background-color: var(--secondary-bg-green-color);
-    color: var(--title-white-text-color);
-
-    border-radius: 60%;
-  }
-
+@media only screen and (min-width: 1440px) {
   #tui-pagination-container {
-    margin-right: 148px;
-    /* align-items: center;
-  justify-content: space-between; */
+    margin: 20px 236px 61px;
   }
 }
