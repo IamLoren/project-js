@@ -1,6 +1,10 @@
 import localStorageAPI from './localStorage.js';
 import iconsPath from '../images/icons.svg';
 import emptyCart from '../images/yellow-shopping-basket.webp';
+import emptyCartRet from '../images/yellow-shopping-basket@2x.webp';
+import emptyCartMob from '../images/yellow-shopping-basket_mob.webp';
+import emptyCartMobRet from '../images/yellow-shopping-basket_mob@2x.webp';
+import emptyCartBase from '../images/yellow-shopping-basket.png';
 /* хедер */
 import { getLength } from './header.js';
 import { order } from './api.js';
@@ -121,9 +125,31 @@ function renderCartProduct(product) {
 function renderCartEmpty() {
   return `
   <div class="cart-empty">
+  <picture class="cart-empty-retina">
+        <source
+          media="(min-width: 1440px)"
+          srcset="
+            ${emptyCart} 1x,
+            ${emptyCartRet} 2x
+          "
+        />
+        <source
+          media="(min-width: 768px)"
+          srcset="
+          ${emptyCart} 1x,
+          ${emptyCartRet} 2x
+          "
+        />
+        <source
+          media="(min-width: 320px)"
+          srcset="
+          ${emptyCartMob} 1x,
+          ${emptyCartMobRet} 2x
+          "
+        />
   <img
     class="cart-empty-img"
-    src="${emptyCart}"
+    src="${emptyCartBase}"
     alt="Empty cart"
   />
   <p class="cart-empty-text">

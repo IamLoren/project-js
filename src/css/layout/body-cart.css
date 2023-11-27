@@ -280,6 +280,11 @@ footer {
   flex-direction: column;
   margin: 105px 0px 120px 0;
 }
+.cart-empty-retina {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .cart-empty-img {
   width: 132px;
