@@ -201,17 +201,19 @@ orderFormModal.addEventListener('submit', openModalOrder);
 
 function openModalOrder(event) {
   event.preventDefault();
-  document.body.insertAdjacentHTML('afterbegin', createMarkupOrderModal());
+  let buyProduct = localStorageAPI.load('product');
+
+  document.body.insertAdjacentHTML('afterbegin', createMarkupOrderModal(buyProduct));
 }
 
-function createMarkupOrderModal() {
+function createMarkupOrderModal(product) {
   return `
   <div class="order-backdrop">
   <div class="order-modal">
       <svg class="order-close-icon">
         <use href="${iconsPath}#icon-close"></use>
       </svg>
-      <img class="order-image" src="./images/tomatoes.jpg" alt="order-image">
+      <img class="order-image" src="${product[0].img}" alt="order-image" id="${product[0].id}">
       <h2 class="order-title">Order success</h2>
       <p class="order-text">Thank you for shopping at Food Boutique. Your order has been received and is now being freshly prepared just for you! Get ready to indulge in nourishing goodness, delivered right to your doorstep. We're thrilled to be part of your journey to better health and happiness.</p>
   </div>
