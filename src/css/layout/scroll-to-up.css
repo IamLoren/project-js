@@ -19,7 +19,7 @@
  
   fill: var(--primary-bg-green-color); 
   border: none;
-  background: #e8e8e24d var(--primary-bg-color);
+  background:  var(--primary-bg-color);
   box-shadow: 0 0.25rem 0.5rem 0 var(--primary-bg-green-color);
   transition-duration: .7s;
   padding: 0;
@@ -28,10 +28,6 @@
 }
 @media screen and (min-width: 768px) {
   .scroll-to-up-btn {
-    /* width: 40px;
-    height:40px;
-    right: 20px;
-    bottom: 20px; */
     right: 5vw;
     width: 3rem;
     height: 3rem;

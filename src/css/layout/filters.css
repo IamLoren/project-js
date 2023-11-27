@@ -5,7 +5,7 @@
 }
 
 .filters-title {
-  color: rgba(1, 1, 1, 0.3);
+  color: var(--span-info-color);
   margin-bottom: 10px;
   font-size: 14px;
 }
@@ -35,7 +35,7 @@
   font-size: 14px;
   padding: 14px 20px;
   border-radius: 30px;
-  border: 1px solid rgba(1, 1, 1, 0.3);
+  border: 1px solid var(--span-info-color);
   background-color: transparent;
 }
 
@@ -118,7 +118,7 @@
 .filters-allTypes-item {
     margin-bottom: 9px;
     font-size: 14px;
-    color: rgba(1, 1, 1, 0.50);
+    color: var(--filter-color);
     cursor: pointer;
 }
 
