@@ -5,3 +5,4 @@ export function renderSorryMessage() {
             <h3 class="sorry-message-text"> Sorry, there are no items matching your filter request!</h3>
         </div> 
     `;
+}
