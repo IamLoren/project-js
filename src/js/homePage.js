@@ -123,6 +123,7 @@ searchForm.addEventListener('submit', async event => {
       filteredParameter,
       productForRender
     );
+    
     productsListGeneral.innerHTML = '';
     if (filteredProducts.length === 0) {
       const sorryMessage = renderSorryMessage();
