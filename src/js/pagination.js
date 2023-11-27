@@ -13,7 +13,7 @@ const options = {
 };
 
 const pagination = new Pagination(container, options);
-qpage = pagination.getCurrentPage();
+let qpage = pagination.getCurrentPage();
 
 console.log(qpage);
 
@@ -29,7 +29,6 @@ const onRenderPage = async () => {
     container.classList.remove('is-hidden');
   } catch (err) {
     console.log(err);
-    // Report.failure(err.message, 'Please reload!');
   }
 };
 
@@ -41,8 +40,8 @@ const createUserPagination = async event => {
   try {
     const allProducts = await getAllProducts();
     console.log(allProducts.results);
-    page = pagination.getCurrentPage();
-    console.log(page);
+    qpage = pagination.getCurrentPage();
+    console.log(qpage);
 
     renderMarkup(allProducts.results, 'general', productsListGeneral);
   } catch (err) {
