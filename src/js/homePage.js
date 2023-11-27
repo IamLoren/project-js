@@ -1,3 +1,4 @@
+import iconsPath from "../images/icons.svg"
 import pathToSvg from '../images/icons.svg';
 import { getLength } from './header.js';
 import {
@@ -155,6 +156,18 @@ export async function addToCartFromModal(event) {
     event.currentTarget.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
                 <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
                 </svg>`;
+
+                const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+                addToCartBtn.forEach(btn => {
+                    let _id = btn.getAttribute('data-id');
+                    const passSvg = btn.querySelector('use');
+
+                    if (_id === id) {
+                        passSvg.setAttribute('href', `${iconsPath}#icon-checkmark`);
+                        btn.disabled = true;
+                    }
+                });     
+
     try {
       const product = await getProducttById(id);
       const { category, size, _id, name, price, img } = product;
@@ -184,6 +197,18 @@ export async function addToCartFromModal(event) {
     // Видаляємо продукт з arrProducts
     const idCard = event.currentTarget.getAttribute('data-id');
     arrProducts = arrProducts.filter(item => item.id !== idCard);
+
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    addToCartBtn.forEach(btn => {
+        let _id = btn.getAttribute('data-id');
+        const passSvg = btn.querySelector('use');
+
+        if (_id === id) {
+          passSvg.setAttribute('href', `${iconsPath}#icon-shopping-cart`);
+          btn.disabled = false;
+        }
+
+      })
 
     // Оновлюємо локалсторідж
     localStorage.setItem('product', JSON.stringify(arrProducts));
