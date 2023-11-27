@@ -194,7 +194,7 @@ function addScroll() {
   }
 }
 
-// modal order open
+// modal order
 
 const orderFormModal = document.querySelector('.cart-form');
 orderFormModal.addEventListener('submit', openModalOrder);
@@ -219,22 +219,11 @@ function createMarkupOrderModal() {
   `;
 }
 
-
-// document.body.addEventListener('click', (event) => {
-//   const orderBackdrop = document.querySelector('.order-backdrop');
-//   if (event.target.closest(".order-close-icon") || event.target.closest(".order-backdrop")) {
-//     orderBackdrop.classList.add('is-hidden');
-
-//     document.querySelector('.section-cart').innerHTML = renderCartEmpty();
-//     localStorageAPI.remove('product');
-//     getLength();
-//   }
-// });
 document.body.addEventListener('click', closeOrderModal);
 
-function closeOrderModal() {
+function closeOrderModal(event) {
   const orderBackdrop = document.querySelector('.order-backdrop');
-  if (event.target.closest(".order-close-icon") || event.target.closest(".order-backdrop")) {
+  if (event.target.closest(".order-close-icon") || event.target.classList.contains("order-backdrop")) {
     orderBackdrop.classList.add('is-hidden');
 
     document.querySelector('.section-cart').innerHTML = renderCartEmpty();
