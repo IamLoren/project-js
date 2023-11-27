@@ -1,5 +1,5 @@
 <section class="section-cart" id="section-cart">
-  <div class="container">
+  <div class="container posrel">
     <h2 class="cart-title">
       <svg class="cart-icon-shopping">
         <use href="./images/icons.svg#icon-shopping-cart"></use>
@@ -100,62 +100,59 @@
           </div>
         </div>
         <form action="#" class="cart-form">
-          <label class="cart-form-label">Mail:</label>
+          <p class="cart-order-info-text">Enter your details for the order</p>
           <input
-            class="cart-form-input"
+            class="cart-order-info-input"
             type="email"
             name="email"
-            placeholder="Enter your email"
+            placeholder="Mail: Enter your email"
             required
             pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
           />
-
-          <button class="cart-form-btn" type="submit" aria-label="сheckout">
-            Checkout
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <div class="cart-order-info">
-      <form class="cart-order-info-form">
-        <p class="cart-order-info-text">Enter your details for the order</p>
-        <label class="cart-order-info-label">
-        </label>
+          <label class="cart-order-info-label"> </label>
           <input
             class="cart-order-info-input"
             type="text"
-            placeholder="Name:"
+            placeholder="Name: Enter your name"
             id="name"
           />
-        <label class="cart-order-info-label">
-        </label>
+          <label class="cart-order-info-label"> </label>
           <input
             class="cart-order-info-input"
             type="tel"
             placeholder="Phone number:"
             id="phone"
           />
-        <label class="cart-order-info-label">
-        </label>
+          <label class="cart-order-info-label"> </label>
           <input
             class="cart-order-info-input"
             type="text"
             placeholder="Delivery address:"
             id="address"
           />
-        <label class="cart-order-info-label datetime-label">
-          Delivery date and time:
-        </label>
+          <label class="cart-order-info-label datetime-label">
+            Delivery date and time:
+          </label>
           <input
-          class="cart-order-info-input datetime"
-          id="datetime"
-          type="text"
-          name="datetime"
+            class="cart-order-info-input datetime"
+            id="datetime"
+            type="text"
+            name="datetime"
           />
-        <button class="cart-order-info-btn" type="submit">Send</button>
-      </form>
+          <button
+            class="cart-order-info-btn cart-form-bt"
+            type="submit"
+            aria-label="сheckout"
+          >
+            Checkout
+          </button>
+        </form>
+      </div>
     </div>
+
+    <!-- <div class="cart-order-info">
+      <form class="cart-order-info-form"></form>
+    </div> -->
 
     <!--  js markup create
       
