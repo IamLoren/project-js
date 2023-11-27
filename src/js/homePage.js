@@ -48,7 +48,7 @@ fillarrProducts();
  function loadQueryParamsFromLS () {
   const paramsFromLS = localStorageAPI.load('queryParams');
    if (!paramsFromLS) {
-    localStorageAPI.save('queryParams', {keyword:'', category: '', page: 1, limit: 6});
+    localStorageAPI.save('queryParams', {keyword:null, category:null, page: 1, limit: 6});
    }
  }
 loadQueryParamsFromLS()
