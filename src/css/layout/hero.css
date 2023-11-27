@@ -2,7 +2,29 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+  border-radius: 60px;
 }
+
+#slider {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+.slider-container {
+  min-height: 480px;
+}
+.slider-container picture {
+  transition: all 0.5s ease;
+  opacity: 0;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+.slider-container picture.active {
+  opacity: 1;
+}
+
 .hero-picture-block {
   display: block;
   position: relative;
@@ -17,6 +39,7 @@ img {
   position: absolute;
   top: -7px;
   right: 8px;
+  z-index: 99;
 }
 
 .hero {
@@ -73,6 +96,10 @@ img {
     padding-top: 58px;
   }
 
+  .slider-container {
+    min-height: 580px;
+  }
+
   .hero-img {
     width: 704px;
     height: 100%;
@@ -107,6 +134,9 @@ img {
   .hero {
     padding-top: 39px;
   }
+  .slider-container {
+    min-height: 370px;
+  }
 
   .hero-img {
     width: 1240px;
@@ -135,3 +165,5 @@ img {
     right: 20px;
   }
 }
+
+/* */
