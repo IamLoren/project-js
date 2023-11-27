@@ -64,7 +64,7 @@ export function collectQueryParameters() {
     const paramsForBack = {
         category,
         keyword: searchWord,
-        page,
+        page: 1,
         limit,
     }
 
