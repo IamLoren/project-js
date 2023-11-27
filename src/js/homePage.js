@@ -115,6 +115,7 @@ searchForm.addEventListener('submit', async event => {
     const filteredParameter = queryParameters.filterSearch;
     const response = await getProductsByQuery(queryParameters);
     const productForRender = response.results;
+    console.log(productForRender)
     const filteredProducts = filterBySearchParameter(
       filteredParameter,
       productForRender
