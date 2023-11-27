@@ -1,6 +1,8 @@
 import localStorageAPI from './localStorage.js';
 import iconsPath from '../images/icons.svg';
 import emptyCart from '../images/yellow-shopping-basket.webp';
+/* хедер */
+import { getLength } from './header.js';
 
 export function addNumberProd() {
   const arrFromLS = localStorageAPI.load('product');
@@ -36,6 +38,7 @@ renderCarts(cartProducts);
 document.querySelector('.delete-all-box').addEventListener('click', () => {
   //   localStorage.clear();
   localStorageAPI.remove('product');
+  getLength();
   document.querySelector('.section-cart').innerHTML = renderCartEmpty();
 });
 /* видаляємо по item */
@@ -64,6 +67,7 @@ function onDeleteItemClick(event) {
   calculatePrice();
   addScroll();
   addNumberProd();
+  getLength();
   if (cartProducts.length === 0) {
     document.querySelector('.section-cart').innerHTML = renderCartEmpty();
   }

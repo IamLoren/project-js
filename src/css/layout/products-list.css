@@ -34,7 +34,7 @@ body {
     0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
     0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
     0px 208px 286px 0px rgba(0, 0, 0, 0.07);
-    transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
+  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .product-list {
@@ -49,7 +49,7 @@ body {
   width: 320px;
 }
 .product-card-general {
-  width: 100%;
+  width: 88%;
   border-radius: 20px;
   row-gap: 20px;
 }
@@ -123,7 +123,7 @@ body {
   border-radius: 50%;
   background: #6d8434;
   border: none;
-  transition: background-color .25s cubic-bezier(.4,0,.2,1);
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cart-svg {
@@ -148,7 +148,6 @@ body {
   padding: 12px;
   background-color: var(--card-bg-color);
   position: relative;
-  
 }
 
 .popular-product-card:hover {
@@ -156,7 +155,7 @@ body {
     0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
     0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
     0px 208px 286px 0px rgba(0, 0, 0, 0.07);
-    transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
+  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .popular-card-btn {
@@ -171,9 +170,9 @@ body {
   align-items: center;
   justify-content: center;
 
-  background-color: #E8E8E2;
-  transition: background-color .25s cubic-bezier(.4,0,.2,1);
-  fill: #6D8434;
+  background-color: #e8e8e2;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  fill: #6d8434;
 
   background-color: #e8e8e2;
 }
@@ -287,7 +286,7 @@ body {
     0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
     0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
     0px 208px 286px 0px rgba(0, 0, 0, 0.07);
-    transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
+  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .discount-img-wrapper {
   padding: 18px 95px;
@@ -343,6 +342,9 @@ body {
   .products-list-discount {
     width: 328px;
     height: 470px;
+  }
+  .product-card-general {
+    width: 100%;
   }
   .discount-product-card {
     width: 315px;
@@ -506,6 +508,10 @@ body {
 
   .card-img {
     padding: 19px 57px;
+  }
+
+  .general-card-container {
+    width: 250px;
   }
 
   .general-span-info {
