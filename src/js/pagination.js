@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 import axios from 'axios';
 import 'tui-pagination/dist/tui-pagination.css';
 // import icon from '../../images/icons.svg';
-import { getAllProducts, getProductsByQuery } from './api.js';
+
 import { createProductCard, renderMarkup } from './templates/cards.js';
 import { load, save } from './localStorage.js';
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
@@ -12,7 +12,7 @@ const container = document.querySelector('#tui-pagination-container');
 
 const options = {
   itemsPerPage: 1,
-  visiblePages: 5,
+  visiblePages: 7,
   page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
@@ -40,7 +40,7 @@ const pagination = new Pagination(container, options);
 let qpage = pagination.getCurrentPage();
 
 console.log(qpage);
-const getAllProducts = async params => {
+const getProducts = async params => {
   try {
     const { keyword, category, page, limit, sort } = params;
     const response = await axios.get(
@@ -55,7 +55,7 @@ const getAllProducts = async params => {
 const onRenderPage = async () => {
   try {
     // робимо запит
-    const allProducts = await getAllProducts({ page: qpage });
+    const allProducts = await getProducts({ page: qpage });
 
     console.log('Product', allProducts, '0', allProducts.results);
     renderMarkup(allProducts.results, 'general', productsListGeneral);
