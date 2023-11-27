@@ -143,6 +143,7 @@ body {
   margin-bottom: 81px;
 }
 .popular-product-card {
+  cursor: pointer;
   display: flex;
   gap: 10px;
   border-radius: 10px;
@@ -276,6 +277,7 @@ body {
   margin-bottom: 20px;
 }
 .discount-product-card {
+  cursor: pointer;
   width: 280;
   height: 232px;
   background-color: var(--card-bg-color);
