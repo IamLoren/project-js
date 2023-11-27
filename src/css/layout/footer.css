@@ -115,7 +115,7 @@ margin-bottom: 14px;
 }
 .footer-form-btn:hover,
 .footer-form-btn:focus{
-    color: #6D8434;
+    color: var(--secondary-bg-green-color);
 }
 .footer-privacy-wrapper{
     padding-bottom: 80px;
