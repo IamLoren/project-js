@@ -65,7 +65,7 @@ export function collectQueryParameters() {
         category,
         keyword: searchWord,
         page: 1,
-        limit,
+        limit: 9,
     }
 
     localStorageAPI.save('queryParams', paramsForBack);
