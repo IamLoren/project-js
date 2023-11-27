@@ -24,6 +24,7 @@ body {
 }
 
 .product-card-general {
+  cursor: pointer;
   position: relative;
   border-radius: 20px;
   background-color: var(--card-bg-color);
