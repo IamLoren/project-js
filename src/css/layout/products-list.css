@@ -59,7 +59,7 @@ body {
 .card-img {
   padding: 19px 78px;
   border-radius: 10px;
-  background-color: #e8e8e2;
+  background-color: var(--primary-bg-color);;
 }
 .general-span-info {
   color: rgba(1, 1, 1, 0.3);
@@ -74,7 +74,7 @@ body {
   column-gap: 4px;
 }
 .general-card-title {
-  color: #010101;
+  color: var(--title-black-text-color);
   font-family: 'Neue Montreal Medium';
   font-weight: 500;
   font-size: 18px;
@@ -90,7 +90,7 @@ body {
   margin-bottom: 40px;
 }
 .span-info-value {
-  color: #010101;
+  color: var(--title-black-text-color);
 
   font-family: 'Neue Montreal Regular';
   font-size: 12px;
@@ -106,7 +106,7 @@ body {
 }
 .general-span-price {
   display: block;
-  color: #010101;
+  color: var(--title-black-text-color);
   font-family: 'Neue Montreal Medium';
   font-weight: 500;
   font-size: 18px;
@@ -121,7 +121,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  background: #6d8434;
+  background: var(--secondary-bg-green-color);
   border: none;
   transition: background-color .25s cubic-bezier(.4,0,.2,1);
 }
@@ -171,19 +171,19 @@ body {
   align-items: center;
   justify-content: center;
 
-  background-color: #E8E8E2;
+  background-color: var(--primary-bg-color);
   transition: background-color .25s cubic-bezier(.4,0,.2,1);
-  fill: #6D8434;
+  fill: var(--secondary-bg-green-color);
 
-  background-color: #e8e8e2;
+  background-color: var(--primary-bg-color);
 }
 
 .popular-card-btn:hover {
-  background-color: #6d8434;
+  background-color: var(--secondary-bg-green-color);
 }
 
 .popular-title {
-  color: #010101;
+  color: var(--title-black-text-color);
   font-family: 'Neue Montreal Medium';
   font-size: 24px;
   line-height: 1.16;
@@ -205,7 +205,7 @@ body {
   width: 184px;
 }
 .popular-card-title {
-  color: #010101;
+  color: var(--title-black-text-color);
   font-family: 'Neue Montreal Medium';
   font-size: 18px;
   font-weight: 500;
@@ -242,7 +242,7 @@ body {
 }
 
 .popular-cart-svg {
-  fill: #6d8434;
+  fill: var(--secondary-bg-green-color);
 }
 
 .popular-cart-svg:hover,
@@ -267,7 +267,7 @@ body {
 }
 
 .discount-title {
-  color: #010101;
+  color: var( --title-black-text-color);
   font-family: 'Neue Montreal Medium';
   font-size: 24px;
   font-weight: 500;
@@ -293,7 +293,7 @@ body {
   padding: 18px 95px;
   position: relative;
   display: block;
-  background: #e8e8e2;
+  background: var(--primary-bg-color);
   border-radius: 10px;
   margin-bottom: 23px;
 }
@@ -309,7 +309,7 @@ body {
   align-items: center;
 }
 .discount-card-title {
-  color: #010101;
+  color: var(--title-black-text-color);
   font-family: 'Neue Montreal Medium';
   font-size: 18px;
   font-weight: 500;
@@ -324,7 +324,7 @@ body {
 }
 
 .span-price {
-  color: #010101;
+  color: var(--title-black-text-color);
   font-family: 'Neue Montreal Medium';
   font-size: 18px;
   font-weight: 500;
@@ -375,7 +375,7 @@ body {
   }
 
   .general-card-title {
-    color: #010101;
+    color: var(--title-black-text-color);
     font-family: 'Neue Montreal Medium';
     font-size: 20px;
     line-height: 1.11;
@@ -396,7 +396,7 @@ body {
     padding: 0 20px 20px 20px;
   }
   .general-span-price {
-    color: #010101;
+    color: var(--title-black-text-color);
     font-family: 'Neue Montreal Medium';
     font-size: 20px;
     line-height: 1.2;
@@ -408,11 +408,11 @@ body {
     align-items: center;
     gap: 10px;
     border-radius: 30px;
-    background: #6d8434;
+    background: var(--secondary-bg-green-color);
     border: none;
   }
   .cart-svg {
-    fill: #fff;
+    fill: var(--card-bg-color);
   }
 
   /* *
@@ -537,12 +537,12 @@ body {
   .addToCart-btn {
     padding: 8px;
     gap: 10px;
-    background: #6d8434;
+    background: var(--secondary-bg-green-color);
     border: none;
   }
   .addToCart-btn:hover,
   .addToCart-btn:focus {
-    background-color: #586f1f;
+    background-color: var(--primary-bg-green-color);
   }
 
   /* *
@@ -577,7 +577,7 @@ body {
 
   .popular-addToCart-btn:hover,
   .popular-addToCart-btn:focus {
-    background: rgb(109, 132, 52);
+    background: var(--primary-bg-green-color);
     border: none;
     border-radius: 30px;
     justify-content: center;

@@ -59,7 +59,7 @@
 }
 
 .filters-input:focus {
-  outline: 1px solid #6d8434;
+  outline: 1px solid var(--secondary-bg-green-color);
 }
 
 .filters-search-btn {
@@ -97,7 +97,7 @@
   width: 100%;
   padding: 14px 20px;
   border-radius: 15px;
-  background: #fff;
+  background: var(--white-color);
   box-shadow: 0px 4px 11.2125px 0px rgba(0, 0, 0, 0.04),
     0px 20px 69px 0px rgba(0, 0, 0, 0.07);
   visibility: hidden;
