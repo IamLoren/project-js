@@ -20,12 +20,17 @@ export async function getAllProducts(queryParams) {
   }
   
   const params = new URLSearchParams({
-    keyword,
-    category,
     page,
     limit,
-
   })
+  if (keyword !== '') {
+    params.append('keyword', keyword);
+}
+
+if ((category !== '') && (category !== 'Show_all')) {
+  params.append('category', category);
+}
+
     const response = await axios.get(`${BASE_URL}?${params}`);
     return response.data;
   }
@@ -47,7 +52,7 @@ export async function getPopularProducts() {
 
 export async function getProductsByQuery(queryParams) {
   let response;
-  let { keyword = '', category, page = 1, limit } = queryParams;
+  let { keyword, category, page = 1, limit } = queryParams;
 
   const screenWidth = window.innerWidth;
 
@@ -60,24 +65,20 @@ export async function getProductsByQuery(queryParams) {
   }
 
   const params = new URLSearchParams({
-    keyword,
-    category,
     limit,
     page,
   });
 
-  if (
-    (category === 'Categories' || category === 'Show_all') &&
-    keyword === ''
-  ) {
-    response = await axios.get(`${BASE_URL}`);
-  } else if (category === 'Categories' || category === 'Show_all') {
-    response = await axios.get(
-      `${BASE_URL}?keyword=${keyword}&${params}`
-    );
-  } else {
-    response = await axios.get(`${BASE_URL}?${params}`);
-  }
+  if (keyword !== '') {
+    params.append('keyword', keyword);
+}
+
+if (category !== '' && category !== 'Show_all') {
+    params.append('category', category);
+}
+
+ response = await axios.get(`${BASE_URL}?${params}`);
+ 
   return response.data;
 }
 
