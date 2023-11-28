@@ -70,7 +70,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     const paramsFromLS = localStorageAPI.load('queryParams');
-    console.log(paramsFromLS);
     const allProduct = await getAllProducts(paramsFromLS);
     const arrOfAllProducts = allProduct.results;
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);

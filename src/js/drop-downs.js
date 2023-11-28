@@ -91,7 +91,6 @@ export function collectQueryParameters() {
   };
 
   localStorageAPI.save('queryParams', paramsForBack);
-  console.log(paramsForBack);
   return queryParameters;
 }
 
