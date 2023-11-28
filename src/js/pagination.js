@@ -1,11 +1,14 @@
 import Pagination from 'tui-pagination';
-import axios from 'axios';
-import 'tui-pagination/dist/tui-pagination.css';
+// import 'tui-pagination/dist/tui-pagination.css';
 // import icon from '../../images/icons.svg';
-import { getAllProducts } from './api.js';
-import { createProductCard, renderMarkup } from './templates/cards.js';
-import { load, save } from './localStorage.js';
-const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
+import { getProductsByQuery } from './api.js';
+import { renderMarkup } from './templates/cards.js';
+import {
+  collectQueryParameters,
+  filterBySearchParameter,
+} from './drop-downs.js';
+import { saveToLocalStorage } from './addToCart.js';
+import { renderSorryMessage } from './templates/renderSorryMessage.js';
 
 const productsListGeneral = document.querySelector('.products-list-general');
 const container = document.querySelector('#tui-pagination-container');
@@ -37,60 +40,63 @@ const options = {
 };
 
 const pagination = new Pagination(container, options);
-let qpage = pagination.getCurrentPage();
 
-console.log(qpage);
-
-const getProducts = async params => {
-  try {
-    const { keyword, category, page, limit, sort } = params;
-    const response = await axios.get(
-      `https://food-boutique.b.goit.study/api/products`
-    );
-    return response.data;
-  } catch (err) {
-    console.error(err);
-    throw err;
-  }
-};
-
-const onRenderPage = async () => {
-  try {
-    // робимо запит
-    const allProducts = await getAllProducts({ page: qpage });
-    // const products = getProducts({ page: qpage });
-    //const arrLength = products.response;
-    //console.log('qle', arrLength);
-    //console.log('le', productLength);
-    console.log('pro', allProducts);
-    renderMarkup(allProducts.results, 'general', productsListGeneral);
-    // Розмітка
-    //pagination.reset(100);
-    container.classList.remove('is-hidden');
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-const createUserPagination = async event => {
+//Callback to switch between pages
+const paginationClick = async event => {
   const currentPage = event.page;
-  getAllProducts.page = currentPage;
-
-  console.log(currentPage, getProducts.page);
+  console.log(currentPage);
 
   try {
-    const allProducts = await getProducts({ page: currentPage });
-    console.log('qpage', allProducts.results);
+    const queryParameters = collectQueryParameters();
+    queryParameters.page = currentPage;
+    const response = await getProductsByQuery(queryParameters);
+    const productForRender = response.results;
+    const filteredParameter = queryParameters.filterSearch;
+    console.log(productForRender);
+    const filteredProducts = filterBySearchParameter(
+      filteredParameter,
+      productForRender
+    );
 
-    // qpage = pagination.getCurrentPage();
-    // console.log(qpage);
+    productsListGeneral.innerHTML = '';
+    if (filteredProducts.length === 0) {
+      const sorryMessage = renderSorryMessage();
+      productsListGeneral.insertAdjacentHTML('beforeend', sorryMessage);
+    } else {
+      renderMarkup(filteredProducts, 'general', productsListGeneral);
+    }
+    let cardsDisc = document.querySelectorAll('product-card-general');
+    cardsDisc.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
 
-    renderMarkup(allProducts.results, 'general', productsListGeneral);
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    addToCartBtn.forEach(btn => {
+      btn.addEventListener('click', saveToLocalStorage);
+    });
   } catch (err) {
     console.log(err);
   }
 };
+pagination.on('afterMove', paginationClick);
 
-pagination.on('afterMove', createUserPagination);
+//Callback to update pagination with new values
+const paginationUpdate = async event => {
+  try {
+    const queryParameters = collectQueryParameters();
+    const response = await getProductsByQuery(queryParameters);
+    if (response.totalPages === 1) {
+      container.classList.add('is-hidden');
+    } else {
+      pagination.setTotalItems(response.totalPages);
+      container.classList.remove('is-hidden');
+    }
+    pagination.reset();
+  } catch (err) {
+    console.log(err);
+  }
+};
+document.addEventListener('DOMContentLoaded', paginationUpdate);
 
-document.addEventListener('DOMContentLoaded', onRenderPage);
+const searchForm = document.querySelector('.filters-form');
+searchForm.addEventListener('submit', paginationUpdate);
