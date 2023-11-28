@@ -28,14 +28,13 @@ body {
   position: relative;
   border-radius: 20px;
   background-color: var(--card-bg-color);
+  transition: transform .2s;
 }
 
 .product-card-general:hover {
-  box-shadow: 0px 9.1px 16.53437px 0px rgba(0, 0, 0, 0.02),
-    0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
-    0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
-    0px 208px 286px 0px rgba(0, 0, 0, 0.07);
-  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 85px 62px rgba(0, 0, 0, 0.01), 0px 57px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+  transform: scale(1.01);
 }
 
 .product-list {
@@ -47,11 +46,11 @@ body {
   flex-direction: column;
   gap: 20px;
   padding-bottom: 80px;
-  width: 320px;
+  width: 100%;
 }
 
 .product-card-general {
-  width: 88%;
+  width: 100%;
   border-radius: 20px;
   row-gap: 20px;
   opacity: 0;
@@ -180,6 +179,7 @@ body {
   padding: 12px;
   background-color: var(--card-bg-color);
   position: relative;
+
   right: -50px;
   opacity: 0;
   transform: translateX(50px); 
@@ -217,14 +217,14 @@ body {
 
 .popular-product-card:nth-child(5) {
   animation-delay: 2s;
+
 }
 
+
 .popular-product-card:hover {
-  box-shadow: 0px 9.1px 16.53437px 0px rgba(0, 0, 0, 0.02),
-    0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
-    0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
-    0px 208px 286px 0px rgba(0, 0, 0, 0.07);
-  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 57px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+  transform: scale(1.01);
 }
 
 .popular-card-btn {
@@ -276,11 +276,11 @@ body {
 .popular-card-title {
   color: var(--title-black-text-color);
   font-family: 'Neue Montreal Medium';
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   line-height: 1.11;
 
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .popular-span-container {
@@ -314,8 +314,8 @@ body {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
-  width: 300px;
-  height: 400px;
+  width: 100%;
+  height: 485px;
   overflow: scroll;
   overflow-x: hidden;
   margin-bottom: 80px;
@@ -325,25 +325,24 @@ body {
   color: #010101;
   font-family: 'Neue Montreal Medium';
   font-size: 24px;
-  font-weight: 500;
+  /* font-weight: 500; */
   line-height: 1.16;
 
   margin-bottom: 20px;
 }
 .discount-product-card {
   cursor: pointer;
-  width: 280;
+  width: 100%;
   height: 232px;
   background-color: var(--card-bg-color);
   border-radius: 15px;
   padding: 16px;
+  transition: transform .2s;
 }
 .discount-product-card:hover {
-  box-shadow: 0px 9.1px 16.53437px 0px rgba(0, 0, 0, 0.02),
-    0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
-    0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
-    0px 208px 286px 0px rgba(0, 0, 0, 0.07);
-  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 17px 52px rgba(0, 0, 0, 0.05),  0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+  transform: scale(1.01);
 }
 .discount-img-wrapper {
   padding: 18px 95px;
@@ -541,6 +540,7 @@ body {
 
   .discount-img-wrapper {
     margin-bottom: 21px;
+    
   }
 }
 
@@ -551,15 +551,20 @@ body {
   }
   .product-list-container {
     display: flex;
+    column-gap: 40px;
   }
   .products-list-general {
     flex-direction: row;
     flex-wrap: wrap;
     width: 925px;
+    padding-top: 12px;
+    row-gap: 40px;
+    column-gap: 20px;
+
   }
 
   .product-card-general {
-    width: 282px;
+    width: 295px;
     height: 363px;
   }
 
@@ -591,6 +596,8 @@ body {
     justify-content: start;
     width: 240px;
     flex-wrap: wrap;
+    row-gap: 4px;
+    column-gap: 8px;
   }
   .general-card-price {
     padding: 0 20px 20px 20px;
@@ -619,6 +626,7 @@ body {
   .container-popular-discount {
     display: flex;
     flex-direction: column;
+    padding-top: 12px;
   }
 
   .products-list-popular {
@@ -629,7 +637,8 @@ body {
     margin-bottom: 0;
   }
   .popular-product-card {
-    width: calc((100% - 16) / 2);
+    /* width: calc((100% - 16) / 2); */
+    width: 275px;
   }
 
   .popular-title {
@@ -638,7 +647,7 @@ body {
   }
 
   .popular-span-container {
-    row-gap: 8px;
+    row-gap: 3px;
   }
 
 
@@ -652,7 +661,7 @@ body {
   .products-list-discount {
     row-gap: 20px;
     flex-wrap: nowrap;
-    height: 414px;
+    height: 485px;
     width: 333px;
     overflow: scroll;
     overflow-x: hidden;
@@ -663,6 +672,7 @@ body {
     line-height: 1.14;
   }
   .discount-product-card {
+    width: 275px;
     padding: 16px 16px 21px 16px;
   }
   .discount-card-title {
@@ -671,6 +681,15 @@ body {
 
   .span-price {
     font-size: 20px;
+  }
+  .discount-img-wrapper {
+    margin-bottom: 12px;
+    padding: 23px 69px 22px 69px;
+  }
+
+  .discount-svg-icon {
+    top: -19px;
+    right: -6px;
   }
 }
 

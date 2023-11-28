@@ -1,17 +1,11 @@
 .scroll-to-up-btn {
-    display: none;
+  display: none;
   position: fixed;
-  /* width: 24px;
-  height:24px;
-  right: 10px;
-  bottom: 10px; */
   width: 2rem;
-  height: 2rem;
-  right: 7vw;
-  bottom: 5vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 2rem; 
+  font-weight: 600;
+   right: 7vw; 
+  bottom: 5vw; 
   animation: up-down 10s ease infinite;
   border-radius: 50%;
   transition: opacity 1s ease-in-out;
@@ -19,16 +13,14 @@
  
   fill: var(--primary-bg-green-color); 
   border: none;
-  background:  var(--primary-bg-color);
+  background-color:#e8e8e2a8;
   box-shadow: 0 0.25rem 0.5rem 0 var(--primary-bg-green-color);
   transition-duration: .7s;
-  padding: 0;
-  margin: 0;
-  flex-shrink: 0;
+  transition-duration: 1s;
 }
 @media screen and (min-width: 768px) {
   .scroll-to-up-btn {
-    right: 5vw;
+    right: 4vw;
     width: 3rem;
     height: 3rem;
   }
@@ -44,6 +36,35 @@
   animation: slide-in-bottom .7s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+.scroll-to-up-svg {
+  display: flex;
+    align-items: center;
+    justify-content: center; 
+  padding: 0;
+  margin: auto;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 375px) {
+  .scroll-to-up-svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 767px) {
+  .scroll-to-up-svg {
+    width:18px;
+    height: 18px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .scroll-to-up-svg {
+    width:24px;
+    height: 24px;
+  }
+}
   @keyframes slide-in-bottom {
     0% {
         transform: translateY(10px);
