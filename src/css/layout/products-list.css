@@ -28,14 +28,13 @@ body {
   position: relative;
   border-radius: 20px;
   background-color: var(--card-bg-color);
+  transition: transform .2s;
 }
 
 .product-card-general:hover {
-  box-shadow: 0px 9.1px 16.53437px 0px rgba(0, 0, 0, 0.02),
-    0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
-    0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
-    0px 208px 286px 0px rgba(0, 0, 0, 0.07);
-  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 57px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+  transform: scale(1.05);
 }
 
 .product-list {
@@ -150,14 +149,14 @@ body {
   padding: 12px;
   background-color: var(--card-bg-color);
   position: relative;
+  transition: transform .2s;
 }
 
+
 .popular-product-card:hover {
-  box-shadow: 0px 9.1px 16.53437px 0px rgba(0, 0, 0, 0.02),
-    0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
-    0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
-    0px 208px 286px 0px rgba(0, 0, 0, 0.07);
-  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 155px 62px rgba(0, 0, 0, 0.01), 0px 57px 52px rgba(0, 0, 0, 0.05), 0px 39px 39px rgba(0, 0, 0, 0.09), 0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+  transform: scale(1.01);
 }
 
 .popular-card-btn {
@@ -270,13 +269,12 @@ body {
   background-color: var(--card-bg-color);
   border-radius: 15px;
   padding: 16px;
+  transition: transform .2s;
 }
 .discount-product-card:hover {
-  box-shadow: 0px 9.1px 16.53437px 0px rgba(0, 0, 0, 0.02),
-    0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
-    0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
-    0px 208px 286px 0px rgba(0, 0, 0, 0.07);
-  transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 17px 52px rgba(0, 0, 0, 0.05),  0px 10px 21px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s cubic-bezier(0.15, 0.83, 0.66, 1);
+  transform: scale(1.01);
 }
 .discount-img-wrapper {
   padding: 18px 95px;
