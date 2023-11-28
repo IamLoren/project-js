@@ -1,6 +1,15 @@
 import localStorageAPI from './localStorage.js';
 
+// відмалювання списку категорій
 
+export function renderCategoryList(list) {
+   const listOfCategory = list.map(item => {
+        return `<li class="filters-categories-item">${item}</li>`
+    });
+    document.querySelector('.filters-categories-list').insertAdjacentHTML('beforeend', listOfCategory.join('').replaceAll('_', ' '));
+}
+
+// управління дропдаунів
 export function openDropDown(event) {
 const parentElement = this.closest('.filters-wrap');
 const svgElement = parentElement.querySelector('.filters-down-svg');
@@ -64,6 +73,7 @@ export function collectQueryParameters() {
     const paramsForBack = {
         category,
         keyword: searchWord,
+        filterSearch,
         page: 1,
         limit: 9,
     }

@@ -1,6 +1,15 @@
 import axios from 'axios';
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
+
+//запит на бекенд про категорії товарів
+
+export async  function getCategories() {
+  const response = await axios.get(`https://food-boutique.b.goit.study/api/products/categories`);
+  return response.data;
+}
+
+// отримання усіх продуктів при першому завантаженні
 export async function getAllProducts(queryParams) {
   let {keyword, category, page, limit} =  queryParams
 
