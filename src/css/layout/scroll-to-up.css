@@ -16,14 +16,11 @@
   background-color:#e8e8e2a8;
   box-shadow: 0 0.25rem 0.5rem 0 var(--primary-bg-green-color);
   transition-duration: .7s;
-  display: flex;
-  align-items: center;
-  justify-content: center; 
   transition-duration: 1s;
 }
 @media screen and (min-width: 768px) {
   .scroll-to-up-btn {
-    right: 5vw;
+    right: 4vw;
     width: 3rem;
     height: 3rem;
   }
@@ -55,13 +52,19 @@
   }
 }
 
-@media only screen and (min-width: 375px) and (max-width: 768px) {
+@media only screen and (min-width: 376px) and (max-width: 767px) {
   .scroll-to-up-svg {
     width:18px;
     height: 18px;
   }
 }
 
+@media only screen and (min-width: 768px) {
+  .scroll-to-up-svg {
+    width:24px;
+    height: 24px;
+  }
+}
   @keyframes slide-in-bottom {
     0% {
         transform: translateY(10px);
