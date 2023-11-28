@@ -13,12 +13,13 @@
 @media only screen and (min-width: 376px) {
   #tui-pagination-container.tui-pagination {
     width: 556px;
-    gap: 8px;
   }
   @media only screen and (min-width: 768px) {
-    .tui-pagination-container.tui-pagination {
+    #tui-pagination-container.tui-pagination {
       margin-top: 25px;
       margin-bottom: 50px;
+      gap: 8px;
+      justify-content: space-between;
     }
   }
 

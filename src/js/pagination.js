@@ -1,5 +1,4 @@
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
 import { getProductsByQuery } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { collectQueryParameters } from './drop-downs.js';
@@ -10,7 +9,7 @@ const container = document.querySelector('#tui-pagination-container');
 
 const options = {
   itemsPerPage: 1,
-  visiblePages: 5,
+  visiblePages: 4,
   page: 1,
   centerAlign: true,
   firstItemClassName: 'tui-first-child',
@@ -54,17 +53,18 @@ const paginationClick = async event => {
     } else {
       renderMarkup(productForRender, 'general', productsListGeneral);
     }
-    // let cardsDisc = document.querySelectorAll('.product-card-general');
-    // cardsDisc.forEach(card => {
-    //   card.addEventListener('click', openProductModal);
-    // });
+    let cardsDisc = document.querySelectorAll('.product-card-general');
+    cardsDisc.forEach(card => {
+      card.addEventListener('click', openProductModal);
+    });
 
-    // const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
-    // addToCartBtn.forEach(btn => {
-    //   btn.addEventListener('click', saveToLocalStorage);
-    // });
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    addToCartBtn.forEach(btn => {
+      btn.addEventListener('click', saveToLocalStorage);
+    });
   } catch (err) {
     console.log(err);
+    // container.classList.add('is-hidden');
   }
 };
 pagination.on('afterMove', paginationClick);
