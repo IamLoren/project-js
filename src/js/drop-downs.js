@@ -112,10 +112,10 @@ export function getFilter(arg) {
       filter = 'byPrice=false';
       break;
     case 'byPopular':
-      filter = 'byPopularity=true';
+      filter = 'byPopularity=false';
       break;
     case 'byNotpopular':
-      filter = 'byPopularity=false';
+      filter = 'byPopularity=true';
       break;
     default:
       filter = 'byABC=true';
