@@ -3,10 +3,7 @@ import Pagination from 'tui-pagination';
 // import icon from '../../images/icons.svg';
 import { getProductsByQuery } from './api.js';
 import { renderMarkup } from './templates/cards.js';
-import {
-  collectQueryParameters,
-  filterBySearchParameter,
-} from './drop-downs.js';
+import { collectQueryParameters } from './drop-downs.js';
 import { saveToLocalStorage } from './addToCart.js';
 import { renderSorryMessage } from './templates/renderSorryMessage.js';
 
@@ -48,24 +45,16 @@ const paginationClick = async event => {
 
   try {
     const queryParameters = collectQueryParameters();
-    queryParameters.page = currentPage;
     const response = await getProductsByQuery(queryParameters);
     const productForRender = response.results;
-    const filteredParameter = queryParameters.filterSearch;
-    console.log(productForRender);
-    const filteredProducts = filterBySearchParameter(
-      filteredParameter,
-      productForRender
-    );
-
     productsListGeneral.innerHTML = '';
-    if (filteredProducts.length === 0) {
+    if (productForRender.length === 0) {
       const sorryMessage = renderSorryMessage();
       productsListGeneral.insertAdjacentHTML('beforeend', sorryMessage);
     } else {
-      renderMarkup(filteredProducts, 'general', productsListGeneral);
+      renderMarkup(productForRender, 'general', productsListGeneral);
     }
-    let cardsDisc = document.querySelectorAll('product-card-general');
+    let cardsDisc = document.querySelectorAll('.product-card-general');
     cardsDisc.forEach(card => {
       card.addEventListener('click', openProductModal);
     });
