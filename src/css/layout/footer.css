@@ -8,16 +8,15 @@
 }
 .footer-logo-link{
     color: var(--primary-bg-color);
-font-family: "Quincy CF";
-font-size: 18px;
-font-style: normal;
-font-weight: 900;
-line-height: 20px; 
-letter-spacing: -0.36px;
-display: flex;
-gap: 8px;
-
-align-items: center;
+    font-family: "Quincy CF";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 20px; 
+    letter-spacing: -0.36px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
 }
 .footer-logo-icon{
     width: 28px;
@@ -41,8 +40,6 @@ align-items: center;
 .footer-soc-list {
     display: flex;
     gap: 12px;
-}
-.footer-soc-item {
 }
 
 .footer-soc-svg {
@@ -183,9 +180,6 @@ margin-bottom: 8px;
         display: flex;
         justify-content: space-between;
     }
-    .footer-left{
-        
-    }
     .footer-right{
         width: 427px;
     }
@@ -196,10 +190,10 @@ margin-bottom: 8px;
         letter-spacing: -0.08px
  
         }
-        .footer-text-wrapper{
-            padding-bottom: 64px;
-            padding-top: 40px;
-        }
+    .footer-text-wrapper{
+        padding-bottom: 64px;
+        padding-top: 40px;
+    }
         .footer-text{
             font-size: 18px;
             line-height: 1.33em; /* 133.333% */
@@ -274,7 +268,6 @@ margin-bottom: 8px;
         letter-spacing: -0.02em;
         }
         .footer-text-wrapper{
-            padding-bottom: 64px;
             padding-top: 40px;
             width: 410px;
         }
