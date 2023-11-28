@@ -1,10 +1,8 @@
 import Pagination from 'tui-pagination';
 // import 'tui-pagination/dist/tui-pagination.css';
-// import icon from '../../images/icons.svg';
 import { getProductsByQuery } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { collectQueryParameters } from './drop-downs.js';
-import { saveToLocalStorage } from './addToCart.js';
 import { renderSorryMessage } from './templates/renderSorryMessage.js';
 
 const productsListGeneral = document.querySelector('.products-list-general');
@@ -18,10 +16,10 @@ const options = {
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
   template: {
-    page: '<a href="#" aria-label="pagination-page link" class="tui-page-btn">{{page}}</a>',
+    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
     currentPage:
       '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    moveButton: `<a href="#" aria-label="pagination-move link" class="icon tui-page-btn tui-{{type}}">
+    moveButton: `<a href="#" class="icon tui-page-btn tui-{{type}}">
       <span class="tui-ico-{{type}}">{{type}}>
       </span>
       </a>`,
@@ -30,7 +28,7 @@ const options = {
       </span>
       </span>`,
     moreButton:
-      '<a href="#" aria-label="pagination-more link" class="tui-page-btn tui-{{type}}-is-ellip">' +
+      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
       '<span class="tui-ico-ellip">...</span>' +
       '</a>',
   },
@@ -45,8 +43,10 @@ const paginationClick = async event => {
 
   try {
     const queryParameters = collectQueryParameters();
+    queryParameters.page = currentPage;
     const response = await getProductsByQuery(queryParameters);
     const productForRender = response.results;
+
     productsListGeneral.innerHTML = '';
     if (productForRender.length === 0) {
       const sorryMessage = renderSorryMessage();
@@ -54,15 +54,15 @@ const paginationClick = async event => {
     } else {
       renderMarkup(productForRender, 'general', productsListGeneral);
     }
-    let cardsDisc = document.querySelectorAll('.product-card-general');
-    cardsDisc.forEach(card => {
-      card.addEventListener('click', openProductModal);
-    });
+    // let cardsDisc = document.querySelectorAll('.product-card-general');
+    // cardsDisc.forEach(card => {
+    //   card.addEventListener('click', openProductModal);
+    // });
 
-    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
-    addToCartBtn.forEach(btn => {
-      btn.addEventListener('click', saveToLocalStorage);
-    });
+    // const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    // addToCartBtn.forEach(btn => {
+    //   btn.addEventListener('click', saveToLocalStorage);
+    // });
   } catch (err) {
     console.log(err);
   }
