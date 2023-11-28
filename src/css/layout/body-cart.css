@@ -646,4 +646,9 @@ footer {
   .cart-order-info-input {
     margin-bottom: 20px;
   }
+
+  .cart-order-info-btn {
+    padding: 15px;
+    font-size: 20px;
+  }
 }
