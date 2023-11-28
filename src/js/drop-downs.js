@@ -73,7 +73,7 @@ export function collectQueryParameters() {
     const paramsForBack = {
         category,
         keyword: searchWord,
-        filterSearch,
+        filterSearch: `by${filterSearch}`,
         page: 1,
         limit: 9,
     }
@@ -83,23 +83,30 @@ export function collectQueryParameters() {
     return queryParameters;
 }
 
-export function filterBySearchParameter(parameter, productForRender) {
-    if (parameter === "byAtoZ" || parameter === "byShowall") {
-        return productForRender;
+
+  //визначення фільтра 
+ export function getFilter(arg) {
+    let filter;
+    switch (arg) {
+      case 'byAtoZ':
+        filter = 'byABC=true';
+        break;
+      case 'byZtoA':
+        filter = 'byABC=false';
+        break;
+      case 'byCheaperfirst':
+        filter = 'byPrice=true';
+        break;
+      case 'byExpensivefirst':
+        filter = 'byPrice=false';
+        break;
+      case 'byPopular':
+        filter = 'byPopularity=true';
+        break;
+      case 'byNotpopular':
+        filter = 'byPopularity=false';
+        break;
     }
-    if (parameter === "byZtoA") {
-        return productForRender.reverse();
-    }
-    if (parameter === "byLessthan10$") {
-        return productForRender.filter(product => product.price < 10);
-    }
-    if (parameter === "byGreaterthan10$") {
-        return productForRender.filter(product => product.price >= 10);
-    }
-    if (parameter === "byPopular") {
-        return [...productForRender].filter(product => product.popularity > 0).sort((product1, product2) => product2.popularity - product1.popularity);
-    }
-    if (parameter === "byNotpopular") {
-        return productForRender.filter(product => product.popularity === 0);
-    }
-}
+  
+    return filter;
+  }

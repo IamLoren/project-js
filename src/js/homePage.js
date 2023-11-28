@@ -119,21 +119,21 @@ searchForm.addEventListener('submit', async event => {
   event.preventDefault();
   try {
     const queryParameters = collectQueryParameters();
-    const filteredParameter = queryParameters.filterSearch;
+    // const filteredParameter = queryParameters.filterSearch;
     const response = await getProductsByQuery(queryParameters);
     const productForRender = response.results;
-    console.log(productForRender)
-    const filteredProducts = filterBySearchParameter(
-      filteredParameter,
-      productForRender
-    );
+    console.log(queryParameters)
+    // const filteredProducts = filterBySearchParameter(
+    //   filteredParameter,
+    //   productForRender
+    // );
 
     productsListGeneral.innerHTML = '';
-    if (filteredProducts.length === 0) {
+    if (productForRender.length === 0) {
       const sorryMessage = renderSorryMessage();
       productsListGeneral.insertAdjacentHTML('beforeend', sorryMessage);
     } else {
-      renderMarkup(filteredProducts, 'general', productsListGeneral);
+      renderMarkup(productForRender, 'general', productsListGeneral);
     }
     let cardsDisc = document.querySelectorAll('product-card-general');
     cardsDisc.forEach(card => {
