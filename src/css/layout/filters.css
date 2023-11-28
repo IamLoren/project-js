@@ -128,6 +128,7 @@ line-height: 24px
 .list-active {
   visibility: visible;
   opacity: 1;
+  border: 1px solid var(--span-info-color);
 }
 
 .filters-categories-item,
