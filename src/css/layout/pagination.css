@@ -11,8 +11,8 @@
 }
 
 @media only screen and (min-width: 376px) {
-  .tui-pagination-container.tui-pagination {
-    width: auto;
+  #tui-pagination-container.tui-pagination {
+    width: 556px;
     gap: 8px;
   }
   @media only screen and (min-width: 768px) {
@@ -23,8 +23,8 @@
   }
 
   @media only screen and (min-width: 1272px) {
-    .pagination {
-      width: 100%;
+    #tui-pagination-container.tui-pagination {
+      width: 568px;
       height: 40px;
       margin-top: 20px;
       margin-bottom: 61px;
@@ -83,8 +83,8 @@
   }
 
   @media only screen and (min-width: 768px) {
-    .tui-pagination .tui-page-btn {
-      margin: 4px;
+    .tui-pagination.tui-page-btn {
+      margin: 8px;
     }
   }
 
