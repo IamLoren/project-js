@@ -17,6 +17,22 @@
   width: 100%;
 }
 
+.filters-input::placeholder {
+  color: #010101;
+
+  font-family: "Neue Montreal Regular";
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 24px
+}
+
+.filters-input,
+.filters-categories,
+.filters-allTypes  {
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 768px) {
   .filters-form {
     flex-direction: row;
@@ -126,3 +142,18 @@
 .filters-allTypes-item:hover {
   color: var(--title-black-text-color);
 }
+
+@media only screen and (min-width: 1440px) {
+
+  .filters-input,
+.filters-categories,
+.filters-allTypes {
+  font-family: "Neue Montreal Regular";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+}
+
+

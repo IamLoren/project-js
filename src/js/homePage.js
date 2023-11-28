@@ -1,3 +1,4 @@
+import iconsPath from "../images/icons.svg"
 import pathToSvg from '../images/icons.svg';
 import { getLength } from './header.js';
 import {
@@ -7,6 +8,7 @@ import {
   changeTypesValue,
   collectQueryParameters,
   filterBySearchParameter,
+  renderCategoryList,
 } from './drop-downs.js';
 import {
   getProductsByQuery,
@@ -14,6 +16,7 @@ import {
   getDiscountProducts,
   getPopularProducts,
   getProducttById,
+  getCategories,
 } from './api.js';
 import { renderMarkup } from './templates/cards.js';
 import { openProductModal } from './card-button.js';
@@ -25,7 +28,6 @@ const searchForm = document.querySelector('.filters-form');
 const categoriesInput = document.querySelector('.filters-categories');
 const allSearchInput = document.querySelector('.filters-allTypes');
 const downBtn = document.querySelectorAll('.filters-down-svg');
-const categoriesItem = document.querySelectorAll('.filters-categories-item');
 const allTypesItem = document.querySelectorAll('.filters-allTypes-item');
 const productsListGeneral = document.querySelector('.products-list-general');
 const productListDiscount = document.querySelector('.products-list-discount');
@@ -58,6 +60,13 @@ loadQueryParamsFromLS()
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
+    const listOfCategories = await getCategories();
+    renderCategoryList(listOfCategories);
+    document.querySelectorAll('.filters-categories-item').forEach(item => {
+      item.addEventListener('click', changeCategoriesValue);
+    });
+
+
     const paramsFromLS = localStorageAPI.load('queryParams');
     console.log(paramsFromLS)
     const allProduct = await getAllProducts(paramsFromLS);
@@ -100,10 +109,6 @@ downBtn.forEach(btn => {
   btn.addEventListener('click', rotateButton);
 });
 
-categoriesItem.forEach(item => {
-  item.addEventListener('click', changeCategoriesValue);
-});
-
 allTypesItem.forEach(item => {
   item.addEventListener('click', changeTypesValue);
 });
@@ -122,6 +127,7 @@ searchForm.addEventListener('submit', async event => {
       filteredParameter,
       productForRender
     );
+
     productsListGeneral.innerHTML = '';
     if (filteredProducts.length === 0) {
       const sorryMessage = renderSorryMessage();
@@ -147,7 +153,6 @@ searchForm.addEventListener('submit', async event => {
 
 export async function addToCartFromModal(event) {
   const productData = {};
-  const textBtn = event.target.innerText;
   const id = event.currentTarget.getAttribute('data-id');
   const isInCart = arrProducts.some(product => product.id === id);
 
@@ -155,6 +160,18 @@ export async function addToCartFromModal(event) {
     event.currentTarget.innerHTML = `Remove from <svg class="modal-btn-svg" width="18" height="18">
                 <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
                 </svg>`;
+
+                const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+                addToCartBtn.forEach(btn => {
+                    let _id = btn.getAttribute('data-id');
+                    const passSvg = btn.querySelector('use');
+
+                    if (_id === id) {
+                        passSvg.setAttribute('href', `${iconsPath}#icon-checkmark`);
+                        btn.disabled = true;
+                    }
+                });     
+
     try {
       const product = await getProducttById(id);
       const { category, size, _id, name, price, img } = product;
@@ -182,8 +199,23 @@ export async function addToCartFromModal(event) {
         <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
         </svg>`;
     // Видаляємо продукт з arrProducts
+
+    
     const idCard = event.currentTarget.getAttribute('data-id');
     arrProducts = arrProducts.filter(item => item.id !== idCard);
+
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    addToCartBtn.forEach(btn => {
+        let _id = btn.getAttribute('data-id');
+        const passSvg = btn.querySelector('use');
+
+        if (_id === id) {
+          passSvg.setAttribute('href', `${iconsPath}#icon-shopping-cart`);
+          btn.disabled = false;
+
+        }
+
+      })
 
     // Оновлюємо локалсторідж
     localStorage.setItem('product', JSON.stringify(arrProducts));
