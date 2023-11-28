@@ -53,20 +53,19 @@ const getProducts = async params => {
     throw err;
   }
 };
-qpage = 5;
 
 const onRenderPage = async () => {
   try {
     // робимо запит
-    // const allProducts = await getAllProducts({ page: qpage });
-    const productLength = getProducts({ page: qpage });
-    const arrLength = productLength.response;
-    console.log('qle', arrLength);
-    console.log('le', productLength);
+    const allProducts = await getAllProducts({ page: qpage });
+    // const products = getProducts({ page: qpage });
+    //const arrLength = products.response;
+    //console.log('qle', arrLength);
+    //console.log('le', productLength);
     console.log('pro', allProducts);
     renderMarkup(allProducts.results, 'general', productsListGeneral);
     // Розмітка
-    pagination.reset(100);
+    //pagination.reset(100);
     container.classList.remove('is-hidden');
   } catch (err) {
     console.log(err);
@@ -91,6 +90,7 @@ const createUserPagination = async event => {
     console.log(err);
   }
 };
+
 pagination.on('afterMove', createUserPagination);
 
 document.addEventListener('DOMContentLoaded', onRenderPage);
