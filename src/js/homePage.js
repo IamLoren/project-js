@@ -7,7 +7,6 @@ import {
   changeCategoriesValue,
   changeTypesValue,
   collectQueryParameters,
-  filterBySearchParameter,
   renderCategoryList,
 } from './drop-downs.js';
 import {
@@ -122,15 +121,8 @@ searchForm.addEventListener('submit', async event => {
   event.preventDefault();
   try {
     const queryParameters = collectQueryParameters();
-    // const filteredParameter = queryParameters.filterSearch;
     const response = await getProductsByQuery(queryParameters);
     const productForRender = response.results;
-    console.log(queryParameters);
-    // const filteredProducts = filterBySearchParameter(
-    //   filteredParameter,
-    //   productForRender
-    // );
-
     productsListGeneral.innerHTML = '';
     if (productForRender.length === 0) {
       const sorryMessage = renderSorryMessage();
