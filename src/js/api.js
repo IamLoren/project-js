@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {getFilter} from './drop-downs.js';
 const BASE_URL = 'https://food-boutique.b.goit.study/api/products';
 
 //запит на бекенд про категорії товарів
@@ -11,7 +12,7 @@ export async  function getCategories() {
 
 // отримання усіх продуктів при першому завантаженні
 export async function getAllProducts(queryParams) {
-  let {keyword, category, page, limit} =  queryParams
+  let {keyword, category, page, limit, filterSearch} =  queryParams
 
   const screenWidth = window.innerWidth;
 
@@ -35,7 +36,7 @@ if ((category !== '') && (category !== 'Show_all') && (category !== 'Categories'
   params.append('category', category);
 }
 
-    const response = await axios.get(`${BASE_URL}?${params}`);
+    const response = await axios.get(`${BASE_URL}?${params}&${getFilter(filterSearch)}`);
     return response.data;
   }
 
@@ -56,7 +57,9 @@ export async function getPopularProducts() {
 
 export async function getProductsByQuery(queryParams) {
   let response;
-  let { keyword, category, page = 1, limit } = queryParams;
+  let { keyword, category, page = 1, limit, filterSearch } = queryParams;
+  
+// визначення кількості карток в залежності від ширини екрану
 
   const screenWidth = window.innerWidth;
 
@@ -81,7 +84,7 @@ if ((category !== '') && (category !== 'Show_all') && (category !== 'Categories'
     params.append('category', category);
 }
 
- response = await axios.get(`${BASE_URL}?${params}`);
+ response = await axios.get(`${BASE_URL}?${params}&${getFilter(filterSearch)}`);
  
   return response.data;
 }
