@@ -135,7 +135,7 @@ searchForm.addEventListener('submit', async event => {
     } else {
       renderMarkup(productForRender, 'general', productsListGeneral);
     }
-    let cardsDisc = document.querySelectorAll('product-card-general');
+    let cardsDisc = document.querySelectorAll('.product-card-general');
     cardsDisc.forEach(card => {
       card.addEventListener('click', openProductModal);
     });
