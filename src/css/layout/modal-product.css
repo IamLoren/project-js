@@ -22,6 +22,18 @@
   padding: 40px 20px;
 }
 
+.modal-product-img-wrapper {
+  overflow: hidden;
+}
+
+.modal-product-img {
+  transition: transform, 0.5s;
+}
+
+.modal-product-img:hover {
+  transform: scale(1.2);
+}
+
 @media only screen and (min-width: 320px) and (max-width: 375px) {
   .modal-product {
     width: 100%;
