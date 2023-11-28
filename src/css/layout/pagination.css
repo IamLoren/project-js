@@ -1,4 +1,4 @@
-/* #tui-pagination-container {
+#tui-pagination-container {
   display: flex;
   gap: 4px;
   align-items: center;
@@ -38,9 +38,9 @@
 .tui-pagination {
   margin: 0 auto;
   display: flex;
-  /* gap: 8px; */
-/* align-items: center; 
-} 
+  gap: 8px;
+  align-items: center;
+}
 
 .tui-pagination .tui-page-btn {
   width: 40px;
@@ -68,8 +68,7 @@
   display: none;
 }
 .pagination-item-arrow {
-  /* background-image: url('href="../images/#icon-caret-small-left"'); */
-/* padding: 8px;
+  padding: 8px;
   align-items: center;
   background-color: var(--card-bg-color);
   display: flex;
@@ -107,20 +106,20 @@
   }
 }
 
-
 @media only screen and (min-width: 1440px) {
   #tui-pagination-container {
     margin: 20px 236px 61px;
   }
-} */
+}
 
 /*!
  * TOAST UI Pagination
  * @version 3.4.1
  * @author NHN FE Development Team <dl_javascript@nhn.com>
  * @license MIT
- */
-@charset 'utf-8';
+ 
+@charset 'utf-8';*/
+
 .tui-pagination * {
   -moz-user-select: none;
   -webkit-user-select: none;
