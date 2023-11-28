@@ -1,4 +1,4 @@
-import iconsPath from "../images/icons.svg"
+import iconsPath from '../images/icons.svg';
 import pathToSvg from '../images/icons.svg';
 import { getLength } from './header.js';
 import {
@@ -44,17 +44,21 @@ const fillarrProducts = () => {
   }
   document.querySelector('#header-length').innerHTML = dataFromLS.length;
   arrProducts = dataFromLS;
-
 };
 fillarrProducts();
 
- function loadQueryParamsFromLS () {
+function loadQueryParamsFromLS() {
   const paramsFromLS = localStorageAPI.load('queryParams');
-   if (!paramsFromLS) {
-    localStorageAPI.save('queryParams', {keyword:'', category:'', page: 1, limit: 9});
-   }
- }
-loadQueryParamsFromLS()
+  if (!paramsFromLS) {
+    localStorageAPI.save('queryParams', {
+      keyword: '',
+      category: '',
+      page: 1,
+      limit: 9,
+    });
+  }
+}
+loadQueryParamsFromLS();
 
 //ДЕФОЛТНИЙ РЕНДЕР ТОВАРІВ ПРИ ПЕРШОМУ ЗАВАНТАЖЕННІ САЙТУ
 
@@ -66,9 +70,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       item.addEventListener('click', changeCategoriesValue);
     });
 
-
     const paramsFromLS = localStorageAPI.load('queryParams');
-    console.log(paramsFromLS)
+    console.log(paramsFromLS);
     const allProduct = await getAllProducts(paramsFromLS);
     const arrOfAllProducts = allProduct.results;
     renderMarkup(arrOfAllProducts, 'general', productsListGeneral);
@@ -122,7 +125,7 @@ searchForm.addEventListener('submit', async event => {
     // const filteredParameter = queryParameters.filterSearch;
     const response = await getProductsByQuery(queryParameters);
     const productForRender = response.results;
-    console.log(queryParameters)
+    console.log(queryParameters);
     // const filteredProducts = filterBySearchParameter(
     //   filteredParameter,
     //   productForRender
@@ -161,16 +164,16 @@ export async function addToCartFromModal(event) {
                 <use class="modal-icon-svg" href="${pathToSvg}#icon-shopping-cart"></use>
                 </svg>`;
 
-                const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
-                addToCartBtn.forEach(btn => {
-                    let _id = btn.getAttribute('data-id');
-                    const passSvg = btn.querySelector('use');
+    const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
+    addToCartBtn.forEach(btn => {
+      let _id = btn.getAttribute('data-id');
+      const passSvg = btn.querySelector('use');
 
-                    if (_id === id) {
-                        passSvg.setAttribute('href', `${iconsPath}#icon-checkmark`);
-                        btn.disabled = true;
-                    }
-                });     
+      if (_id === id) {
+        passSvg.setAttribute('href', `${iconsPath}#icon-checkmark`);
+        btn.disabled = true;
+      }
+    });
 
     try {
       const product = await getProducttById(id);
@@ -200,22 +203,19 @@ export async function addToCartFromModal(event) {
         </svg>`;
     // Видаляємо продукт з arrProducts
 
-    
     const idCard = event.currentTarget.getAttribute('data-id');
     arrProducts = arrProducts.filter(item => item.id !== idCard);
 
     const addToCartBtn = document.querySelectorAll('.js-addToCart-btn');
     addToCartBtn.forEach(btn => {
-        let _id = btn.getAttribute('data-id');
-        const passSvg = btn.querySelector('use');
+      let _id = btn.getAttribute('data-id');
+      const passSvg = btn.querySelector('use');
 
-        if (_id === id) {
-          passSvg.setAttribute('href', `${iconsPath}#icon-shopping-cart`);
-          btn.disabled = false;
-
-        }
-
-      })
+      if (_id === id) {
+        passSvg.setAttribute('href', `${iconsPath}#icon-shopping-cart`);
+        btn.disabled = false;
+      }
+    });
 
     // Оновлюємо локалсторідж
     localStorage.setItem('product', JSON.stringify(arrProducts));
