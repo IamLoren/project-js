@@ -16,10 +16,27 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%) scale(0.5);
   border-radius: 20px;
   background: var(--card-bg-color);
   padding: 40px 20px;
+  opacity: 0.8;
+  animation: appear 0.8s ease-in-out forwards;
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0.8;
+    transform: translateX(-50%) translateY(-50%) scale(0.5);
+  }
+  70% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+  }
 }
 
 .modal-product-img-wrapper {

@@ -7,7 +7,7 @@ export async function openProductModal(event) {
   if (event.target.closest('.js-addToCart-btn')) {
       return;
   }
-// отримали інформацію по продукту
+  // отримали інформацію по продукту
   const ParentElement = event.target.closest('li');
   const cardButton = ParentElement.querySelector('.js-addToCart-btn');
   const productId = cardButton.getAttribute('data-id');
@@ -20,5 +20,5 @@ export async function openProductModal(event) {
   closeModalButton.addEventListener('click', onClickCloseModal);
   document.addEventListener('keydown', onEscapeCloseModal);
   document.addEventListener('click', onClickOutModalProduct);
-  document.querySelector('.modal-product-btn-price').addEventListener('click', addToCartFromModal)
+  document.querySelector('.modal-product-btn-price').addEventListener('click', addToCartFromModal);
 }
